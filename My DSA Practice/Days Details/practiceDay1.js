@@ -191,3 +191,28 @@
 //     ? `${year} is a leap year.`
 //     : `${year} is not a leap year.`;
 // console.log(resOfLeap);
+
+// ? C - If else :-
+
+// let prompt = require("prompt-sync")();
+// let year = Number(prompt("Enter the year value: "));
+// let isLeap = true;
+
+// if (year % 4 === 0) {
+//   if (year % 100 === 0) {
+//     if (year % 400 === 0) {
+//       isLeap = true;
+//     } else isLeap = false;
+//     isLeap = false;
+//   } else {
+//     isLeap = true;
+//   }
+//   isLeap = true;
+// } else {
+//   isLeap = false;
+// }
+// let leapres = isLeap ? "A leap year" : "Not a leap year.";
+// console.log(leapres);
+
+
+
