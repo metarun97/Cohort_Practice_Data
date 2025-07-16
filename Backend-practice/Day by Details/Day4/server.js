@@ -25,7 +25,6 @@ app.get('/notes', (req, res) => {
 });
 
 //* DELETE Method code:-
-// notes/:index
 
 app.delete('/notes/:index', (req, res) => {
   const index = req.params.index;
@@ -36,7 +35,6 @@ app.delete('/notes/:index', (req, res) => {
 });
 
 //* DELETE Method code:-
-// notes/:index
 
 app.patch('/notes/:index', (req, res) => {
   const index = req.params.index;
