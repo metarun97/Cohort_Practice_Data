@@ -3,16 +3,42 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-let notes = [];
+const notes = [];
 
-//^ Notes api:-
-
+//* POST - Creating a post on server
 app.post('/notes', (req, res) => {
-  console.log(req.body);
   notes.push(req.body);
   res.json({
-    message: 'Note added successfully',
-    notes: notes,
+    message: 'Note created successfully',
+  });
+});
+
+//* GET - Get all posts from server:-
+app.get('/notes', (req, res) => {
+  res.json({
+    message: 'Notes fetched successfully',
+    notes,
+  });
+});
+
+//* DELETE - delete a post from server:-
+app.delete('/notes/:index', (req, res) => {
+  const index = req.params.index;
+
+  delete notes[index];
+  res.json({
+    message: 'Note deleted successfully',
+  });
+});
+
+//* PATCH - update a post's data on server:-
+app.patch('/notes/:index', (req, res) => {
+  const index = req.params.index;
+  const { title } = req.body;
+
+  notes[index].title = title;
+  res.json({
+    message: 'Note updated successfully',
   });
 });
 
