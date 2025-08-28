@@ -11,7 +11,13 @@ const App = () => {
     <>
       <div>App</div>
       <button onClick={handleBtnClick}>Click</button>
-      <button onClick={handleMsgData('React UI is better then HTML,CSS & JS UI')}>MSG Button</button>
+      <button
+        onClick={() =>
+          handleMsgData('React UI is better then HTML,CSS & JS UI')
+        }
+      >
+        MSG Button
+      </button>
     </>
   );
 };
