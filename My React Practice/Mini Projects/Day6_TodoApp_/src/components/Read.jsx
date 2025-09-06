@@ -2,18 +2,22 @@ const Read = (props) => {
   const todos = props.todos;
   const settodos = props.settodos;
 
-  // ^ Rendering todos:-
+  const deletehandler = (id) => {
+    const filteredTodos = todos.filter((todo) => todo.id != id);
+    settodos(filteredTodos);
+  };
+
   const renderTodos = todos.map((todo) => {
     return (
-      <li style={{ color: todo.isCompleted ? 'green' : 'red' }} key={todo.id}>
-        {todo.title}
+      <li key={todo.id} className="text-5xl bg-slate-400 px-2.5 py-7 flex items-center justify-between rounded-xl">
+        {todo.title} <span onClick={() => deletehandler(todo.id)} className="px-5 py-2.5 bg-red-500 text-white rounded-xl font-600 cursor-pointer">Delete</span>
       </li>
     );
   });
   return (
-    <div>
-      <h1 style={{ color: '#333' }}>Created Todos</h1>
-      <ol>{renderTodos}</ol>
+    <div className="w-1/2">
+      <h1 className="text-7xl">Pending Todos</h1>
+      <ol className="flex flex-col mt-12 gap-y-2.5 ">{renderTodos}</ol>
     </div>
   );
 };
