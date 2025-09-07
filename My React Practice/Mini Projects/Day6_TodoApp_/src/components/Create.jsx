@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Create = (props) => {
   const [title, settitle] = useState('');
@@ -10,20 +11,27 @@ const Create = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const newTodo = {
-      id: nanoid(),
-      title: title,
-      isCompleted: false,
-    };
-    // ^ Large way:-
-    // const copyTodo = [...todos];
-    // copyTodo.push(newTodo);
-    // settodos(copyTodo);
-    // console.log(copyTodo);
+    if (title.length === 0) {
+      return;
+    } else {
+      const newTodo = {
+        id: nanoid(),
+        title: title,
+        isCompleted: false,
+      };
+      // ^ Large way:-
+      // const copyTodo = [...todos];
+      // copyTodo.push(newTodo);
+      // settodos(copyTodo);
+      // console.log(copyTodo);
 
-    // ^ Short way:-
-    settodos([...todos, newTodo]);
-    settitle('');
+      // ^ Short way:-
+      settodos([...todos, newTodo]);
+      toast.success('Todo created successfully', {
+        autoClose: 3000,
+      });
+      settitle('');
+    }
   };
   return (
     <div className="w-1/2">
@@ -34,15 +42,16 @@ const Create = (props) => {
         <input
           className="border-0 outline-0 border-b-2 border-black text-6xl"
           type="text"
-          placeholder="Enter title..."
+          placeholder="Enter todo title..."
           onChange={(e) => settitle(e.target.value)}
           value={title}
         />
         <br />
         <br />
-        <button className="text-6xl bg-green-700 rounded-xl border-0 outline-0 px-5 py-2.5 text-white font-600 cursor-pointer">
+        <button className="text-6xl bg-green-700 hover:bg-green-800 rounded-xl border-0 outline-0 px-5 py-2.5 text-white font-600 cursor-pointer">
           Create Todo
         </button>
+        <ToastContainer />
       </form>
     </div>
   );
