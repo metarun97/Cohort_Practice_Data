@@ -28,6 +28,7 @@ const Create = (props) => {
       autoClose: 3000,
     });
   };
+  console.log(errors);
   return (
     <div className="w-1/2">
       <h1 className="text-7xl  mb-12">
@@ -38,7 +39,7 @@ const Create = (props) => {
           className="border-0 outline-0 border-b-2 border-black text-6xl"
           type="text"
           placeholder="Enter todo title..."
-          {...register('title')}
+          {...register('title', { required: "Title can't be empty" })}
         />
         <br />
         <br />
