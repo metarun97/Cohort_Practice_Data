@@ -1,50 +1,44 @@
-import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 
 const Create = (props) => {
-  const [title, settitle] = useState('');
   const todos = props.todos;
   const settodos = props.settodos;
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   // ^ Submit Handler:-
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (data) => {
+    data.isCompleted = false;
+    data.id = nanoid();
+    // * Lenthy Trick:-
+    // const copyTodos = [...todos];
+    // copyTodos.push(data);
+    // settodos(copyTodos);
 
-    if (title.length === 0) {
-      return;
-    } else {
-      const newTodo = {
-        id: nanoid(),
-        title: title,
-        isCompleted: false,
-      };
-      // ^ Large way:-
-      // const copyTodo = [...todos];
-      // copyTodo.push(newTodo);
-      // settodos(copyTodo);
-      // console.log(copyTodo);
-
-      // ^ Short way:-
-      settodos([...todos, newTodo]);
-      toast.success('Todo created successfully', {
-        autoClose: 3000,
-      });
-      settitle('');
-    }
+    // * Short Trick:-
+    settodos([...todos, data]);
+    reset();
+    toast.success('Todo created successfully', {
+      autoClose: 3000,
+    });
   };
   return (
     <div className="w-1/2">
       <h1 className="text-7xl  mb-12">
         Set <span className="text-red-500">reminder</span> for tasks
       </h1>
-      <form action="" onSubmit={submitHandler}>
+      <form action="" onSubmit={handleSubmit(submitHandler)}>
         <input
           className="border-0 outline-0 border-b-2 border-black text-6xl"
           type="text"
           placeholder="Enter todo title..."
-          onChange={(e) => settitle(e.target.value)}
-          value={title}
+          {...register('title')}
         />
         <br />
         <br />
@@ -56,5 +50,4 @@ const Create = (props) => {
     </div>
   );
 };
-
 export default Create;
