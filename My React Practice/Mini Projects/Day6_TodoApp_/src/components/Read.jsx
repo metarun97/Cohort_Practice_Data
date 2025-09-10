@@ -1,4 +1,4 @@
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Read = (props) => {
   const todos = props.todos;
@@ -7,9 +7,7 @@ const Read = (props) => {
   const deletehandler = (id) => {
     const filteredTodos = todos.filter((todo) => todo.id != id);
     settodos(filteredTodos);
-    toast.success('Todo deleted successfully', {
-      autoClose: 3000,
-    });
+    toast.error('Todo deleted successfully');
   };
 
   const renderTodos = todos.map((todo) => {
@@ -32,7 +30,6 @@ const Read = (props) => {
     <div className="w-1/2">
       <h1 className="text-7xl">Pending Todos</h1>
       <ol className="flex flex-col mt-12 gap-y-2.5 ">{renderTodos}</ol>
-      {/* <ToastContainer /> */}
     </div>
   );
 };
