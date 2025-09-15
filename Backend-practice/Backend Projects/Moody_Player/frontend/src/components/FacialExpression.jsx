@@ -1,5 +1,8 @@
 import { useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
+import './FacialExpression.css';
+import { RxHamburgerMenu } from 'react-icons/rx';
+
 export default function FacialExpression() {
   const videoRef = useRef();
   const loadModels = async () => {
@@ -38,35 +41,26 @@ export default function FacialExpression() {
     loadModels().then(startVideo);
   }, []);
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: '150px',
-        flexDirection: 'column',
-      }}
-    >
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        style={{ width: '720px', height: '560px' }}
-      />
-      <button
-        style={{
-          padding: '12px 24px',
-          backgroundColor: 'blue',
-          color: 'white',
-          border: 'none',
-          borderRadius: '6px',
-          fontWeight: '600',
-          cursor: 'pointer',
-        }}
-        onClick={detectMood}
-      >
-        Detect Mood
-      </button>
+    <div className="facial-sec">
+      <nav className="navbar">
+        <h1>Moody player</h1>
+        <RxHamburgerMenu className="hambg" />
+      </nav>
+      <div className="video-its-desc">
+        <div className="video-sec">
+          <video ref={videoRef} autoPlay muted />
+        </div>
+        <div className="video-desc">
+          <p>
+            Here is the project where the user press the detect button to detect
+            the mood and then the songs will appears according to the mood!
+          </p>
+          <h2>Now Mood Espression : Happy</h2>
+          <div>
+            <button onClick={detectMood}>Detect Mood</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
