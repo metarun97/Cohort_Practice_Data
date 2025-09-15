@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#main {
+  width: 100%;
+  height: 100vh;
+}
+
+#main {
+  background-color: orangered;
+}
+
+nav {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0vw 10vw;
+  position: fixed;
+  z-index: 9;
+  background-color: rgba(207, 202, 202, 0.199);
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1vw;
+  color: #fff;
+}
+.center-nav {
+  display: flex;
+  gap: 3vw;
+}
+
+nav i {
+  font-size: 1.5vw;
+  color: #fff;
+  cursor: pointer;
+}
+.one {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, orange, rgb(245, 78, 27));
+}
+
+#heading {
+  text-transform: uppercase;
+  font-size: 25vw;
+  color: #fff;
+  position: absolute;
+}
+
+#fanta-can {
+  width: 40%;
+  z-index: 2;
+}
+
+#orange-slice {
+  width: 13%;
+  position: absolute;
+  top: 10%;
+  left: 32%;
+  z-index: 1;
+}
+#oranges {
+  position: absolute;
+  width: 20%;
+  top: 55%;
+  right: 28%;
+  z-index: 3;
+}
+
+#leaf1 {
+  position: absolute;
+  width: 12%;
+  top: 8%;
+  left: 2%;
+  transform: rotate(60deg);
+}
+#leaf2 {
+  top: 70%;
+  left: 80%;
+  position: absolute;
+  width: 12%;
+}
+#leaf3 {
+  width: 20%;
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+.two {
+  width: 100%;
+  height: 100vh;
+  background-color: orangered;
+  background: linear-gradient(150deg, orange, rgb(245, 78, 27));
+  display: flex;
+}
+
+.lft-two,
+.rght-two {
+  width: 50%;
+  height: 100%;
+  background-color: #c9481a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lft-two svg {
+  transform: rotateX(50deg);
+  width: 70%;
+}
+
+.rght-two {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2vw;
+}
+.rght-two h1 {
+  color: #fff;
+  font-size: 5vw;
+}
+.rght-two p {
+  color: #fff;
+  font-size: 1vw;
+  text-align: justify;
+  width: 80%;
+}
+
+.three {
+  width: 100%;
+  height: 100vh;
+  background-color: #c9481a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  position: relative;
+}
+
+.card {
+  width: 25vw;
+  height: 75vh;
+  background-color: white;
+  border-radius: 30px;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 3px 4px #ff6c36;
+}
+.card:nth-child(1) {
+  background-color: #008733;
+}
+.card:nth-child(2) {
+  background-color: #ff8524;
+}
+.card:nth-child(3) {
+  background-color: #00243f;
+}
+
+#sprite {
+  width: 12%;
+  position: absolute;
+  margin-top: -18%;
+}
+#lemon {
+  position: absolute;
+  top: 0%;
+  width: 15%;
+}
+#papsi {
+  width: 12%;
+  position: absolute;
+  margin-top: -18%;
+}
+
+.card h2 {
+  margin-top: 40vh;
+  font-size: 2.5vw;
+  color: white;
+}
+.card button {
+  padding: 1vw 2vw;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  background-color: orange;
+  font-weight: bold;
+  margin-top: 1vw;
+  cursor: pointer;
+}
