@@ -1,0 +1,16 @@
+//* Large screen styling:-
+
+@media (min-width: 924px) {
+  main {
+    width: 100%;
+    height: 100vh;
+    .recipe-sec {
+      width: 100%;
+      height: 100%;
+      padding-top: 10vh;
+      background-color: #f5cbbc;
+      margin: 0 auto;
+      padding: 1.2rem 2.5rem;
+    }
+  }
+}
