@@ -1,11 +1,12 @@
+
 main {
   width: 100%;
   height: 100vh;
   .recipe-create-sec {
+    padding: 10vh 3.5rem;
     width: 100%;
     height: 100%;
     background-color: #ffefea;
-    padding: 10vh 3.5rem;
     h1 {
       color: #f0845d;
       text-align: center;
@@ -25,7 +26,7 @@ main {
         width: 100%;
         border: none;
         outline: none;
-        padding: 1rem;
+        padding: .8rem;
         font-size: 1.2em;
         border-radius: 8px;
       }

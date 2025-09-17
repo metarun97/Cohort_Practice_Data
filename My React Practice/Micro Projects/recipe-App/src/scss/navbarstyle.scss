@@ -5,19 +5,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1.2rem;
-  background-color: rgba($color: #f1f0f094, $alpha: 0.4);
+  background-color: rgba($color: #e4d4d459, $alpha: 0.4);
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 99;
   h1 {
-    color: #f0845d;
+    color: #ff4500;
   }
   .links {
     display: none;
   }
   .menu {
-    color: #f0845d;
+    color: #ff4500;
     font-size: 1.8em;
   }
 }
@@ -32,7 +34,7 @@
     padding: 0 2.5rem;
     background-color: rgba($color: #f1f0f094, $alpha: 0.4);
     h1 {
-      color: #f0845d;
+      color: #ff4500;
     }
     .links {
       display: flex;
@@ -40,14 +42,14 @@
       .link {
         text-decoration: none;
         font-size: 1.4em;
-        color: #f0845d;
+        color: orange;
       }
       .link.active {
         color: red;
       }
     }
     .menu {
-      color: #f0845d;
+      color: #ff4500;
       font-size: 2em;
     }
   }
