@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { recipecontext } from './../context/Recipecontext';
 import { useForm } from 'react-hook-form';
-// import nanoid from 'nanoid';
 import '../scss/singlerecipe.scss';
 import '../scss/createstyle.scss';
 import { toast } from 'react-toastify';
@@ -11,9 +10,11 @@ const SingleRecipe = () => {
   const { data, setdata } = useContext(recipecontext);
   const params = useParams();
   const recipe = data.find((recipe) => params.id == recipe.id);
+  const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
+      id: recipe.id,
       title: recipe.title,
       image: recipe.image,
       chef: recipe.chef,
@@ -22,7 +23,6 @@ const SingleRecipe = () => {
       category: recipe.category,
     },
   });
-  const navigate = useNavigate();
 
   // console.log(data, params.id);
 

@@ -5,6 +5,7 @@
 // import starter from '../Assets/images/starter.jpg';
 // import maincourse from '../Assets/images/maincourse.jpg';
 // import dessert from '../Assets/images/dessert.jpg';
+import { useEffect } from 'react';
 import axios from '../utils/axios';
 const Home = () => {
   const getProducts = async () => {
@@ -15,6 +16,10 @@ const Home = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <>
