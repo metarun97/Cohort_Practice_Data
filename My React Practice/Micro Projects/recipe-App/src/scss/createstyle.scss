@@ -1,17 +1,18 @@
-
 main {
   width: 100%;
   height: 100vh;
   .recipe-create-sec {
-    padding: 10vh 3.5rem;
+    padding: 5vh 3.5rem;
     width: 100%;
-    height: 100%;
-    background-color: #ffefea;
+    display: flex;
+    flex-direction: column;
+    // height: 100%;
+    // background-color: #ffefea;
     h1 {
-      color: #f0845d;
+      color: #ffffff;
       text-align: center;
       font-size: 4rem;
-      margin: 1rem 0;
+      margin-top: .6rem;
     }
     .recipe-form {
       width: 98%;
@@ -26,7 +27,7 @@ main {
         width: 100%;
         border: none;
         outline: none;
-        padding: .8rem;
+        padding: 0.6rem;
         font-size: 1.2em;
         border-radius: 8px;
       }
@@ -38,18 +39,45 @@ main {
         width: fit-content;
         border: none;
         outline: none;
-        padding: 1rem;
+        padding: 0.8rem;
         font-size: 1.2em;
         border-radius: 8px;
-        background-color: #f0845d;
         color: #fff;
         font-weight: 600;
         transition: all 0.3s ease-in-out 0s;
         cursor: pointer;
       }
-      .submit-btn:hover {
-        background-color: #fc6934;
+      .save{
+        background-color: #ec7d33;
+      }
+      .delete {
+        background-color: #f85050;
+        color: white;
+      }
+      .update {
+        background-color: #6c6cee;
+        color: white;
+      }
+      .delete:hover {
+        background-color: #ec2727;
+      }
+      .update:hover {
+        background-color: #2222f3;
+      }
+      .save:hover{
+        background-color: #ce590c;
+      }
+      div{
+        display: flex;
+        gap: 1.5em;
       }
     }
+  }
+  .mt {
+    margin-top: 5vh;
+    padding: 5vh 3.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }

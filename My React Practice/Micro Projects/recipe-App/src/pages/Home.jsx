@@ -1,13 +1,34 @@
-import '../scss/homestyle.scss';
-import chefImage from '../Assets/images/chef.png';
-import vegthaliImage from '../Assets/images/vegthali.png';
-import biriyaniImage from '../Assets/images/biriyani.png';
-import starter from '../Assets/images/starter.jpg';
-import maincourse from '../Assets/images/maincourse.jpg';
-import dessert from '../Assets/images/dessert.jpg';
+// import '../scss/homestyle.scss';
+// import chefImage from '../Assets/images/chef.png';
+// import vegthaliImage from '../Assets/images/vegthali.png';
+// import biriyaniImage from '../Assets/images/biriyani.png';
+// import starter from '../Assets/images/starter.jpg';
+// import maincourse from '../Assets/images/maincourse.jpg';
+// import dessert from '../Assets/images/dessert.jpg';
+import axios from '../utils/axios';
 const Home = () => {
+  const getProducts = async () => {
+    try {
+      const response = await axios.get('/products');
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="main">
+    <>
+      <button style={{ marginTop: '10vh' }} onClick={getProducts}>
+        Get products
+      </button>
+    </>
+  );
+};
+
+export default Home;
+
+{
+  /* <div className="main">
       <section className="view1">
         <div className="image_detail-sec">
           <div className="chef-image">
@@ -67,8 +88,5 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
-};
-
-export default Home;
+    </div> */
+}

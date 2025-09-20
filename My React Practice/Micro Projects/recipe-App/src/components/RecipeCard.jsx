@@ -9,10 +9,10 @@ const RecipeCard = (props) => {
         <img src={image} />
       </div>
       <div className="recipe-details">
-        <h1>{title}</h1>
+        <h1>Name: {title}</h1>
         <h3>Chef: {chef}</h3>
-        <h4>{ingredients}</h4>
-        <p>{description.slice(0,100)}...<span className='more-text'>more</span></p>
+        <h4>Ing: {ingredients}</h4>
+        <p>Desc: {description.slice(0,100)}...<span className='more-text'>more</span></p>
       </div>
     </Link>
   );
