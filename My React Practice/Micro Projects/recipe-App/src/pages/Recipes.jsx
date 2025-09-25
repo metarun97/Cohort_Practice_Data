@@ -6,7 +6,7 @@ const Recipes = () => {
   const { data, setdata } = useContext(recipecontext);
 
   const renderRecipes = data.map((recipe) => (
-    <RecipeCard key={recipe.id} recipe={recipe} />
+    <RecipeCard key={recipe?.id} recipe={recipe} />
   ));
   return (
     <>

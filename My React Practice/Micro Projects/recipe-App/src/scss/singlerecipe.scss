@@ -7,15 +7,29 @@ main {
     padding: 10vh 2.5rem;
     background-color: #fdac8f;
     display: flex;
+    position: relative;
+
     .single-recipe-sec {
       width: 100%;
       padding: 2.5rem 0;
+
       .single-recipe {
         width: 55%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
+        .icons {
+          position: relative;
+          margin-bottom: 0.8em;
+        }
+        .line, .fill {
+          position: absolute;
+          color: #fc2323;
+          font-size: 2.5rem;
+          cursor: pointer;
+        }
+
         .recipe-img {
           width: 100%;
           aspect-ratio: 4/3;
@@ -30,27 +44,28 @@ main {
           text-align: center;
           display: flex;
           flex-direction: column;
-          gap: .4em;
+          gap: 0.4em;
+
           h1 {
             font-size: 2.2rem;
             color: #e92929;
           }
-          h2{
+          h2 {
             color: #e93ea7;
             font-size: 2em;
           }
-          h3{
+          h3 {
             font-size: 1.6em;
             color: #106810;
           }
-          h4{
+          h4 {
             font-size: 1.4em;
             color: #971791;
           }
-          h5{
+          h5 {
             font-size: 1em;
             color: #7a7171;
-            .more-text{
+            .more-text {
               color: #6464da;
             }
           }

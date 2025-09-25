@@ -19,6 +19,9 @@ const Navbar = () => {
         <NavLink className="link" to="/create-recipe">
           Create Recipe
         </NavLink>
+        <NavLink className="link" to="/fav">
+          Fav
+        </NavLink>
       </div>
       <MdRestaurantMenu className='menu'/>
     </div>

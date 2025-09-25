@@ -8,11 +8,15 @@ import '../scss/createstyle.scss';
 
 const Create = () => {
   const { data, setdata } = useContext(recipecontext);
-  const { register, handleSubmit, reset } = useForm([]);
+  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const submitHandler = (recipe) => {
     recipe.id = nanoid();
-    setdata([...data, recipe]);
+    // setdata([...data, recipe]);
+    const copyData = [...data];
+    copyData.push(recipe);
+    setdata(copyData);
+    localStorage.setItem('recipes', JSON.stringify(copyData));
     toast.success('Recipe created successfully');
     reset();
     navigate('/recipes');
