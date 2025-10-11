@@ -5,18 +5,18 @@
   gap: 1rem;
 }
 
-.song-container h2{
+.song-container h2 {
   text-align: center;
   font-weight: 500;
-  background-color: #A8A7A7;
+  background-color: #a8a7a7;
   padding: 1.2em;
   border-radius: 7px;
 }
 
-.song-lists{
+.song-lists {
   display: flex;
   flex-direction: column;
-  gap: .8em;
+  gap: 0.8em;
 }
 
 .song-list {
@@ -25,36 +25,46 @@
   align-items: center;
   justify-content: space-between;
   gap: 2em;
+  background-color: #a8a7a7;
+  padding: 0.6em;
+  border-radius: 5px;
+}
+
+.song-title-sec {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.song-title-sec audio {
+  display: none;
+}
+
+.song-title-sec button {
+  border: none;
+  background: transparent;
 }
 
 .song-title h3 {
-  font-size: 1.6em;
+  font-size: 1.7em;
   font-weight: 500;
 }
 .song-title h4 {
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 400;
   color: #333;
-}
-
-.song-play-pause-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
 }
 
 .song-play-pause-btn,
 .play,
 .pause {
-  font-size: 1.5em;
   font-weight: 500;
   cursor: pointer;
+  font-size: 3.5rem;
 }
 
-
-@media (min-width:1024px) {
-
-.song-container h2{
-font-size: 2.4em;
-}
+@media (min-width: 1024px) {
+  .song-container h2 {
+    font-size: 2.4em;
+  }
 }

@@ -2,8 +2,9 @@ import { useEffect, useRef } from 'react';
 import * as faceapi from 'face-api.js';
 import './FacialExpression.css';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import axios from 'axios';
 
-export default function FacialExpression() {
+export default function FacialExpression({ setSongs, songs }) {
   const videoRef = useRef();
   const loadModels = async () => {
     const MODEL_URL = '/models';
@@ -25,6 +26,7 @@ export default function FacialExpression() {
     let mostProbableExpression = 0;
     let _expression = '';
     if (!detections || detections.length === 0) {
+      alert('No face detected!');
       console.log('No face detected!');
       return;
     }
@@ -34,7 +36,12 @@ export default function FacialExpression() {
         _expression = expression;
       }
     }
-    console.log(_expression);
+    axios
+      .get(`http://localhost:3000/songs?mood=${_expression}`)
+      .then((response) => {
+        // console.log(response.data);
+        setSongs(response.data.songs);
+      });
   }
 
   useEffect(() => {
@@ -55,7 +62,6 @@ export default function FacialExpression() {
             Here is the project where the user press the detect button to detect
             the mood and then the songs will appears according to the mood!
           </p>
-          <h2>Now Mood Espression : Happy</h2>
           <div>
             <button onClick={detectMood}>Detect Mood</button>
           </div>
