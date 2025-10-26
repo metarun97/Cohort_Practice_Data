@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Tailwind CSS Day 2</title>
+  </head>
+  <body>
+    <!-- <div class="p-4 m-4 bg-blue-200">Hello</div> -->
+
+    <!-- <div class="flex gap-10 items-center justify-center">
+      <div class="bg-red-500 p-4"></div>
+      <div class="bg-blue-500 p-4"></div>
+      <div class="bg-green-500 p-4"></div>
+     </div> -->
+
+    <!-- <div class="text-sm md:text-xl lg:text-3xl">Responsive Text</div> -->
+    <!-- ^ Screen sizes as per pixals  -->
+    <!-- * :sm - 640px  -->
+    <!-- * :md - 768px  -->
+    <!-- * :lg - 1024px  -->
+    <!-- * :xl - 1280px  -->
+
+    <!-- <div class="flex flex-col md:flex-row gap-4 p-6">
+      <div class="bg-red-500 p-6 rounded"></div>
+      <div class="bg-green-500 p-6 rounded"></div>
+      <div class="bg-blue-500 p-6 rounded"></div>
+    </div> -->
+
+    <!-- <nav class="flex items-center justify-between bg-slate-500 text-white text-xl p-6">
+      <h1 class="text-2xl font-bold">My Site</h1>
+      <ul class="flex gap-4">
+        <li>Home</li>
+        <li>About</li>
+        <li>contact Us</li>
+      </ul>
+    </nav> -->
+
+    <!-- <button class="px-4 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white m-4 text-sm md:text-lg">Click Me!</button> -->
+
+    <!-- <div class="p-6 flex flex-col md:flex-row gap-6">
+      <div
+        class="bg-white p-6 rounded-xl shadow flex-1 text-center md:text-left"
+      >
+        <h2 class="text-xl font-bold mb-2">Card 1</h2>
+        <p class="text-gray-600">Yaha kuch text h.</p>
+      </div>
+      <div
+        class="bg-white p-6 rounded-xl shadow flex-1 text-center md:text-left"
+      >
+        <h2 class="text-xl font-bold mb-2">Card 2</h2>
+        <p class="text-gray-600">Yaha bhi kuch text h.</p>
+      </div>
+      <div
+        class="bg-white p-6 rounded-xl shadow flex-1 text-center md:text-left"
+      >
+        <h2 class="text-xl font-bold mb-2">Card 3</h2>
+        <p class="text-gray-600">Aur yaha bhi.</p>
+      </div>
+    </div> -->
+
+     <!-- Navbar HTML and Tailwind Part:- -->
+
+    <nav class="flex items-center justify-between bg-slate-600 p-4 text-white">
+      <h1 class="text-2xl">My Site</h1>
+      <ul class="hidden md:flex items-center gap-6">
+        <li>Home</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact Us</li>
+      </ul>
+      <button class="md:hidden text-2xl"><i class="ri-menu-line"></i></button>
+    </nav>
+    <div
+      class="mobile-nav hidden flex flex-col gap-1.5 items-center bg-slate-300 text-white md:hidden"
+    >
+      <a class="hover:text-slate-600" href="#">Home</a>
+      <a class="hover:text-slate-600" href="#">Services</a>
+      <a class="hover:text-slate-600" href="#">About</a>
+      <a class="hover:text-slate-600" href="#">Contact Us</a>
+    </div>
+    <script>
+      //* JS Part:-
+      const btn = document.querySelector('button');
+      const mobNav = document.querySelector('.mobile-nav');
+
+      btn.addEventListener('click', () => {
+        mobNav.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
