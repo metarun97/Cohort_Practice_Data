@@ -1,0 +1,17 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px;
+  background-color: teal;
+  color: white;
+}
+
+.btn{
+  background-color: rgb(26, 205, 236);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 16px;
+}
