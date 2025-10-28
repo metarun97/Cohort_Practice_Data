@@ -1,14 +1,11 @@
 import { CiBookmark } from 'react-icons/ci';
 
-const Card = () => {
+const Card = (props) => {
   return (
     <div className="card">
       <div className="card-I">
         <div className="top">
-          <img
-            src="https://seekvectors.com/storage/images/Amazon-Logo-35.svg"
-            alt=""
-          />
+          <img src={props.logo} />
           <p>
             Save
             <CiBookmark className="book" />
@@ -16,12 +13,12 @@ const Card = () => {
         </div>
         <div className="center">
           <h3>
-            Amazon <span>5 days ago</span>
+            {props.company} <span>{props.postedTime}</span>
           </h3>
-          <h2>Senior UI/UX Designer</h2>
+          <h2>{props.post}</h2>
           <div className="center-I">
-            <h4>Part-Time</h4>
-            <h4>Senior Level</h4>
+            <h4>{props.tag1}</h4>
+            <h4>{props.tag2}</h4>
           </div>
         </div>
       </div>
@@ -29,8 +26,8 @@ const Card = () => {
         <hr />
         <div className="bottom">
           <div className="bottom-I">
-            <h3>$120/hr</h3>
-            <p>Mumbai,India</p>
+            <h3>{props.hourlyPay}</h3>
+            <p>{props.location}</p>
           </div>
           <button>Apply now</button>
         </div>
