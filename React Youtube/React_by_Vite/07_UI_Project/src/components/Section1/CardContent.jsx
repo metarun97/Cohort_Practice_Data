@@ -13,10 +13,16 @@ const CardContent = (props) => {
           vitae quo animi!
         </p>
         <div className="flex items-center justify-between">
-          <div className="bg-blue-600 text-white  py-4 px-8 rounded-full font-medium">
+          <div
+            style={{ backgroundColor: props.color }}
+            className="text-white  py-4 px-8 rounded-full font-medium"
+          >
             {props.tag}
           </div>
-          <button className="bg-blue-600 text-white py-4 px-4 rounded-full font-medium">
+          <button
+            style={{ backgroundColor: props.color }}
+            className="text-white py-4 px-4 rounded-full font-medium"
+          >
             <IoMdArrowForward />
           </button>
         </div>
