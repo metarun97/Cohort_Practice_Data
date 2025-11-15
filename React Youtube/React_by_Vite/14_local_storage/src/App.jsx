@@ -1,28 +1,13 @@
 const App = () => {
-  const users = [
-    {
-      username: 'Tarun',
-      age: 29,
-      city: 'Bulandshahr',
-    },
-    {
-      username: 'Shweta',
-      age: 32,
-      city: 'Bulandshahr',
-    },
-    {
-      username: 'Sakshi',
-      age: 25,
-      city: 'New Delhi',
-    },
-  ];
+  const user = {
+    name: 'Tarun',
+    age: 29,
+    city: 'Bulandshahr',
+  };
 
-  // localStorage.setItem('users', JSON.stringify(users));
-  // const usersData = JSON.parse(localStorage.getItem('users'));
-
-  // console.log(usersData);
-
-  localStorage.clear();
+localStorage.setItem("user",JSON.stringify(user));
+let userDet = JSON.parse(localStorage.getItem("user"))
+console.log(typeof userDet)
 
   return <div>App</div>;
 };
