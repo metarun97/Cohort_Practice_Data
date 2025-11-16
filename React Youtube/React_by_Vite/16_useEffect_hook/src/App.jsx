@@ -1,39 +1,27 @@
 import { useEffect, useState } from 'react';
 
 const App = () => {
-  const [A, setA] = useState(0);
-  const [B, setB] = useState(0);
+  const [a, seta] = useState(0);
+  const [b, setb] = useState(0);
 
-  const aChange = () => {
-    console.log('A is running...');
+  const changeA = () => {
+    console.log('A changing');
   };
-  const bChange = () => {
-    console.log('B is running...');
+  const changeB = () => {
+    console.log('B changing');
   };
 
   useEffect(() => {
-    // console.log('useEffect is running...');
-    bChange();
-  }, [B]);
+    console.log('UseEffect running...');
+    changeB();
+  },[a]);
 
   return (
     <div>
-      <h1>{A}</h1>
-      <h1>{B}</h1>
-      <button
-        onClick={() => {
-          setA(A + 1);
-        }}
-      >
-        Change A
-      </button>
-      <button
-        onClick={() => {
-          setB(B - 1);
-        }}
-      >
-        Change B
-      </button>
+      <h1>{a}</h1>
+      <h1>{b}</h1>
+      <button onClick={() => seta(a + 1)}>Change A</button>
+      <button onClick={() => setb(b - 1)}>Change B</button>
     </div>
   );
 };
