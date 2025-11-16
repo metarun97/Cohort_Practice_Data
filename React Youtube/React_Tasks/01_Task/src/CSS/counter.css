@@ -1,0 +1,49 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.counterSec {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 3.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.counterSec {
+  background-color: #222;
+  color: white;
+  padding: 70px 35px;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 7rem;
+}
+
+.inc {
+  background-color: green;
+}
+.dec {
+  background-color: red;
+}
+.res{
+  background-color: gold;
+}
