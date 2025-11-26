@@ -1,4 +1,6 @@
-//!__________________________________________________________VIDEO I_________________________________________________________________________
+//!______________________________________________________________________VIDEO_________________________________________________________________________
+
+//? Variables and declaration in JS:-
 
 //^ ____WORD VS KEYWORD____:-
 
@@ -65,4 +67,44 @@
 
 // var a = undefined;
 // a = 20;
+
+//? Datatypes Type system in JS:-
+
+//^ Premetive types-> String,Boolean,Number,Symbol,Null,undefined,bigInt
+
+// let a = 10;
+// let b = a;
+// console.log(b + 1);                    // 11
+// console.log(a);                        // 10
+
+
+//^ Reference types-> Arrays, Objects, functions
+
+// let arr = [1, 2, 3, 4]
+// let arr1 = arr;
+// arr1.pop();
+// console.log(arr);                      // [1, 2, 3]
+// console.log(arr1);                     // [1, 2, 3]
+
+//^ Type coercion-> JS automatically change kr deta hai type ko ek dusre se.
+
+// let a = 1;
+// let b = "5";
+// console.log(a + b);
+// console.log(typeof (a + b));           // string
+
+//& Note-> Yaha concatination se 1 string me badal gya add operator concat or add dono krta hai to yaha concat kr dia isne change krke.
+
+// let c = 10;
+// let d = "5";
+// console.log(c - d);
+// console.log(typeof (c - d));           // number
+
+//& Yaha normal substraction se 5 number me badal gya kyuki substract bs ghatata hi h.
+
+//^ Truthy and falsy values:-
+
+// falsy Values --> 0,false,"",null,undefined,document.all,NaN.
+// truthy Values --> falsy k alava sb truthy.
+
 
