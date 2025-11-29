@@ -225,11 +225,262 @@
 
 //^ Early return statement:-
 
+//* Wrong way:-
+
 // function myVal(val) {
-//   if (val < 25) return "D"
-//   else if (val < 50) return "C"
-//   else if (val < 75) return "B"
-//   else return "A"
+//   if (val < 100) return "A"
+//   if (val < 75) return "B"
+//   if (val < 50) return "C"
+//   else return "D"
 // }
 
-// console.log(myVal(55));
+// console.log(myVal(12));
+
+//~ Note -> Is condition me ye pehli condition pe hi stuck reh jayega to hum bade se chota ma likhte hue hum chote se bada patter se likhte hai.
+
+//* Right way:-
+
+// function getVal(val) {
+//   if (val < 25) return 'D'
+//   if (val < 50) return "C"
+//   if (val < 75) return "B"
+//   else return 'A'
+// }
+// console.log(getVal(84));
+
+
+//* Some questions:-
+
+//* Q1-> Make a grade system for the students so catagrized by his/her scores...?
+
+// function getGrade(score) {
+//   if (score >= 90 && score <= 100) return "A+"
+//   if (score >= 80 && score <= 89) return "A"
+//   if (score >= 70 && score <= 79) return "B"
+//   if (score >= 60 && score <= 69) return "C"
+//   if (score >= 50 && score <= 59) return "D"
+//   if (score >= 40 && score <= 49) return "E"
+//   if (score >= 33 && score <= 39) return "F"
+//   if (score >= 0 && score < 33) return 'fail'
+//   return "Invalid marks😒"
+// }
+
+// console.log(getGrade(91))
+
+
+//* Q2-> Make a programme of rock,paper & scissor game...?
+
+// function rps(user, comp) {
+//   if (user === comp) return "drawn";
+//   if (user === "rock" && comp === "scissor") return "user";
+//   if (user === "scissor" && comp === "paper") return "user";
+//   if (user === "paper" && comp === "rock") return "user";
+//   return "comp";
+// }
+
+// console.log(rps("scissor", "scissor"));
+
+//? Loops in JS:-
+
+
+//^ For loop:-
+
+//* Pattern:-
+
+// for (start; end; change) {
+//   //code
+// }
+
+//* Example:-
+
+// for (let i = 1; i < 101; i++) {
+//   console.log(i);
+// }
+
+
+//^ While loop:-
+
+//* Pattern:-
+
+// start
+// while (end) {
+//   //code
+// }
+
+//* Example:-
+
+// let i = 1;
+
+// while(i<20){
+//   console.log(i);
+//   i++;
+// }
+
+//^ do While loop:-
+
+//* Pattern:-
+
+// // start
+// do {
+//   // code
+//   change
+// } while (end);
+
+//* Example:-
+
+// let i = 10;
+// do {
+//   console.log(i);
+//   i++;
+// } while (i < 5);
+
+//~ Note -> Is loop me condition wrong hone pe bhi ek baar jarur chalega.
+
+//^ break statement:-
+
+// for (let i = 1; i < 10; i++) {
+//   console.log(i);
+//   if (i === 4) break;           // 4 pe rukega
+// }
+
+
+//^ continue statement:-
+
+// for (let i = 1; i < 10; i++) {
+//   if (i === 4) continue;           // 1 se 3  or fir 4 na hokr 5 se print hoga
+//   console.log(i);
+// }
+
+//^ Some questions related to loops:-
+
+
+//* Q1- Print number from 1 to 10 by for loop...?
+
+// for (let i = 1; i < 11; i++) {
+//   console.log(i);
+// }
+
+//* Q2- Print number from 10 to 10 by for loop...?
+
+// for (let i = 10; i > 0; i--) {
+//   console.log(i);
+// }
+
+//* Q3- Print even number between 1 to 20...?
+
+// let i = 1;
+
+// while (i < 21) {
+//   if (i % 2 === 0) {
+//     console.log(i)
+//   }
+//   i++;
+// }
+
+//* Q4- Print odd number between 1 to 16...?
+
+// let i = 1;
+
+// while (i < 16) {
+//   if (i % 2 === 1) {
+//     console.log(i)
+//   }
+//   i++;
+// }
+
+//* Q5- Print table for any number you want...?
+
+// let number = 5;
+
+// for (let i = 1; i < 11; i++) {
+//   console.log(`${number} X ${i} = ${number * i}`)
+// }
+
+//* Q6- Print sum of 0 to 100 numbers by loop...?
+
+// let sum = 0;
+
+// for (let i = 1; i < 101; i++) {
+//   sum += i;
+// }
+// console.log(sum);
+
+//* Q7- Print all the numbers between 1 to 50 which are divisible by 3...?
+
+// for (let i = 1; i < 51; i++) {
+//   if (i % 3 === 0) {
+//     console.log(i);
+//   }
+// }
+
+//* Q8- Ask a number from the user and print number wether if it is even or odd...?
+//* 2 "is even" ,
+
+// let number = Number(prompt("Enter a number"));
+
+// for (let i = 1; i <= number; i++) {
+//   if (i % 2 === 0) {
+//     console.log(`${i} is Even number`)
+//   } else {
+//     console.log(`${i} is Odd number`)
+//   }
+// }
+
+//* Q9- Check the ranged number which are divisible by 3 and 5...?
+
+// for (let i = 1; i < 101; i++) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log(i);
+//   }
+// }
+
+//* Q10- Run a loop to 100 and stop when the first multiple of 7...?
+
+// for (let i = 1; i < 101; i++) {
+//   if (i % 7 === 0) {
+//     break;
+//   }
+//   console.log(i);                   // 7 se phle rukega 6 pe
+// }
+
+// for (let i = 1; i < 101; i++) {
+//   console.log(i);                   // 7 pe hi ruk jayega
+//   if (i % 7 === 0) {
+//     break;
+//   }
+// }
+
+
+//* Q11- Run a loop to 20 and skip multiples of 3...?
+
+// for (let i = 1; i < 21; i++) {
+//   if (i % 3 === 0) continue;
+//   console.log(i);
+// }
+
+
+//* Q12- Run a loop to 20 and get 5 odd numbers from the start...?
+
+// let count = 0;
+// for (let i = 1; i < 21; i++) {
+//   if (i % 2 === 1) {
+//     count++;
+//     console.log(i);
+//   }
+//   if (count === 5) {
+//     break;
+//   }
+// }
+
+//* Q13- Run a loop to 100 and get start 10 multiples of 5...?
+
+// let count = 0;
+// for (let i = 1; i < 101; i++) {
+//   if (i % 5 === 0) {
+//     count++;
+//     console.log(i);
+//   }
+//   if(count === 10){
+//     break;
+//   }
+// }
