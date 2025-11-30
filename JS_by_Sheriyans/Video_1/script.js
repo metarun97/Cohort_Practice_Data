@@ -484,3 +484,48 @@
 //     break;
 //   }
 // }
+
+//? Functions in JS:-
+
+//~ Note-> Jab hume koi code turant na chalakr jab chalana hai jab hum chahe to vo hum ek function ki madad se kr skte hai jab banakr hum usey call krte hai.
+
+//^ Named function:-
+
+// function fun() {
+//   console.log("hello world");
+//   console.log("hello world");
+//   console.log("hello world");
+//   console.log("hello world");
+//   console.log("hello world");
+// }
+// fun();
+
+//^ Function expression:-
+
+// const func = function () {
+//   console.log('hello world');
+// }
+// func();
+
+//* Note => Isme humara variable ka name hi function ka name hai jissey hum ussey call krne me use krenge.
+
+//^ Arrow function:-
+
+// const func = () => {
+//   console.log("Hello world");
+// }
+// func();
+
+
+//^ Parameter and arguments in function:-
+
+// function danceFun(dancer) {
+//   console.log(`${dancer} is dancing.`)
+// }
+
+// danceFun("Michel Jeckson");
+// danceFun("Tiger Shroff");
+// danceFun("Hritik Roshan");
+
+
+//~ Note => Jo function name k just baad braces me hai vo hai parameters and jo function call krte me braces me hai vo h arguments.
