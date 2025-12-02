@@ -634,7 +634,7 @@
 // }
 
 
-//~ Note -> hoisting functions me support jaha funtion statement/declaration ya named hoga vha krti hai but kuch jagha jese function expression of arraw function ki condition me ye work  nahi krti h.
+//~ Note -> hoisting functions me support jaha funtion statement/declaration ya named hoga vha krti hai but kuch jagha jese function expression of arraw function ki condition me ye work sirf var keyword k liye kregi or const ,ket me nahi krti h.
 
 
 //* Some questions for practice:-
@@ -692,3 +692,365 @@
 
 
 
+//* Some programmes:-
+
+//* BMI Calculator:-
+
+// function bmiCalulater(weight,height){
+//   return weight / (height * height);
+// }
+
+// console.log(bmiCalulater(99.1,1.73).toFixed(2));
+
+//* Discounter Calculator:-
+
+// function discountFun(discount) {
+//   return function (price) {
+//     return price - price * discount / 100;
+//   }
+// }
+
+// let discounter = discountFun(20);
+// let res = discounter(500);
+// console.log(res);
+
+
+//* Counter by using closure:-
+
+// function counter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     return count;
+//   }
+// }
+
+// let c = counter();
+// console.log(c());             // 1
+// console.log(c());             // 2
+
+// let d = counter();
+// console.log(d());             // 1
+
+//* Pure function transform a value:-
+
+// function qubeMaker(val) {
+//   return val ** 3
+// }
+
+// let res = qubeMaker(5);
+// console.log(res);
+
+//* Using IFFE function to make Isolated (private) variables:-
+
+// (function myFunc(){
+//   const secretPassword = "Tryagainlaterbhaiya12345";
+//   console.log(secretPassword);
+// })();
+// console.log(secretPassword);
+
+//? Arrays in JS:-
+
+//* Creation of array:-
+
+// let arr = [10, 20, 30, 40, 50];
+// console.log(arr);
+
+//* Excessing array element in array:-
+
+// let arr = [10, 20, 30, 40, 50];
+// console.log(arr[2]);              // 30
+// console.log(arr[3]);              // 40
+// console.log(arr[20]);             // undefined
+
+
+//* Modify array element in array:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr[2] = 12;
+// console.log(arr);                 // [1, 2, 12, 4, 5]
+
+
+//* Methods in array:-
+
+// Push:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.push(6);
+// console.log(arr);                 // [1 ,2 ,3 ,4 ,5 ,6]
+
+//~ Note -> Ye push original array me change kr deta hai.
+
+// Pop:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.pop();
+// console.log(arr);                 // [1 ,2 ,3 ,4]
+
+//~ Note -> Ye pop original array me change kr deta hai.
+
+// Unshift:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.unshift(0);
+// console.log(arr);                 // [0 ,1 ,2 ,3 ,4 ,5]
+
+//~ Note -> Ye unshift original array me change kr deta hai.
+
+// Shift:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.shift();
+// console.log(arr);                 // [2 ,3 ,4 ,5]
+
+//~ Note -> Ye shift original array me change kr deta hai.
+
+// splice:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.splice(2,1);
+// console.log(arr);                 // [1 ,2 ,4 ,5]
+
+//~ Note -> Ye splice original array me change kr deta hai.
+
+// Slice:-
+
+// let arr = [1, 2, 3, 4, 5];
+// let newArr = arr.slice(0,3);
+// console.log(newArr);                 // [1 ,2 ,3]
+
+//~ Note -> Ye slice ek new copy deta hai array ki usme change krke deta hai or isme (0,3) me index 3 tak na hokr ussey phle tak k element hi remove krke deta hai.
+
+// Reverse:-
+
+// let arr = [1, 2, 3, 4, 5];
+// arr.reverse();
+// console.log(arr);                 // [5, 4, 3, 2, 1]
+
+//~ Note -> Ye reverse original array me change kr deta hai.
+
+// Sort:-
+
+// let arr = [16, 23, 13, 4, 45];
+// let resRev = arr.sort();
+// console.log(resRev);                 //  [13, 16, 23, 4, 45]
+
+//~ Note -> Ye sort original array me change na krke array ke new copy me change krke deta hai.
+
+//* Main working of sort method:-
+
+//* Ascending sorting:-
+
+// let arr = [16, 23, 13, 4, 45];
+
+// let resRev = arr.sort(function(a,b){
+//   return a - b;
+// })
+
+// console.log(resRev);
+
+
+//* Descending sorting:-
+
+// let arr = [16, 23, 13, 4, 45];
+
+// let resRev = arr.sort(function (a, b) {
+//   return b - a;
+// })
+
+// console.log(resRev);
+
+//* forEach method:-
+
+// let arr = [12, 13, 14, 15, 16];
+
+// arr.forEach(function (val) {
+//    console.log(val * 2);             // 24, 26, 28, 30, 32
+// })
+
+//* Map method:-
+
+//* Eg1:-
+
+// let arr = [26, 14, 5, 72, 3];
+
+// let resArr = arr.map(function (val) {
+//   return val;
+// })
+// console.log(resArr);                       // [26, 14, 5, 72, 3]
+
+//* Eg2:-
+
+// let arr = [26, 14, 5, 72, 3];
+
+// let resArr = arr.map(function (val) {
+//   if (val > 10) return val;
+// })
+// console.log(resArr);                       // [26, 14, undefined, 72, undefined]
+
+
+//~ Note -> filter jab banana hai jab apko new array banana hai pichle array k data k basis pe or ek baat ki jab bhi map dekho apne dimag me ek blank array banalo.
+
+//* Filter method:-
+
+// let arr = [1, 2, 3, 4, 5];
+
+// let arrNew = arr.filter(function (val) {
+//   if (val > 3) return val;
+// })
+// console.log(arrNew);                        // [4, 5]
+
+//~ Note -> filter jab banana hai jab apko new array banana hai pichle array k data k basis pe kuch condtion k behalf pe or ye value true ya false base pe new array me store hogi or ek baat ki jab bhi filter dekho apne dimag me ek blank array banalo.
+
+
+//* Reduce method:-
+
+// let arr = [2, 4, 6, 8, 10];
+
+// let arrRes = arr.reduce(function (acc, curVal) {
+//   return acc + curVal;
+// },0)
+
+// console.log(arrRes);                         // 30
+
+//~ Note -> reduce tab use hota hai jab hume apne array elements ki value reduce krke ek value me convert krni h single digit type tab use ata h ye.
+
+//* Find method:-
+
+// let arr = [2, 4, 6, 8, 10];
+
+// let resFind = arr.find(function(val){
+//   if(val === 2) return val;
+// })
+// console.log(resFind);
+
+//~ Note -> Ye fist find value ko hi deta hai.
+
+//* Some method:-
+
+// let arr = [2, 4, 6, 8, 10];
+// let resSome = arr.some(function (val) {
+//   if (val > 4) return val;
+// })
+// console.log(resSome);
+
+//~ Note -> Kya kuch element array k condition ko satisfy krte hai krte hai agar to true nahi to false.
+
+//* Every method:-
+
+// let arr = [2, 4, 6, 8, 10];
+// let resSome = arr.every(function (val) {
+//   if (val > 4) return val;
+// })
+// console.log(resSome);
+
+//~ Note -> Kya sabhi element array k condition ko satisfy krte hai krte hai agar to true nahi to false.
+
+//* Destructuring in Array:-
+
+// let arr = [2, 5, 6, 7];
+
+// let [a, b, , c] = arr;
+// console.log(a);                     // 2
+// console.log(b);                     // 5
+// console.log(c);                     // 7
+
+
+//* Spread operator in Array:-
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// let arr2 = [...arr];
+// arr2.pop();
+// console.log(arr);                   // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// console.log(arr2);                  // [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+//* Some questions on array:-
+
+//* Set "red" and "blue" on the first index of array:-
+
+// let colors = ["green", "yellow"];
+
+// colors.splice(1, 0, "red", "blue");
+// console.log(colors);               // ['green', 'red', 'blue', 'yellow']
+
+//* Extract middle three elements of array:-
+
+// let arr = [1, 2, 3, 4, 5, 6];
+
+// let newArr =  arr.slice(1, 4);
+// console.log(newArr);               // [2, 3, 4]
+
+//* Make square of each number in array:-
+
+// let arr = [2, 4, 6, 8, 10];
+
+// let squareRes = arr.map(function(val){
+//   return val * val;
+// })
+// console.log(squareRes);           // [4, 16, 36, 64, 100]
+
+//* use .filter to keep numbers greater then 10:-
+
+// let arr = [10, 20, 30, 40, 80, 100];
+
+// let resFilter = arr.filter(function (val) {
+//   if (val > 10) return val;
+// })
+// console.log(resFilter);            // [20, 30, 40, 80, 100]
+
+//* use .reduce to sum the array elements:-
+
+//  let arr = [10, 20, 30];
+
+//  let sumRes = arr.reduce(function(acc,currVal){
+//   return acc + currVal;
+//  },0)
+// console.log(sumRes);               // 60
+
+//* use .find to get value less then 10 in the array:-
+
+// let arr = [2, 4, 6, 8, 10];
+// let resFind = arr.find(function (val) {
+//   return val < 10;
+// })
+// console.log(resFind);
+
+//* use .some to get value of students marks less then 33 in the array:-
+
+// let marks = [54, 21, 68, 71, 29];
+
+// let resMarks = marks.some(function(val){
+//  return val < 33;
+// })
+// console.log(resMarks);              // true
+
+//* use .every to check all numbers are even in the array:-
+
+// let arr = [2, 4, 6, 8, 10];
+// let even = arr.every(function(val){
+//   if(val % 2 === 0) return val;
+// })
+// console.log(even);                  // true
+
+//* Take firstname and lastname in the array by destructuring:-
+
+// let name = ["Tarun","Upadhyay"];
+// let [firstname,lastname] = name;
+// console.log(firstname);             // Tarun
+// console.log(lastname);              // Upadhyay
+
+//* Merge two arrays by using spread operator:-
+
+// let arr1 = [1, 2];
+// let arr2 = [3, 4];
+
+// let fullMergerArr = [...arr1,...arr2];
+// console.log(fullMergerArr);         // [1, 2, 3, 4]
+
+//* Add IND to arrau by using spread operator:-
+
+// let countries = ["USA", "UK"];
+// countries = ['IND',...countries];
+// console.log(countries);             // ['IND', 'USA', 'UK']
