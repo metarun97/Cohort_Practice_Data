@@ -835,7 +835,7 @@
 // let resRev = arr.sort();
 // console.log(resRev);                 //  [13, 16, 23, 4, 45]
 
-//~ Note -> Ye sort original array me change na krke array ke new copy me change krke deta hai.
+//~ Note -> Ye sort original array me change na krke array ke new copy me change krke deta hai,isme ye sort method alphabetical sort k liye to siple sahi h leking number sorting k liye hume main sort functioning ka use krna chaiye jisme function pass kia jata hai.
 
 //* Main working of sort method:-
 
@@ -1054,3 +1054,305 @@
 // let countries = ["USA", "UK"];
 // countries = ['IND',...countries];
 // console.log(countries);             // ['IND', 'USA', 'UK']
+
+
+//? Objects in JS:-
+
+//* Creation of object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   isEmployNow: false
+// }
+// console.log(obj);                  // {name: 'Tarun', age: 29, isEmployNow: false}
+
+//* Excessing key's value of object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   isEmployNow: false
+// }
+
+// console.log(obj.name);              // Tarun
+// console.log(obj.age);               // 29
+
+//* Modify key's value of object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   isEmployNow: false
+// }
+
+// obj.name = "Vikash";
+// console.log(obj);                  // {name: 'Vikash', age: 29, isEmployNow: false}
+
+
+//* Excessing nested values of key in object:-
+
+// let myDetails = {
+//   name: "Tarun",
+//   age: 29,
+//   address: {
+//     colony: "Amar Maya Enclave",
+//     city: "Bulandshahr",
+//     Pin: 203001,
+//     location: {
+//       lat: 22.1,
+//       lang: 14.2
+//     }
+//   }
+// }
+
+// console.log(myDetails.address.location.lang);   // 14.2
+
+//* Excessing nested values of key in object by destructuring:-
+
+// let myDetails = {
+//   name: "Tarun",
+//   age: 29,
+//   address: {
+//     colony: "Amar Maya Enclave",
+//     city: "Bulandshahr",
+//     Pin: 203001,
+//     location: {
+//       lat: 22.1,
+//       lang: 14.2
+//     }
+//   }
+// }
+
+// let { lang, lat } = myDetails.address.location;
+// console.log(lang);                               // 14.2
+
+//* Excess keys and it's values by for in loop for objects:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// for (let key in obj) {
+//   console.log(key, obj[key]);
+// }
+
+
+//* Excess Object.keys and Object.enteris of object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// console.log(Object.keys(obj));                 // ye object ki keys dega
+// console.log(Object.entries(obj));              // Array of arrays dega keys & values k form me
+
+//* Spread operators in object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// let obj2 = {...obj};
+// console.log(obj2);                              // {name: 'Tarun', age: 29, email: 'test@test.com'}
+
+
+//* Object.assign() in object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// Object.assign({}, obj);                            // {name: 'Tarun', age: 29, email: 'test@test.com'}
+// Object.assign({ price: Infinity }, obj);           // {price: Infinity, name: 'Tarun', age: 29, email: 'test@test.com'}
+
+
+//* Deep cloning in objects:-
+
+//* Not working technique:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com",
+//   location: {
+//     city: "Bulandshahr",
+//   }
+// }
+
+// let obj2 = {...obj};
+// obj2.location.city = "Hapur";
+// console.log(obj2.location.city);             // Hapur
+// console.log(obj.location.city);              // Hapur
+
+//~ Note-> Ye nested object ko copy nahi kr pata unka reference de deta h to change copy wale me kro to main object me change ho jate h to safely deep cloning nahi hui h new object me change ab main object me visible ho rahe hai joki nahi hona chaiye.
+
+//* Not working technique:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com",
+//   location: {
+//     city: "Bulandshahr",
+//   }
+// }
+
+// let obj2 = JSON.parse(JSON.stringify(obj));
+// obj2.location.city = "Hapur";
+// console.log(obj2.location.city);             // Hapur
+// console.log(obj.location.city);              // Bualandshahr
+
+//~ Note-> Ye nested ko ese copy krta hai phle us object ko stringify k through string nbanao or parse krke object banakr new object me save krlo ab safely deep cloning ho gai h new object me change ab main object me visible nai honge.
+
+//* Optional chaining in Objects:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com",
+//   locations: {
+//     city: "Bulandshahr",
+//   }
+// }
+
+// console.log(obj.location.city);                 // error dega
+// console.log(obj?.location?.city);               // undefined
+
+
+//~ Note-> Ye optional chaining ?. se dikhai gai h jisme means hai object me agr location excess ho to city name ki cheej ko dhundho jo hai ya nahi dekho isme optioning mili hai to do nai undefined do bss.
+
+//* Computed properties in Objects:-
+
+// let role = "admin";
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com",
+//   locations: {
+//     city: "Bulandshahr",
+//   },
+//   [role]:"Full-stack Web developer",
+// }
+
+// console.log(obj);                               // admin key me Full-stack Web developer bankr object me add ho jayega.
+
+
+//* Some questions:-
+
+//* Can a boolean and number value become a key in object:-
+
+// let obj = {
+//   name: "tarun",
+//   42: "bayalees",
+//   true: "karle jo krna h"
+// }
+
+// console.log(obj[42]);                          // yes possible
+// console.log(obj[true]);                        // yes possible
+
+// const user = {
+//   "first-name":"Hello Jack",
+// }
+
+// console.log(user['first-name'])               // Hello Jack
+
+//* Can a boolean and number value become a key in object:-
+
+// let key = "age";
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+// console.log(user, key);                         // 29
+
+//* Destructure the key "first-name" as a variable called firstName:-
+
+// let user = {
+//   'first-name':"Tarun",
+// }
+
+// let {'first-name':firstName} = user;
+// console.log(firstName);
+
+//* Print all keys of an object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// for (let key in obj) {
+//   console.log(key);
+// }
+
+//* Print all key value pairs of an object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// for (let key in obj) {
+//   console.log(key, obj[key]);
+// }
+
+//* Print all Object.entries of an object:-
+
+// let obj = {
+//   name: "Tarun",
+//   age: 29,
+//   email: "test@test.com"
+// }
+
+// Object.entries(obj).forEach(function (val) {
+//   console.log(val[0] + ":" + val[1])
+// })
+
+//* Copy the object by spread operator:-
+
+// let obj = { a: 1, b: 2 };
+
+// let obj2 = { ...obj };
+// obj2.a = 3;
+// console.log(obj2.a);                  // 3
+// console.log(obj.a);                   // 1
+
+//* Make deep copy of nested object:-
+
+// let obj = { info: { score: 20 } };
+
+// let obj2 = JSON.parse(JSON.stringify(obj));
+// obj.info.score = 30;
+// console.log(obj2.info.score);         // 30
+// console.log(obj.info.score);          // 20
+
+//* Make it optional chaining in object:-
+
+// let obj = {};
+// console.log(obj.name.city);           // error
+// console.log(obj?.name?.city);         // undefined
+
+//* Use a variable to dynamically assigen a property:-
+
+// let key = "role";
+
+// let obj = {
+//   name: "Tarun",
+//   [key]: "admin"
+// }
+
+// console.log(obj);                     // {name: 'Tarun', role: 'admin'}
