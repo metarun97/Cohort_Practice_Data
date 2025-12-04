@@ -1240,6 +1240,7 @@
 //   email: "test@test.com",
 //   locations: {
 //     city: "Bulandshahr",
+
 //   },
 //   [role]:"Full-stack Web developer",
 // }
@@ -1356,3 +1357,6 @@
 // }
 
 // console.log(obj);                     // {name: 'Tarun', role: 'admin'}
+
+
+
