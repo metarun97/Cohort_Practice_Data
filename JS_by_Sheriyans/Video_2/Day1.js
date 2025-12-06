@@ -115,6 +115,20 @@
 
 //~ Note -> Add add kregi class ko remove remove kregi or toggle agr class hai to dal dega class nai to remove kr dega.
 
+//* Task 1 (Print all the li elements by forEach and for loop):-
 
+// let li = document.querySelectorAll("li");
+// li.forEach(function (val) {
+//   console.log(val.textContent);
+// })
 
+// for (let i = 0; i < li.length; i++) {
+//   console.log(li[i].textContent);
+// }
 
+//* Task 2 (Give hightlight red color to the even elements of li by forEach method):-
+
+// let li = document.querySelectorAll("ul li:nth-child(2n");
+// li.forEach(function(elem){
+//   console.log(elem.classList.add("highlight"))
+// })
