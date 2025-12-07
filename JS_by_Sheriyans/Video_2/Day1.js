@@ -132,3 +132,53 @@
 // li.forEach(function(elem){
 //   console.log(elem.classList.add("highlight"))
 // })
+
+//* Practice Task 1:-
+
+// let inp = document.querySelector("input");
+// inp.addEventListener("input", function (dets) {
+//   if(dets.data !== null){
+//     console.log(dets.data);
+//   }
+// })
+
+//* Practice Task 2:-
+
+// let select = document.querySelector("select");
+// let h3 = document.querySelector(".head3");
+
+// select.addEventListener("change", function (detes) {
+// h3.textContent = `${detes.target.value} device selected!`
+//   // console.log(detes.target.value);
+// })
+
+
+//* Practice Task 3:-
+
+// let h1 = document.querySelector("h1");
+
+// window.addEventListener('keydown', function (dets) {
+//   // console.log(dets);
+//   if (dets.key === " ") {
+//     h1.textContent = 'SPC';
+//   } else {
+//     h1.textContent = dets.key;
+//   }
+//   // console.log(dets.key);
+// })
+
+//* Practice Task 4:-
+
+// let btn = document.querySelector("#btn");
+// let inpFile = document.querySelector("input");
+
+// btn.addEventListener("click", function () {
+//   inpFile.click();
+// })
+
+// inpFile.addEventListener("change", function (dets) {
+//   const file = dets.target.files[0];
+//   if (file) {
+//     document.querySelector("h1").textContent = `${file.name} selected✅`
+//   }
+// })
