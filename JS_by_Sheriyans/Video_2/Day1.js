@@ -182,3 +182,48 @@
 //     document.querySelector("h1").textContent = `${file.name} selected✅`
 //   }
 // })
+
+//* Practice Task 5:-
+
+// let square = document.querySelector(".square");
+
+// square.style.width = "400px";
+// square.style.height = "400px";
+// square.style.backgroundColor = "red";
+
+// square.addEventListener("mouseover",function(){
+//   square.style.backgroundColor = "yellow";
+// })
+// square.addEventListener("mouseout",function(){
+//   square.style.backgroundColor = "red";
+// })
+
+//* Practice Task 6:-
+
+// let square = document.querySelector(".square");
+// let body = document.querySelector("body");
+
+// square.style.width = "100px";
+// square.style.height = "100px";
+// square.style.backgroundColor = "red";
+// square.style.position = "absolute";
+// body.style.position = "relative";
+// body.style.overflow = "hidden";
+
+
+// window.addEventListener("mousemove", function (dets) {
+//   // console.log(dets.clientX, dets.clientY);
+//   square.style.top = dets.clientY + 'px';
+//   square.style.left = dets.clientX + 'px';
+// })
+
+
+// let h1 = document.querySelector("h1");
+
+// window.addEventListener("keyup", function (dets) {
+//   if (dets.key === " ") {
+//     h1.textContent = "SPC";
+//   } else {
+//     h1.textContent = dets.key;
+//   }
+// })
