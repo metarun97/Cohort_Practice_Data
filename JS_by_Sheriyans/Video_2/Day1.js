@@ -210,6 +210,7 @@
 // body.style.position = "relative";
 // body.style.overflow = "hidden";
 
+//* Mouse move event:-
 
 // window.addEventListener("mousemove", function (dets) {
 //   // console.log(dets.clientX, dets.clientY);
@@ -217,6 +218,7 @@
 //   square.style.left = dets.clientX + 'px';
 // })
 
+//* Keyup move event:-
 
 // let h1 = document.querySelector("h1");
 
@@ -225,5 +227,57 @@
 //     h1.textContent = "SPC";
 //   } else {
 //     h1.textContent = dets.key;
+//   }
+// })
+
+//* event bubbling in JS:-
+
+// let ul = document.querySelector("ul");
+// ul.style.cursor = "pointer";
+
+
+// ul.addEventListener("click", function (dets) {
+//   // dets.target.style.textDecoration = "line-through";
+//   dets.target.classList.toggle("lt");
+// })
+
+
+//* Main concept of event phases:-
+
+// let main = document.querySelector('.main')
+// let nav = document.querySelector('.nav')
+// let h3 = document.querySelector('.h3')
+// let btn = document.querySelector('button')
+
+
+// btn.addEventListener("click", function () {
+//   console.log('Button Clicked!');
+// })
+
+// h3.addEventListener("click", function () {
+//   console.log('h3 Clicked!');
+// }, true)
+
+// nav.addEventListener("click", function () {
+//   console.log('Nav Clicked!');
+// }, true)
+
+// main.addEventListener("click", function () {
+//   console.log('Main Clicked!');
+// })
+
+
+//* Character counter:-
+
+// let inp = document.querySelector("input");
+// let span = document.querySelector("span");
+
+// inp.addEventListener("input", function () {
+//   let left = 20 - inp.value.length;
+//   span.textContent = left;
+//   if (left <= 0) {
+//     span.style.color = "red";
+//   } else {
+//     span.style.color = "black";
 //   }
 // })
