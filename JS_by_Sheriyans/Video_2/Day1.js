@@ -281,3 +281,33 @@
 //     span.style.color = "black";
 //   }
 // })
+
+//* form validation:-
+
+// let nm = document.querySelector("#name");
+// let form = document.querySelector("form");
+// let hideNumDiv = document.querySelector(".hide");
+
+// form.addEventListener("submit", function (dets) {
+//   dets.preventDefault();
+
+  // // Name validation:-
+  // if (nm.value.length <= 2) {
+  //   hideNumDiv.style.display = "initial";
+  // } else {
+  //   hideNumDiv.style.display = "none";
+  // }
+
+  //& username validation:-
+
+  // let regName = /^[a-zA-Z0-9_]{3,16}$/;
+  // let resName = regName.test("metarun");
+  // console.log(resName);
+
+  //& email validation:-
+
+  // const regEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  // let resEmail = regEmail.test("meking@gmail.com");
+  // console.log(resEmail);
+
+// })
