@@ -291,23 +291,46 @@
 // form.addEventListener("submit", function (dets) {
 //   dets.preventDefault();
 
-  // // Name validation:-
-  // if (nm.value.length <= 2) {
-  //   hideNumDiv.style.display = "initial";
-  // } else {
-  //   hideNumDiv.style.display = "none";
-  // }
+// // Name validation:-
+// if (nm.value.length <= 2) {
+//   hideNumDiv.style.display = "initial";
+// } else {
+//   hideNumDiv.style.display = "none";
+// }
 
-  //& username validation:-
+//& username validation:-
 
-  // let regName = /^[a-zA-Z0-9_]{3,16}$/;
-  // let resName = regName.test("metarun");
-  // console.log(resName);
+// let regName = /^[a-zA-Z0-9_]{3,16}$/;
+// let resName = regName.test("metarun");
+// console.log(resName);
 
-  //& email validation:-
+//& email validation:-
 
-  // const regEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-  // let resEmail = regEmail.test("meking@gmail.com");
-  // console.log(resEmail);
-
+// const regEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+// let resEmail = regEmail.test("meking@gmail.com");
+// console.log(resEmail);
 // })
+
+//* Counter that start from 10 and fnish at 0:-
+
+//* 1st way:-
+
+// let count = 10;
+
+// let interval = setInterval(function () {
+//   if (count >= 1) {
+//     count--;
+//     console.log(count);             // 9 - 0
+//   } else clearInterval(interval);
+// }, 1000)
+
+//* 2nd way:-
+
+// let count = 10;
+
+// let interval = setInterval(function () {
+//   if (count >= 0) {
+//     console.log(count);             // 10 - 0
+//     count--;
+//   } else clearInterval(interval);
+// }, 1000)
