@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #ccc;
+  width: 100%;
+  height: 100%;
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #222;
+  color: white;
+  gap: 20px;
+}
+.progress-sec {
+  width: 50%;
+  height: 10px;
+  background-color: rgb(4, 105, 105);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress {
+  width: 0%;
+  height: 100%;
+  background-color: aqua;
+}
