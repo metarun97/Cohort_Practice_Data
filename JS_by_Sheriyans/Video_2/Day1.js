@@ -334,3 +334,19 @@
 //     count--;
 //   } else clearInterval(interval);
 // }, 1000)
+
+
+//* Task Message hide after 3 seconds:-
+
+// let msgSec = document.querySelector("#msg-sec");
+// let count = 0;
+
+// let intv = setInterval(function () {
+//   if (count < 3) {
+//     count++;
+//     console.log(count);
+//   } else {
+//     msgSec.style.display = 'none';
+//     clearInterval(intv)
+//   }
+// }, 1000)
