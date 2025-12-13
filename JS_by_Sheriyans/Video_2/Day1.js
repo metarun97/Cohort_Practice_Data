@@ -350,3 +350,45 @@
 //     clearInterval(intv)
 //   }
 // }, 1000)
+
+//^ LocalStorage in JS:-
+
+//* Item dale kaise localstorage me:-
+
+// localStorage.setItem("name","Tarun");
+
+//* Item nikale kaise localstorage me:-
+
+// let val = localStorage.getItem("name");
+
+//* Item remove kaise kare localstorage me:-
+
+// localStorage.removeItem("name");
+
+//* Item update kaise kare localstorage me:-
+
+// localStorage.setItem("name","Tarun");
+
+//* Sabkuch clear kare localstorage me:-
+
+// localStorage.clear();
+
+//^ SessionStorage in JS:-
+
+//* Item dale kaise sessionstorage me:-
+
+// sessionStorage.setItem("name", "Vikash");
+
+//* Item hatate kaise sessionstorage me:-
+
+// sessionStorage.removeItem("name");
+
+//* Sabkuch clear kare sessionstorage me:-
+
+// sessionStorage.clear();
+
+//^ Cookies in JS:-
+
+// document.cookie = "email=test@mail.com";
+// document.cookie = "age=29";
+
