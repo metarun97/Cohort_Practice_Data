@@ -14,10 +14,10 @@ body {
 }
 
 body {
-  background-color: #333;
+  background-color: #111;
 }
 
-#page1 {
+/* #page1 {
   width: 100%;
   height: 100%;
   background-color: #add8e6;
@@ -48,7 +48,7 @@ body {
   width: 300px;
   height: 300px;
   background-color: crimson;
-}
+} */
 
 /* #page2 h1 {
   font-size: 60px;
@@ -63,3 +63,4 @@ body {
   padding: 10px 20px;
   background-color: yellow;
 } */
+
