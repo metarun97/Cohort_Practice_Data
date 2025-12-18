@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #ccc;
+}
+
+main {
+  width: 100%;
+  padding: 0.6rem 1.2rem;
+}
+
+.main-sec {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  margin: 2rem 0;
+  max-width: 550px;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 0.8rem;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  display: none;
+}
+
+form h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 2.25rem;
+  text-align: center;
+}
+
+form img {
+  width: 2.5rem;
+}
+
+form .inp-sec {
+  width: 100%;
+}
+
+.inp-sec label {
+  display: inline-block;
+  margin: 0.6em 0;
+  font-weight: 500;
+}
+
+.inp-sec input,
+textarea,
+input[type='submit'] {
+  width: 100%;
+  padding: 0.6rem 0.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  border: 1px solid #ccc;
+}
+
+.inp-sec textarea {
+  resize: none;
+}
+
+.inp-sec input:focus,
+textarea:focus {
+  border: 1px solid #5255f5;
+}
+
+input[type='submit'] {
+  background-color: #242323;
+  color: #fff;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 5s ease;
+  cursor: pointer;
+  font-weight: 500;
+  margin: 0.6em 0;
+}
+
+input[type='submit']:hover {
+  background-color: #141414;
+}
+
+.notes-sec {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: c;
+}
+
+.notes-sec h2 {
+  font-size: 4rem;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.notes {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0 auto;
+  align-content: center;
+}
+
+.note-card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.deleteBtn,
+.editBtn {
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  margin: 0.4em 0;
+  cursor: pointer;
+}
+.deleteBtn {
+  background-color: #da0e0e;
+}
+.editBtn {
+  background-color: #09b83e;
+}
+.editBtn:hover {
+  background-color: #049930;
+}
+.deleteBtn:hover {
+  background-color: #b60a0a;
+}
+
+.main-sec .addNote {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: #242323;
+  color: #fff;
+  position: fixed;
+  right: 2%;
+  top: 90%;
+  cursor: pointer;
+}
+
+.main-sec .addNote:hover {
+  background-color: #141414;
+}
