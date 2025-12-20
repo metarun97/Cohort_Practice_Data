@@ -12,6 +12,10 @@ body {
   height: 100%;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 #section1 {
   width: 100%;
   height: 100%;
@@ -63,7 +67,7 @@ nav h1 i {
 
 .center-part {
   width: 100%;
-  height: 85%;
+  height: 70%;
   /* background-color: red; */
   display: flex;
   align-items: center;
@@ -73,12 +77,10 @@ nav h1 i {
 .center-part1 {
   width: 45%;
   height: 100%;
-  /* background-color: blue; */
 }
 
 .center-part1 h1 {
   font-size: 82px;
-  /* width: 90%; */
   font-family: monospace;
   font-weight: 500;
   line-height: 0.9;
@@ -103,23 +105,21 @@ nav h1 i {
 .center-part2 {
   width: 55%;
   height: 100%;
-  /* background-color: #1a4704; */
   position: relative;
 }
 
 .center-part2 img {
-  width: 78%;
+  width: 70%;
   position: absolute;
   right: 0;
 }
-/* https://makarios.in/wp-content/uploads/2023/10/Illustration-1.png */
+
 
 .section-part-a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 60px;
-  /* background-color: green; */
   margin-top: 0;
 }
 .section-part-a .img {
@@ -138,7 +138,6 @@ nav h1 i {
 }
 
 #section2 .services {
-  margin-top: 100px;
   padding: 30px 60px;
   display: flex;
   align-items: center;
@@ -167,12 +166,12 @@ nav h1 i {
   justify-content: space-between;
   padding: 30px 60px;
   flex-wrap: wrap;
-  gap: 40px 0;
+  gap: 60px 0;
 }
 
 .elem {
   width: 48%;
-  height: 380px;
+  height: 350px;
   /* background-color: red; */
   border: 3px solid black;
   border-radius: 30px;
