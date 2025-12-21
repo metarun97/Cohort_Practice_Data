@@ -44,17 +44,60 @@ function pageOneAnimation() {
 
 }
 
-// pageOneAnimation();
 
-let tl2 = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section2",
-    scroller: "body",
-    markers: true,
-    start: "top 50%",
-    end: "top 0",
-    scrub: 2
-  }
-})
+function pageTwoAnimation() {
+  let tl2 = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#section2",
+      scroller: "body",
+      markers: true,
+      start: "top 50%",
+      end: "top 0",
+      scrub: 2
+    }
+  })
 
+  tl2.from(".services", {
+    y: 30,
+    opacity: 0,
+    duration: 0.5
+  })
+  tl2.from(".lefta", {
+    x: -300,
+    opacity: 0,
+    duration: 0.5
 
+  }, "anim1")
+  tl2.from(".righta", {
+    x: 300,
+    opacity: 0,
+    duration: 0.5
+  }, "anim1")
+  tl2.from(".leftb", {
+    x: -300,
+    opacity: 0,
+    duration: 0.5
+
+  }, "anim2")
+  tl2.from(".rightb", {
+    x: 300,
+    opacity: 0,
+    duration: 0.5
+  }, "anim2")
+
+  tl2.from(".left-text h4,.left-text p,.left-text button", {
+    x: -200,
+    opacity: 0,
+    duration: 1.5,
+    stagger: 1
+  })
+  tl2.from(".right-img img", {
+    x: 200,
+    opacity: 0,
+    duration: 2,
+    stagger: 1
+  })
+}
+
+pageOneAnimation()
+pageTwoAnimation()
