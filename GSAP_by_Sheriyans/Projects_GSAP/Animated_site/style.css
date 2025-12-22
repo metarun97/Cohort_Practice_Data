@@ -134,6 +134,8 @@ nav h1 i {
 
 .section2 {
   width: 100%;
+  background-color:red;
+  height: 100%;
 }
 
 #section2 .services {
