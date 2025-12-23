@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">
+      <!-- Note Input Section -->
+      <section class="note-form">
+        <h2>Create Note</h2>
+
+        <input type="text" placeholder="Note heading..." class="note-title" />
+
+        <textarea
+          placeholder="Write your note here..."
+          class="note-desc"
+        ></textarea>
+
+        <button>Add Note</button>
+      </section>
+
+      <!-- Notes List Section -->
+      <section class="notes-list">
+        <h2>All Notes</h2>
+
+        <div class="notes-grid">
+          <!-- Single Note Card -->
+          <div class="note-card">
+            <h3>Sample Note</h3>
+            <p>This is a sample note description.</p>
+          </div>
+
+          <div class="note-card">
+            <h3>Another Note</h3>
+            <p>You can add multiple notes here.</p>
+          </div>
+          <div class="note-card">
+            <h3>Another Note</h3>
+            <p>You can add multiple notes here.</p>
+          </div>
+          <div class="note-card">
+            <h3>Another Note</h3>
+            <p>You can add multiple notes here.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
