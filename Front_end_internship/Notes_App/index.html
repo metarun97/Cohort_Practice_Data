@@ -13,24 +13,26 @@
       <h1 class="main-heading">Notes Application</h1>
       <!-- Note addd section -->
       <section id="create-note">
-        <form action="">
-          <h1>Create Note</h1>
+        <form action="" autocomplete="off">
+          <h2>Create Note</h2>
           <div class="note-sec">
             <label for="heading">Heading</label>
             <input
               id="heading"
               type="text"
               placeholder="Enter note heading..."
+              required
             />
-            <small>Error filed for heading</small>
+            <small class="errHead"></small>
           </div>
           <div class="note-sec">
             <label for="details">Details</label>
             <textarea
               id="details"
               placeholder="Enter note details..."
+              required
             ></textarea>
-            <small>Error filed for heading</small>
+            <small class="errDet"></small>
           </div>
           <button class="addNoteBtn">Add note</button>
         </form>
@@ -41,7 +43,7 @@
         <div class="notes">
           <div class="note-card">
             <div class="data-sec">
-              <h2>Heading 1</h2>
+              <h4>Heading 1</h4>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Dignissimos molestiae eius veniam culpa voluptatibus voluptatem
@@ -56,22 +58,7 @@
           </div>
           <div class="note-card">
             <div class="data-sec">
-              <h2>Heading 1</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos molestiae eius veniam culpa voluptatibus voluptatem
-                quae! Temporibus eaque incidunt, minima deleniti esse quasi
-                itaque voluptatibus? Ex iure laboriosam id exercitationem.
-              </p>
-            </div>
-            <div class="btns">
-              <button class="deleteBtn">Delete</button>
-              <button class="editBtn">Edit</button>
-            </div>
-          </div>
-          <div class="note-card">
-            <div class="data-sec">
-              <h2>Heading 1</h2>
+              <h4>Heading 1</h4>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Dignissimos molestiae eius veniam culpa voluptatibus voluptatem
