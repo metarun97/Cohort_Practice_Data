@@ -1,33 +1,166 @@
-// let noteCard = document.createElement("div");
-//     noteCard.classList.add("note-card");
+//^ Selection of the emements:-
 
-//     let dataSec = document.createElement("div");
-//     dataSec.classList.add("data-sec");
+const form = document.querySelector("form");
+const headingInp = document.querySelector("#heading");
+const detailInp = document.querySelector("#details");
+const notesDiv = document.querySelector(".notes");
+const delNote = document.querySelector(".deleteBtn");
+const edtNote = document.querySelector(".editBtn");
 
-//     let noteHeading = document.createElement("h4");
-//     noteHeading.textContent = singlenote.noteHead;
 
-//     let noteDetail = document.createElement("p");
-//     noteDetail.textContent = singlenote.noteDet;
 
-//     let btnSec = document.createElement("div");
-//     btnSec.classList.add("btns")
+//^ NewNote fetched from the localstorage:-
+let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
 
-//     let deleteBtn = document.createElement("button");
-//     deleteBtn.classList.add("deleteBtn");
-//     deleteBtn.textContent = "Delete";
 
-//     let editBtn = document.createElement("button");
-//     editBtn.classList.add("editBtn");
-//     editBtn.textContent = "Edit";
+//^ Add event listener to form:-
+form.addEventListener("submit", function (e) {
+  //* Default submittion off here⬇️:-
+  e.preventDefault();
 
-//     dataSec.append(noteHeading);
-//     dataSec.append(noteDetail);
+  if (!headingInp.value.trim() || !detailInp.value.trim()) {
+    alert("Heading and details cannot be empty!");
+    return;
+  } else {
+    //* NewNote create here:-
+    const newNote = {
+      id: Date.now(),
+      noteHeading: headingInp.value.trim(),
+      noteDetails: detailInp.value.trim()
+    }
+    notes = [...notes, newNote];
 
-//     btnSec.append(deleteBtn);
-//     btnSec.append(editBtn);
+    //* Note Creation popup:-
+    Toastify({
+      text: "Note deleted successfully!",
+      duration: 3000,
+      gravity: "top",
+      position: "center",
+      style: {
+        background: "#0d9920",
+      },
+    }).showToast();
 
-//     noteCard.append(dataSec);
-//     noteCard.append(btnSec);
+    //* NewNote created and saved in localstorage:-
+    localStorage.setItem("myNotes", JSON.stringify(notes));
+    renderNotes();
+  }
+  form.reset();
+})
 
-//     notes.append(noteCard);
+
+//^ Render the notes on UI:-
+function renderNotes() {
+  //* Initially we make it empty:-
+  notesDiv.innerHTML = "";
+
+  //* Loop each note element one by one:-
+  notes.forEach((singleNote) => {
+
+    let noteCard = document.createElement("div");
+    noteCard.classList.add("note-card");
+    noteCard.dataset.id = singleNote.id;
+
+    let dataSec = document.createElement("div");
+    dataSec.classList.add("data-sec");
+
+    let noteHeading = document.createElement("h4");
+    noteHeading.textContent = singleNote.noteHeading;
+
+    let noteDetail = document.createElement("p");
+    noteDetail.textContent = singleNote.noteDetails;
+
+    let btnSec = document.createElement("div");
+    btnSec.classList.add("btns")
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("deleteBtn");
+    deleteBtn.textContent = "Delete";
+
+    let editBtn = document.createElement("button");
+    editBtn.classList.add("editBtn");
+    editBtn.textContent = "Edit";
+
+    dataSec.append(noteHeading);
+    dataSec.append(noteDetail);
+
+    btnSec.append(deleteBtn);
+    btnSec.append(editBtn);
+
+    noteCard.append(dataSec);
+    noteCard.append(btnSec);
+
+    notesDiv.appendChild(noteCard);
+  })
+}
+renderNotes();
+
+
+//^ Deletion of note:-
+notesDiv.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deleteBtn")) {
+
+    //* search the closest note in notesDiv container:-
+    let singleCard = e.target.closest(".note-card");
+
+    //* finding the note id:-
+    let noteId = Number(singleCard.dataset.id);
+
+    //* filtering the notes:-
+    notes = notes.filter(note => note.id !== noteId);
+
+    //* Delete toastify JS popup:-
+    Toastify({
+      text: "Note deleted successfully!",
+      duration: 3000,
+      gravity: "top",
+      position: "center",
+      style: {
+        background: "#e50b0b",
+      },
+    }).showToast();
+
+    //* Note updated after deletion of note:-
+    localStorage.setItem("myNotes", JSON.stringify(notes));
+
+    //* Render all notes after deletion of note:-
+    renderNotes();
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

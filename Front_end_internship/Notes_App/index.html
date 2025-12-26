@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--* CSS File attached -->
-
     <link rel="stylesheet" href="style.css" />
+    <!--* Toastify JS CSS File attached -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <title>Notes_App</title>
   </head>
   <body>
@@ -21,7 +26,6 @@
               id="heading"
               type="text"
               placeholder="Enter note heading..."
-              required
             />
             <small class="errHead"></small>
           </div>
@@ -30,7 +34,6 @@
             <textarea
               id="details"
               placeholder="Enter note details..."
-              required
             ></textarea>
             <small class="errDet"></small>
           </div>
@@ -40,41 +43,14 @@
       <!-- All notes section -->
       <section id="allnotes-sec">
         <h3>All Notes</h3>
-        <div class="notes">
-          <div class="note-card">
-            <div class="data-sec">
-              <h4>Heading 1</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos molestiae eius veniam culpa voluptatibus voluptatem
-                quae! Temporibus eaque incidunt, minima deleniti esse quasi
-                itaque voluptatibus? Ex iure laboriosam id exercitationem.
-              </p>
-            </div>
-            <div class="btns">
-              <button class="deleteBtn">Delete</button>
-              <button class="editBtn">Edit</button>
-            </div>
-          </div>
-          <div class="note-card">
-            <div class="data-sec">
-              <h4>Heading 1</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dignissimos molestiae eius veniam culpa voluptatibus voluptatem
-                quae! Temporibus eaque incidunt, minima deleniti esse quasi
-                itaque voluptatibus? Ex iure laboriosam id exercitationem.
-              </p>
-            </div>
-            <div class="btns">
-              <button class="deleteBtn">Delete</button>
-              <button class="editBtn">Edit</button>
-            </div>
-          </div>
-        </div>
+        <div class="notes"></div>
       </section>
     </main>
     <!--* JS File attached -->
     <script src="./script.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
   </body>
 </html>
