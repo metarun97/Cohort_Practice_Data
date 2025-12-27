@@ -13,13 +13,27 @@ const edtNote = document.querySelector(".editBtn");
 let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
 
 
+
+
+
+
 //^ Add event listener to form:-
 form.addEventListener("submit", function (e) {
   //* Default submittion off here⬇️:-
   e.preventDefault();
 
+  //* Create the note:-
   if (!headingInp.value.trim() || !detailInp.value.trim()) {
-    alert("Heading and details cannot be empty!");
+    //* Both field data required toastify JS popup:-
+    Toastify({
+      text: "Heading and details cannot be empty!",
+      duration: 3000,
+      gravity: "top",
+      position: "center",
+      style: {
+        background: "#f4d524",
+      },
+    }).showToast();
     return;
   } else {
     //* NewNote create here:-
@@ -43,58 +57,76 @@ form.addEventListener("submit", function (e) {
 
     //* NewNote created and saved in localstorage:-
     localStorage.setItem("myNotes", JSON.stringify(notes));
-    renderNotes();
+    createNotes();
   }
   form.reset();
 })
 
 
+
+
+
 //^ Render the notes on UI:-
-function renderNotes() {
+function createNotes() {
   //* Initially we make it empty:-
   notesDiv.innerHTML = "";
+  //* Render as per condition:-
+  if (notes.length === 0) {
+    let emptyMsg = document.createElement("p");
+    emptyMsg.classList.add("emptyMsg")
+    emptyMsg.textContent = "No notes have been created yet.!";
+    notesDiv.appendChild(emptyMsg);
+    return;
+  } else {
+    //* Loop each note element one by one:-
+    notes.forEach((singleNote) => {
 
-  //* Loop each note element one by one:-
-  notes.forEach((singleNote) => {
+      let noteCard = document.createElement("div");
+      noteCard.classList.add("note-card");
+      noteCard.dataset.id = singleNote.id;
 
-    let noteCard = document.createElement("div");
-    noteCard.classList.add("note-card");
-    noteCard.dataset.id = singleNote.id;
+      let dataSec = document.createElement("div");
+      dataSec.classList.add("data-sec");
 
-    let dataSec = document.createElement("div");
-    dataSec.classList.add("data-sec");
+      let noteHeading = document.createElement("h4");
+      noteHeading.textContent = singleNote.noteHeading;
 
-    let noteHeading = document.createElement("h4");
-    noteHeading.textContent = singleNote.noteHeading;
+      let noteDetail = document.createElement("p");
+      noteDetail.textContent = singleNote.noteDetails;
 
-    let noteDetail = document.createElement("p");
-    noteDetail.textContent = singleNote.noteDetails;
+      let btnSec = document.createElement("div");
+      btnSec.classList.add("btns")
 
-    let btnSec = document.createElement("div");
-    btnSec.classList.add("btns")
+      let deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("deleteBtn");
+      deleteBtn.textContent = "Delete";
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("deleteBtn");
-    deleteBtn.textContent = "Delete";
+      let editBtn = document.createElement("button");
+      editBtn.classList.add("editBtn");
+      editBtn.textContent = "Edit";
 
-    let editBtn = document.createElement("button");
-    editBtn.classList.add("editBtn");
-    editBtn.textContent = "Edit";
+      dataSec.append(noteHeading);
+      dataSec.append(noteDetail);
 
-    dataSec.append(noteHeading);
-    dataSec.append(noteDetail);
+      btnSec.append(deleteBtn);
+      btnSec.append(editBtn);
 
-    btnSec.append(deleteBtn);
-    btnSec.append(editBtn);
+      noteCard.append(dataSec);
+      noteCard.append(btnSec);
 
-    noteCard.append(dataSec);
-    noteCard.append(btnSec);
-
-    notesDiv.appendChild(noteCard);
-  })
+      notesDiv.appendChild(noteCard);
+    })
+  }
 }
-renderNotes();
 
+// notesDiv.addEventListener("click",(e)=>{
+//   if(e.target.classList.contains("editBtn")){
+//     const noteId = Number(e.target.dataset.id);
+//     console.log(noteId);
+//   }
+// })
+
+createNotes();
 
 //^ Deletion of note:-
 notesDiv.addEventListener("click", (e) => {
@@ -124,7 +156,7 @@ notesDiv.addEventListener("click", (e) => {
     localStorage.setItem("myNotes", JSON.stringify(notes));
 
     //* Render all notes after deletion of note:-
-    renderNotes();
+    createNotes();
   }
 })
 

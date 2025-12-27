@@ -37,17 +37,21 @@ main {
   justify-content: center;
 }
 
+#create-note h2 {
+  font-size: 1.75em;
+}
+
 form {
-  max-width: 480px;
+  max-width: 650px;
   width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 1.5rem 0.75rem;
+  padding: 1.5rem 0.75rem 2rem 0.75rem;
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 .note-sec {
@@ -108,7 +112,8 @@ textarea:focus {
 }
 
 #allnotes-sec h3 {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .notes {
@@ -127,6 +132,7 @@ textarea:focus {
   flex-direction: column;
   gap: 0.8em 0;
   border-radius: 10px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 .data-sec {
@@ -167,10 +173,22 @@ textarea:focus {
   background-color: #188602;
 }
 
+.emptyMsg {
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  font-weight: 500;
+  /* color: red; */
+}
+
 @media (min-width: 1024px) {
   .main-heading {
     font-size: 5rem;
-    text-align: center;
+  }
+
+  #create-note h2 {
+    font-size: 2.2em;
   }
 
   #allnotes-sec {
@@ -182,10 +200,23 @@ textarea:focus {
     justify-content: flex-start;
     padding: 1rem 1.5rem;
   }
+
+  #allnotes-sec h3 {
+    font-weight: 500;
+  }
   .notes {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
   #allnotes-sec h3 {
     font-size: 3.6rem;
+  }
+
+  .emptyMsg {
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    font-weight: 500;
+    color: red;
   }
 }
