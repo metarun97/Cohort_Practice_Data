@@ -13,10 +13,6 @@ const edtNote = document.querySelector(".editBtn");
 let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
 
 
-
-
-
-
 //^ Add event listener to form:-
 form.addEventListener("submit", function (e) {
   //* Default submittion off here⬇️:-
@@ -57,17 +53,14 @@ form.addEventListener("submit", function (e) {
 
     //* NewNote created and saved in localstorage:-
     localStorage.setItem("myNotes", JSON.stringify(notes));
-    createNotes();
+    renderNotes();
   }
   form.reset();
 })
 
 
-
-
-
 //^ Render the notes on UI:-
-function createNotes() {
+function renderNotes() {
   //* Initially we make it empty:-
   notesDiv.innerHTML = "";
   //* Render as per condition:-
@@ -118,15 +111,8 @@ function createNotes() {
     })
   }
 }
+renderNotes();
 
-// notesDiv.addEventListener("click",(e)=>{
-//   if(e.target.classList.contains("editBtn")){
-//     const noteId = Number(e.target.dataset.id);
-//     console.log(noteId);
-//   }
-// })
-
-createNotes();
 
 //^ Deletion of note:-
 notesDiv.addEventListener("click", (e) => {
@@ -156,9 +142,16 @@ notesDiv.addEventListener("click", (e) => {
     localStorage.setItem("myNotes", JSON.stringify(notes));
 
     //* Render all notes after deletion of note:-
-    createNotes();
+    renderNotes();
   }
 })
+
+
+
+
+
+
+
 
 
 
