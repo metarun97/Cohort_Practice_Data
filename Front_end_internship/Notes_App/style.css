@@ -135,6 +135,13 @@ textarea:focus {
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
+.data-sec h4 {
+  color: #202836;
+}
+.data-sec p {
+  color: #646464;
+}
+
 .data-sec {
   width: 100%;
 }
@@ -148,7 +155,7 @@ textarea:focus {
 
 .deleteBtn,
 .editBtn {
-  padding: 0.4em 0.8em;
+  padding: 0.3em 0.6em;
   border: none;
   border-radius: 6px;
   font-size: 1em;
@@ -174,12 +181,12 @@ textarea:focus {
 }
 
 .emptyMsg {
-  font-size: 1.2em;
+  font-size: 1.4em;
   display: flex;
   justify-content: center;
   margin-top: 5rem;
-  font-weight: 500;
-  /* color: red; */
+  font-weight: 600;
+  color: red;
 }
 
 @media (min-width: 1024px) {
@@ -212,11 +219,11 @@ textarea:focus {
   }
 
   .emptyMsg {
-    font-size: 1.8em;
+    font-size: 2em;
     display: flex;
     justify-content: center;
     margin-top: 5rem;
-    font-weight: 500;
+    font-weight: 700;
     color: red;
   }
 }

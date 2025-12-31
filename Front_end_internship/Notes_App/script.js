@@ -1,20 +1,28 @@
 //^ Selection of the emements:-
 
 const form = document.querySelector("form");
-const headingInput = document.querySelector("#heading");
-const detailsInput = document.querySelector("#details");
 const notesDiv = document.querySelector(".notes");
-const addNoteBtn = document.querySelector(".editBtn")
+const addNoteBtn = document.querySelector(".addNoteBtn")
+let headingInput = document.querySelector("#heading");
+let detailsInput = document.querySelector("#details");
+
+
+
+
+
+//* All notes array:-
+let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
+let isEditingId = null;
+
+
+
+
 
 //* Add event to the form submition:-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const headInp = headingInput.value.trim();
-  const detsInp = detailsInput.value.trim();
-
-  //* When both empty then run:-
-  if ((!headInp && !detsInp)) {
+  if (!headingInput.value.trim() || !detailsInput.value.trim()) {
     // Note creation toastify popup:-
     Toastify({
       text: "Heading and details cannot be empty!",
@@ -22,26 +30,31 @@ form.addEventListener("submit", (e) => {
       gravity: "top",
       position: "center",
       style: {
-        background: "#f4d524",
+        background: "#dbcb23",
       },
     }).showToast();
-    return
+    return;
+  } else {
+    //* When both empty then run:-
+    if (isEditingId) {
+      editNoteFunc();
+    }
+    else {
+      addnote();
+    }
   }
-  addnote(headInp, detsInp);
+  renderNotes();
+  localStorage.setItem("myNotes", JSON.stringify(notes));
   form.reset();
 })
 
 
-//* All notes array:-
-let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
-
-
 //* Add note function:-
-function addnote(heading, details) {
+function addnote() {
   const newNote = {
     id: Date.now(),
-    heading: heading,
-    details: details,
+    heading: headingInput.value,
+    details: detailsInput.value,
   }
   notes.push(newNote);
 
@@ -61,46 +74,72 @@ function addnote(heading, details) {
 }
 
 
+function editNoteFunc() {
+  notes = notes.map(note => note.id === isEditingId ? { ...note, heading: headingInput.value, details: detailsInput.value } : note)
+  isEditingId = null;
+  addNoteBtn.textContent = "Add note";
+
+  // Note Updation popup:-
+  Toastify({
+    text: "Note updated successfully!",
+    duration: 3000,
+    gravity: "top",
+    position: "center",
+    style: {
+      background: "#374af2",
+    },
+  }).showToast();
+}
+
 //* Rendernotes function:-
 function renderNotes() {
   notesDiv.innerHTML = "";
 
-  notes.forEach((singleNote) => {
-    let noteCard = document.createElement("div");
-    noteCard.classList.add("note-card");
-    noteCard.dataset.id = singleNote.id;
+  if (notes.length === 0) {
+    const emptyMsg = document.createElement("p");
+    emptyMsg.classList.add("emptyMsg");
+    emptyMsg.textContent = "No notes created yet!"
+    notesDiv.append(emptyMsg);
+  } else {
 
-    let dataSec = document.createElement("div");
-    dataSec.classList.add("data-sec");
 
-    let noteHeading = document.createElement("h4");
-    noteHeading.textContent = singleNote.heading;
+    notes.forEach((singleNote) => {
+      let noteCard = document.createElement("div");
+      noteCard.classList.add("note-card");
+      noteCard.dataset.id = singleNote.id;
 
-    let noteDetail = document.createElement("p");
-    noteDetail.textContent = singleNote.details;
+      let dataSec = document.createElement("div");
+      dataSec.classList.add("data-sec");
 
-    let btnSec = document.createElement("div");
-    btnSec.classList.add("btns")
+      let noteHeading = document.createElement("h4");
+      noteHeading.textContent = singleNote.heading;
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("deleteBtn");
-    deleteBtn.textContent = "Delete";
+      let noteDetail = document.createElement("p");
+      noteDetail.textContent = singleNote.details;
 
-    let editBtn = document.createElement("button");
-    editBtn.classList.add("editBtn");
-    editBtn.textContent = "Edit";
+      let btnSec = document.createElement("div");
+      btnSec.classList.add("btns")
 
-    dataSec.append(noteHeading);
-    dataSec.append(noteDetail);
+      let deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("deleteBtn");
+      deleteBtn.textContent = "Delete";
 
-    btnSec.append(deleteBtn);
-    btnSec.append(editBtn);
+      let editBtn = document.createElement("button");
+      editBtn.classList.add("editBtn");
+      editBtn.textContent = "Edit";
 
-    noteCard.append(dataSec);
-    noteCard.append(btnSec);
+      dataSec.append(noteHeading);
+      dataSec.append(noteDetail);
 
-    notesDiv.appendChild(noteCard);
-  })
+      btnSec.append(deleteBtn);
+      btnSec.append(editBtn);
+
+      noteCard.append(dataSec);
+      noteCard.append(btnSec);
+
+      notesDiv.appendChild(noteCard);
+    })
+  }
 }
 renderNotes();
 
@@ -127,7 +166,6 @@ function deleteNoteFun(id) {
 
 //* Edit note function:-
 
-let isEditing = false;
 
 //* Get edit button excess by event deligation:-
 notesDiv.addEventListener("click", (e) => {
@@ -139,7 +177,11 @@ notesDiv.addEventListener("click", (e) => {
 
     let editNdata = notes.find(note => note.id === editId);
 
-    console.log(editNdata.id);
+    headingInput.value = editNdata.heading
+    detailsInput.value = editNdata.details
+
+    isEditingId = editId;
+    addNoteBtn.textContent = "Update note";
   }
 })
 
