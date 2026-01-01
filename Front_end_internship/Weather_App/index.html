@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- * CSS file attached -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather_App</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <!-- Search -->
+      <form class="search-box">
+        <input type="text" placeholder="Enter city name" class="searchCityInp"/>
+        <button class="searchBtn">🔍</button>
+      </form>
+
+      <!-- Weather Main Info -->
+      <div class="weather-main">
+        <h2 class="city">New Delhi</h2>
+        <p class="date">Sunday, 29 Dec</p>
+
+        <div class="temp">
+          <span class="temprature">28</span>
+          <span class="degree">°C</span>
+        </div>
+
+        <p class="condition">Sunny</p>
+      </div>
+
+      <!-- Weather Details -->
+      <div class="weather-details">
+        <div class="detail-card">
+          <p>Humidity</p>
+          <h3 class="humidity">65%</h3>
+        </div>
+
+        <div class="detail-card">
+          <p>Wind</p>
+          <h3 class="wind">12 km/h</h3>
+        </div>
+
+        <div class="detail-card">
+          <p>Pressure</p>
+          <h3 class="pressure">1012 hPa</h3>
+        </div>
+
+        <div class="detail-card">
+          <p>Feels Like</p>
+          <h3 class="feels">30°C</h3>
+        </div>
+      </div>
+    </div>
+    <!-- * JS file attached -->
+    <script src="./script.js"></script>
+  </body>
+</html>
