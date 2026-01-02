@@ -11,30 +11,26 @@ let pressure = document.querySelector(".pressure");
 let feels = document.querySelector(".feels");
 let wetherApp = document.querySelector(".weather-app");
 
+
 //* Weather API key:-
 const API_KEY = '0567c70b21126eb12b5cc516bb7e2750';
+
 
 //* API data feching function:-
 async function fetchWeatherDate(city) {
   try {
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
-
-    const data = await res.json();
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
+    const res = await fetch(URL);
     if (!res.ok) {
-      wetherApp.style.display = " none";
-      const nodataMsg = document.createElement('p');
-      nodataMsg.classList.add("no-data");
-      nodataMsg.textContent = "Oops! 😒 city data not found.";
-      document.body.appendChild(nodataMsg);
-    } else {
-      wetherApp.style.display = " initial";
-      updateUIData(data);
+      throw new Error("City not found!")
     }
+    const data = await res.json();
+    updateUIData(data);
+
   } catch (error) {
-    console.log("City data not fetched", error)
+    alert('City not found!');
   }
 }
-
 
 
 //* UI updation after API Call:-
@@ -63,6 +59,7 @@ function updateUIData(data) {
   let dayName = days[date.getDay()];
   let monthName = months[date.getMonth()];
 
+  // Day ,date and month:-
   dateVal.textContent = `${dayName} ,${day} ${monthName}`;
 
   // Weather temprature data:-
@@ -84,6 +81,8 @@ function updateUIData(data) {
   feels.textContent = `${Math.floor(data.main.feels_like - 273.15)}°C`;
 }
 
+
+
 //* SearchBtn event for API Call:-
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -92,6 +91,5 @@ searchBtn.addEventListener("click", (e) => {
   fetchWeatherDate(city);
   searchInp.value = "";
 })
-
 
 
