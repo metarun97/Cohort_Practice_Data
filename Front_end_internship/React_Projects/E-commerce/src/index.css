@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+
+body{
+  background-color: #eef6ff;
+}
+
+.active {
+  color: #193cb8;
+  font-weight: 400;
+}
+
+main{
+  margin-top: 56px;
+}
+
+@import 'tailwindcss';
