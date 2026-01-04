@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
   return (
-    <nav className="w-full flex flex-col fixed top-0 right-0 left-0 bg-blue-300">
+    <nav className="w-full flex flex-col fixed top-0 right-0 left-0 bg-[] backdrop-blur-xs">
       <div className="flex items-center justify-between px-4 py-2">
         {/* left part */}
         <div className="left flex items-center gap-x-0.5 text-2xl lg:text-3xl text-blue-700 font-bold">
