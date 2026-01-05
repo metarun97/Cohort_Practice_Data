@@ -10,7 +10,7 @@ const NewsLetter = () => {
         <h2 className="text-4xl lg:text-6xl font-bold text-blue-950 text-center">
           Why Choose Us!
         </h2>
-        <div className="letters w-full  flex items-center gap-10 justify-evenly flex-wrap">
+        <div className="letters w-full flex items-center gap-10 justify-evenly flex-wrap">
           <div className="letter max-w-[180px] p-5 flex flex-col items-center gap-4">
             <div className="aspect-square overflow-hidden">
               <img
@@ -19,7 +19,7 @@ const NewsLetter = () => {
                 alt=""
               />
             </div>
-            <h3 className="text-lg font-bold">Free Delivery</h3>
+            <h3 className="text-lg font-bold text-blue-950">Free Delivery</h3>
           </div>
           <div className="letter max-w-[180px]  p-5 flex flex-col items-center gap-4">
             <div className="aspect-square overflow-hidden">
@@ -29,13 +29,13 @@ const NewsLetter = () => {
                 alt=""
               />
             </div>
-            <h3 className="text-lg font-bold">Easy Return</h3>
+            <h3 className="text-lg font-bold text-blue-950">Easy Return</h3>
           </div>
           <div className="letter max-w-[180px] p-5 flex flex-col items-center gap-4">
             <div className="aspect-square overflow-hidden">
               <img className="w-full h-full object-cover" src={credit} alt="" />
             </div>
-            <h3 className="text-lg font-bold">Secure Payment</h3>
+            <h3 className="text-lg font-bold text-blue-950">Secure Payment</h3>
           </div>
           <div className="letter max-w-[180px] p-2 flex flex-col items-center gap-4">
             <div className="aspect-square overflow-hidden">
@@ -45,7 +45,7 @@ const NewsLetter = () => {
                 alt=""
               />
             </div>
-            <h3 className="text-lg font-bold">10K+ Customers</h3>
+            <h3 className="text-lg text-blue-950 font-bold">10K+ Customers</h3>
           </div>
         </div>
       </div>

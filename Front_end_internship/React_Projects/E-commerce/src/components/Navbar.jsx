@@ -8,14 +8,16 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
+
   return (
-    <nav className="w-full flex flex-col fixed top-0 right-0 left-0 bg-[] backdrop-blur-xs">
+    <nav className="w-full flex flex-col fixed top-0 right-0 left-0 backdrop-blur-xs">
       <div className="flex items-center justify-between px-4 py-2">
         {/* left part */}
         <div className="left flex items-center gap-x-0.5 text-2xl lg:text-3xl text-blue-700 font-bold">
           <h1 className="flex items-center gap-0 text-2xl lg:text-3xl text-blue-800 font-semibold">
             <img className="h-10" src={mainLogo} alt="" />
-            <span className='text-[#E63946]'>S</span>hop<span className='text-[#FCBF49]'>Z</span>one
+            <span className="text-[#E63946]">S</span>hop
+            <span className="text-[#FCBF49]">Z</span>one
           </h1>
         </div>
         {/* center part */}
@@ -33,6 +35,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search..."
+              onChange={(e) => handleInpChange(e)}
               className="hidden lg:block w-80% text-xl border-0 px-2.5 py-1.5 outline-0 ml-2.5 rounded-md bg-white"
             />
             <div className="relative">

@@ -8,7 +8,7 @@ const PromoBanner = () => {
         <h3 className="text-l lg:text-3xl font-bold text-blue-950">
           Free Shipping on Orders under ₹ 999
         </h3>
-        <button className="px-7.5 py-2 lg:px-15 lg:py-3.5  bg-blue-500 hover:bg-blue-600 text-md lg:text-2xl text-white font-semibold rounded-md">
+        <button className="px-7.5 py-2 lg:px-15 lg:py-3.5  bg-blue-500 hover:bg-blue-600 text-md lg:text-2xl text-white font-semibold rounded-md cursor-pointer">
           Shop Now
         </button>
       </div>

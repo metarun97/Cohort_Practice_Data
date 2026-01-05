@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Running Shoes",
+    "description": "Comfortable running shoes for daily exercise.",
+    "price": 2499,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"
+  },
+  {
+    "id": 2,
+    "name": "Casual Sneakers",
+    "description": "Trendy sneakers for casual wear.",
+    "price": 1999,
+    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600"
+  },
+  {
+    "id": 3,
+    "name": "Leather Office Bag",
+    "description": "Premium leather bag for office use.",
+    "price": 2999,
+    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600"
+  },
+  {
+    "id": 4,
+    "name": "Travel Backpack",
+    "description": "Durable backpack for travel and daily use.",
+    "price": 1899,
+    "image": "https://cdn.packhacker.com/2018/01/df750a71-2osprey-farpoint-40-v2-full.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Smart Watch",
+    "description": "Smart watch with health tracking features.",
+    "price": 3499,
+    "image": "https://cdn.thewirecutter.com/wp-content/media/2025/10/BEST-SMARTWATCH-ANDROID-PHONES-04020.jpg?auto=webp&quality=75&width=600"
+  },
+  {
+    "id": 6,
+    "name": "Analog Watch",
+    "description": "Classic analog wrist watch.",
+    "price": 1599,
+    "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600"
+  },
+  {
+    "id": 7,
+    "name": "Wireless Headphones",
+    "description": "Noise cancelling wireless headphones.",
+    "price": 2799,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
+  },
+  {
+    "id": 8,
+    "name": "Bluetooth Earbuds",
+    "description": "Compact earbuds with deep bass.",
+    "price": 2199,
+    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600"
+  },
+  {
+    "id": 9,
+    "name": "Denim Jacket",
+    "description": "Stylish denim jacket for men.",
+    "price": 2599,
+    "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600"
+  },
+  {
+    "id": 10,
+    "name": "Winter Hoodie",
+    "description": "Warm hoodie for winter season.",
+    "price": 1799,
+    "image": "https://5.imimg.com/data5/PE/ZV/HA/SELLER-69029071/winter-hoodies-500x500.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Formal Shirt",
+    "description": "Slim fit formal office shirt.",
+    "price": 1399,
+    "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600"
+  },
+  {
+    "id": 12,
+    "name": "Casual T-Shirt",
+    "description": "Soft cotton casual t-shirt.",
+    "price": 799,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"
+  },
+  {
+    "id": 13,
+    "name": "Laptop Sleeve",
+    "description": "Protective laptop sleeve.",
+    "price": 999,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/51vPFAezMnL._SL500_._AC_SL500_.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse.",
+    "price": 699,
+    "image": "https://avechi.co.ke/wp-content/uploads/2024/08/RE4ogWw-1.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Mechanical Keyboard",
+    "description": "RGB mechanical keyboard.",
+    "price": 3299,
+    "image": "https://images.squarespace-cdn.com/content/v1/5f04f767ded4a14e876e6190/1602044688673-BODYCXLWEY1AZYWS0I60/Havit_89_Mechanical_Keyboard_Full_Review_Sypnotix"
+  },
+  {
+    "id": 16,
+    "name": "Sunglasses",
+    "description": "UV protected sunglasses.",
+    "price": 1299,
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"
+  },
+  {
+    "id": 17,
+    "name": "Leather Wallet",
+    "description": "Genuine leather wallet.",
+    "price": 899,
+    "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600"
+  },
+  {
+    "id": 18,
+    "name": "Fitness Band",
+    "description": "Fitness band with heart rate tracking.",
+    "price": 1999,
+    "image": "https://www.gadstyle.com/wp-content/uploads/2023/11/fitbit-charge-6-fitness-tracker-with-google-apps-4.webp"
+  },
+  {
+    "id": 19,
+    "name": "Steel Water Bottle",
+    "description": "Insulated stainless steel bottle.",
+    "price": 599,
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600"
+  },
+  {
+    "id": 20,
+    "name": "Sports Cap",
+    "description": "Breathable sports cap.",
+    "price": 499,
+    "image": "https://m.media-amazon.com/images/I/41G4YHWiOkL._AC_UY1100_.jpg"
+  }
+]
