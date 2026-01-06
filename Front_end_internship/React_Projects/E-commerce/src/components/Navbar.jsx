@@ -6,7 +6,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross1 } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ search, setSearch }) => {
   const [isOpen, setisOpen] = useState(false);
 
   return (
@@ -35,8 +35,9 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Search..."
-              onChange={(e) => handleInpChange(e)}
               className="hidden lg:block w-80% text-xl border-0 px-2.5 py-1.5 outline-0 ml-2.5 rounded-md bg-white"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
             <div className="relative">
               <GiShoppingBag className="text-2xl lg:text-3xl text-blue-800 cursor-pointer" />
@@ -68,6 +69,8 @@ const Navbar = () => {
             className="bg-amber-100 text-xl border-0 outline-0 px-1 py-1.5 rounded-sm"
             type="text"
             placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <NavLink className="text-xl" to="/">
             Home

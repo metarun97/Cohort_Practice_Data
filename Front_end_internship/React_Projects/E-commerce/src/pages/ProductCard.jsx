@@ -1,5 +1,5 @@
-const ProductCard = ({ singleProduct }) => {
-  const { id, name, price, description, image } = singleProduct;
+const ProductCard = ({ product }) => {
+  const { id, name, price, description, image } = product;
   return (
     <div className="w-full bg-white shadow hover:shadow-xl p-4 transition duration-150 rounded-xl cursor-pointer">
       <div key={id} className="w-full h-48 flex items-center justify-center">

@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import Catagories from '../sections/Catagories';
 import FeatureProducts from '../sections/FeatureProducts';
 import Hero from '../sections/Hero';
@@ -16,7 +15,6 @@ const Home = () => {
       <PromoBanner />
       <hr className="text-slate-500 font-bold mt-6" />
       <NewsLetter />
-      <Footer />
     </>
   );
 };
