@@ -6,9 +6,11 @@ import adidas from '/feture_images/adidas.jpg';
 const FeatureProducts = () => {
   return (
     <div className="w-full px-4 lg:px-5 py-5 flex flex-col items-center gap-y-5">
-      <h1 className="text-5xl lg:text-6xl text-center font-semibold text-blue-950">Featured Products</h1>
-      <div className="w-full cards flex flex-wrap items-center justify-center px-2.5 gap-5 lg:gap-10 pt-5">
-        <div className="card max-w-[300px] lg:max-w-[350px] w-full flex flex-col items-center gap-2 bg-slate-200 rounded-lg p-4">
+      <h1 className="text-5xl lg:text-6xl text-center font-semibold text-blue-950">
+        Featured Products
+      </h1>
+      <div className="w-full cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2.5 md:px-5 lg:px-10">
+        <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
           <div className="aspect-square overflow-hidden">
             <img className="w-full h-full object-cover" src={laptop} alt="" />
           </div>
@@ -20,7 +22,7 @@ const FeatureProducts = () => {
             Add to cart
           </button>
         </div>
-        <div className="card max-w-[300px] lg:max-w-[350px] w-full flex flex-col items-center gap-2 bg-slate-200 rounded-lg p-4">
+        <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
           <div className="aspect-square overflow-hidden">
             <img className="w-full h-full object-cover" src={iphone} alt="" />
           </div>
@@ -32,7 +34,7 @@ const FeatureProducts = () => {
             Add to cart
           </button>
         </div>
-        <div className="card max-w-[300px] lg:max-w-[350px] w-full flex flex-col items-center gap-2 bg-slate-200 rounded-lg p-4">
+        <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
           <div className="aspect-auto overflow-hidden">
             <img className="w-full h-full object-cover" src={red_goun} alt="" />
           </div>
@@ -44,7 +46,7 @@ const FeatureProducts = () => {
             Add to cart
           </button>
         </div>
-        <div className="card max-w-[300px] lg:max-w-[350px] w-full flex flex-col items-center gap-2 bg-slate-200 rounded-lg p-4">
+        <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
           <div className="aspect-square overflow-hidden">
             <img className="w-full h-full object-cover" src={adidas} alt="" />
           </div>

@@ -1,17 +1,17 @@
-import shipping from '../../public/logos/delivery.png';
-import returnPackage from '../../public/logos/return.png';
-import credit from '../../public/logos/credit.png';
-import customers from '../../public/logos/customers.png';
+import shipping from '/logos/delivery.png';
+import returnPackage from '/logos/return.png';
+import credit from '/logos/credit.png';
+import customers from '/logos/customers.png';
 
 const NewsLetter = () => {
   return (
     <>
-      <div className="w-full flex flex-col gap-4 my-10 px-2 lg:px-5 py-5">
+      <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8 my-5 px-2 lg:px-5 py-5">
         <h2 className="text-4xl lg:text-6xl font-bold text-blue-950 text-center">
           Why Choose Us!
         </h2>
-        <div className="letters w-full flex items-center gap-10 justify-evenly flex-wrap">
-          <div className="letter max-w-[180px] p-5 flex flex-col items-center gap-4">
+        <div className="letters w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 md:gap-6 lg:gap-8">
+          <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
             <div className="aspect-square overflow-hidden">
               <img
                 className="w-full h-full object-cover"
@@ -21,7 +21,7 @@ const NewsLetter = () => {
             </div>
             <h3 className="text-lg font-bold text-blue-950">Free Delivery</h3>
           </div>
-          <div className="letter max-w-[180px]  p-5 flex flex-col items-center gap-4">
+          <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
             <div className="aspect-square overflow-hidden">
               <img
                 className="w-full h-full object-cover"
@@ -31,13 +31,13 @@ const NewsLetter = () => {
             </div>
             <h3 className="text-lg font-bold text-blue-950">Easy Return</h3>
           </div>
-          <div className="letter max-w-[180px] p-5 flex flex-col items-center gap-4">
+          <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
             <div className="aspect-square overflow-hidden">
               <img className="w-full h-full object-cover" src={credit} alt="" />
             </div>
-            <h3 className="text-lg font-bold text-blue-950">Secure Payment</h3>
+            <h3 className="text-lg font-bold text-blue-950">Secure payment</h3>
           </div>
-          <div className="letter max-w-[180px] p-2 flex flex-col items-center gap-4">
+          <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
             <div className="aspect-square overflow-hidden">
               <img
                 className="w-full h-full object-cover"
@@ -45,7 +45,7 @@ const NewsLetter = () => {
                 alt=""
               />
             </div>
-            <h3 className="text-lg text-blue-950 font-bold">10K+ Customers</h3>
+            <h3 className="text-lg font-bold text-blue-950">10K + Customers</h3>
           </div>
         </div>
       </div>

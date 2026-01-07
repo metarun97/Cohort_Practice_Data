@@ -9,22 +9,25 @@ const Catagories = () => {
       <h1 className="text-5xl lg:text-6xl font-semibold text-blue-950">
         Catagories
       </h1>
-      <div className="w-full cards flex flex-wrap items-center justify-center gap-10 lg:gap-20 pt-5">
-        <div className="card max-w-[280px] lg:max-w-[250px] w-full bg-slate-200 rounded-lg py-5 px-10">
+      <div
+        className="w-full cards grid justify-items-center  my-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+        gap-2.5 px-3.5 md:px-7.5 lg:px-15"
+      >
+        <div className="card w-full bg-blue-200 rounded-lg p-4">
           <img src={men} alt="" />
           <h2 className="text-2xl text-center font-bold">Men</h2>
         </div>
-        <div className="card max-w-[280px] lg:max-w-[250px] w-full  bg-slate-200 rounded-lg py-5 px-10">
+        <div className="card  w-full bg-blue-200 rounded-lg p-4">
           <img src={women} alt="" />
           <h2 className="text-2xl text-center font-bold">Women</h2>
         </div>
-        <div className="card max-w-[280px] lg:max-w-[250px] w-full bg-slate-200 rounded-lg py-5 px-10">
+        <div className="card w-full bg-blue-200 rounded-lg p-4">
           <img src={shoes} alt="" />
           <h2 className="text-2xl text-center font-bold">Electronics</h2>
         </div>
-        <div className="card max-w-[280px] lg:max-w-[250px] w-full  bg-slate-200 rounded-lg py-5 px-10">
+        <div className="card w-full bg-blue-200 rounded-lg p-4">
           <img src={electronics} alt="" />
-          <h2 className="text-2xl text-center font-bold">Shoes</h2>
+          <h2 className="text-2xl text-center font-bold"></h2>
         </div>
       </div>
     </div>

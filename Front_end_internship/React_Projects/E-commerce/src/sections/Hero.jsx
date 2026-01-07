@@ -1,4 +1,4 @@
-import bags from '../../public/Png_data/bags-img.png';
+import bags from '/Png_data/bags-img.png?url';
 
 const Hero = () => {
   return (

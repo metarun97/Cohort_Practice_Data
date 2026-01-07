@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 // import { GiShoppingCart } from 'react-icons/gi';
 import mainLogo from '/logos/shopping-cart.png';
 import { GiShoppingBag } from 'react-icons/gi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross1 } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
+import { searchContext } from '../context/SearchContext';
 
-const Navbar = ({ search, setSearch }) => {
+const Navbar = () => {
+
   const [isOpen, setisOpen] = useState(false);
+  const { search, setSearch } = useContext(searchContext);
 
   return (
     <nav className="w-full flex flex-col fixed top-0 right-0 left-0 backdrop-blur-xs">
