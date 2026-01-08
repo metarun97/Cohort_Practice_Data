@@ -6,6 +6,7 @@ import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import PageNotFound from './pages/PageNotFound';
+import allProducts from './data/allProducts.json';
 
 const App = () => {
   return (
@@ -13,9 +14,15 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/productDetails" element={<ProductDetails />} />
+          <Route path="/" element={<Home allProducts={allProducts} />} />
+          <Route
+            path="/products"
+            element={<Products allProducts={allProducts} />}
+          />
+          <Route
+            path="/product/:id"
+            element={<ProductDetails allProducts={allProducts} />}
+          />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

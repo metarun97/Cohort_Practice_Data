@@ -1,7 +1,12 @@
-const ProductCard = ({ product }) => {
+import { Link } from 'react-router-dom';
+
+const ProductCard = ({ product, allProducts }) => {
   const { id, name, price, description, image } = product;
   return (
-    <div className="w-full bg-white shadow hover:shadow-xl p-4 transition duration-150 rounded-xl cursor-pointer">
+    <Link
+      to={`/product/${product.id}`}
+      className="w-full bg-white shadow hover:shadow-xl p-4 transition duration-150 rounded-xl cursor-pointer"
+    >
       <div key={id} className="w-full h-48 flex items-center justify-center">
         <img src={image} alt={name} className="h-full object-contain" />
       </div>
@@ -13,7 +18,7 @@ const ProductCard = ({ product }) => {
       <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer">
         Add to Cart
       </button>
-    </div>
+    </Link>
   );
 };
 

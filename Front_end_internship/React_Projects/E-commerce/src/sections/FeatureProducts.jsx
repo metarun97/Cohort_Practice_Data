@@ -1,28 +1,37 @@
-import laptop from '/feture_images/laptop_dell.webp';
-import iphone from '/feture_images/iphone_17.jpg';
-import red_goun from '/feture_images/red-goun.avif';
-import adidas from '/feture_images/adidas.jpg';
+const FeatureProducts = ({ allProducts }) => {
+  const fourProducts = allProducts.slice(0, 4);
 
-const FeatureProducts = () => {
   return (
     <div className="w-full px-4 lg:px-5 py-5 flex flex-col items-center gap-y-5">
-      <h1 className="text-5xl lg:text-6xl text-center font-semibold text-blue-950">
+      <h1 className="text-5xl md:text-6xl lg:text-7xl text-center font-semibold text-blue-950">
         Featured Products
       </h1>
       <div className="w-full cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2.5 md:px-5 lg:px-10">
-        <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
-          <div className="aspect-square overflow-hidden">
-            <img className="w-full h-full object-cover" src={laptop} alt="" />
+        {fourProducts.map((p) => (
+          <div
+            key={p.id}
+            className="card w-full flex flex-col items-center gap-2 border-2 bg-white border-slate-200 rounded-lg p-2 cursor-pointer transition-all duration-200 hover:shadow-xl shadow-slate-400"
+          >
+            <div className="aspect-square overflow-hidden">
+              <img
+                className="w-full h-full object-cover"
+                src={p.image}
+                alt={p.name}
+              />
+            </div>
+            <div className="desc flex flex-col gap-1 items-center">
+              <h2 className="text-2xl text-center font-bold">{p.name}</h2>
+              <p className="text-xl font-semibold text-slate-600">
+                ₹ {p.price}
+              </p>
+            </div>
+            <button className="px-4 py-2 text-xl bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-md">
+              Add to cart
+            </button>
           </div>
-          <div className="desc flex flex-col gap-1 items-center">
-            <h2 className="text-2xl text-center font-bold">Dell Laptop</h2>
-            <p className="text-xl font-semibold text-slate-600">₹ 62,590</p>
-          </div>
-          <button className="px-4 py-2 text-xl bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-md">
-            Add to cart
-          </button>
-        </div>
-        <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
+        ))}
+
+        {/* <div className="card w-full flex flex-col items-center gap-2 bg-blue-200 rounded-lg p-4">
           <div className="aspect-square overflow-hidden">
             <img className="w-full h-full object-cover" src={iphone} alt="" />
           </div>
@@ -57,7 +66,7 @@ const FeatureProducts = () => {
           <button className="px-4 py-2 text-xl bg-blue-600 hover:bg-blue-700  text-white rounded-md">
             Add to cart
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
