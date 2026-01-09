@@ -4,7 +4,7 @@
     "name": "Running Shoes",
     "description": "Comfortable running shoes for daily exercise.",
     "price": 2499,
-    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&h=533",
     "specifications": "Lightweight mesh upper, breathable design, rubber sole for strong grip, suitable for daily running and workouts."
   },
   {
@@ -12,7 +12,7 @@
     "name": "Wireless Headphones",
     "description": "Noise cancelling wireless headphones.",
     "price": 2799,
-    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&h=533",
     "specifications": "Bluetooth connectivity, active noise cancellation, up to 20 hours battery life, built-in microphone."
   },
   {
@@ -20,31 +20,23 @@
     "name": "Leather Office Bag",
     "description": "Premium leather bag for office use.",
     "price": 2999,
-    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600",
+    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&h=533",
     "specifications": "Genuine leather material, multiple compartments, padded laptop section, ideal for office professionals."
   },
   {
     "id": 4,
-    "name": "Travel Backpack",
-    "description": "Durable backpack for travel and daily use.",
-    "price": 1899,
-    "image": "https://cdn.packhacker.com/2018/01/df750a71-2osprey-farpoint-40-v2-full.jpg",
-    "specifications": "Large storage capacity, water-resistant fabric, adjustable straps, suitable for travel and daily use."
-  },
-  {
-    "id": 5,
-    "name": "Smart Watch",
-    "description": "Smart watch with health tracking features.",
-    "price": 3499,
-    "image": "https://cdn.thewirecutter.com/wp-content/media/2025/10/BEST-SMARTWATCH-ANDROID-PHONES-04020.jpg?auto=webp&quality=75&width=600",
-    "specifications": "AMOLED display, heart rate monitoring, sleep tracking, step counter, water resistant design."
+    "name": "Modern sound Earbuds",
+    "description": "Wireless buds with clear sound.",
+    "price": 899,
+    "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=800&h=533",
+    "specifications": "Noise isolation, in-line mic, powerful bass, suitable for calls and music."
   },
   {
     "id": 6,
     "name": "Analog Watch",
     "description": "Classic analog wrist watch.",
     "price": 1599,
-    "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600",
+    "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=800&h=533",
     "specifications": "Classic analog dial, leather strap, water resistant body, suitable for formal and casual wear."
   },
   {
@@ -52,7 +44,7 @@
     "name": "Casual Sneakers",
     "description": "Trendy sneakers for casual wear.",
     "price": 1999,
-    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600",
+    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&h=533",
     "specifications": "Canvas upper material, lace-up closure, cushioned sole, perfect for daily casual outfits."
   },
   {
@@ -60,7 +52,7 @@
     "name": "Bluetooth Earbuds",
     "description": "Compact earbuds with deep bass.",
     "price": 2199,
-    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",
+    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&h=533",
     "specifications": "True wireless earbuds, deep bass sound, charging case included, sweat and splash resistant."
   },
   {
@@ -68,23 +60,15 @@
     "name": "Denim Jacket",
     "description": "Stylish denim jacket for men.",
     "price": 2599,
-    "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600",
+    "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&h=533",
     "specifications": "High-quality denim fabric, regular fit, full sleeves, suitable for casual and semi-formal looks."
-  },
-  {
-    "id": 10,
-    "name": "Winter Hoodie",
-    "description": "Warm hoodie for winter season.",
-    "price": 1799,
-    "image": "https://5.imimg.com/data5/PE/ZV/HA/SELLER-69029071/winter-hoodies-500x500.jpg",
-    "specifications": "Soft cotton blend fabric, hooded design, warm inner lining, ideal for winter wear."
   },
   {
     "id": 11,
     "name": "Formal Shirt",
     "description": "Slim fit formal office shirt.",
     "price": 1399,
-    "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=600",
+    "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=533",
     "specifications": "Slim fit design, breathable cotton fabric, full sleeves, perfect for office and formal occasions."
   },
   {
@@ -92,23 +76,15 @@
     "name": "Casual T-Shirt",
     "description": "Soft cotton casual t-shirt.",
     "price": 799,
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",
+    "image": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&h=533",
     "specifications": "100% cotton fabric, round neck, half sleeves, lightweight and comfortable for daily wear."
-  },
-  {
-    "id": 13,
-    "name": "Laptop Sleeve",
-    "description": "Protective laptop sleeve.",
-    "price": 999,
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51vPFAezMnL._SL500_._AC_SL500_.jpg",
-    "specifications": "Shockproof padding, water resistant material, compatible with up to 15-inch laptops."
   },
   {
     "id": 14,
     "name": "Wireless Mouse",
     "description": "Ergonomic wireless mouse.",
     "price": 699,
-    "image": "https://avechi.co.ke/wp-content/uploads/2024/08/RE4ogWw-1.jpg",
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&h=533",
     "specifications": "Wireless connectivity, ergonomic design, adjustable DPI, smooth tracking on multiple surfaces."
   },
   {
@@ -116,7 +92,7 @@
     "name": "Mechanical Keyboard",
     "description": "RGB mechanical keyboard.",
     "price": 3299,
-    "image": "https://images.squarespace-cdn.com/content/v1/5f04f767ded4a14e876e6190/1602044688673-BODYCXLWEY1AZYWS0I60/Havit_89_Mechanical_Keyboard_Full_Review_Sypnotix",
+    "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&h=533",
     "specifications": "Mechanical switches, RGB backlighting, durable keys, ideal for gaming and professional typing."
   },
   {
@@ -124,7 +100,7 @@
     "name": "Sunglasses",
     "description": "UV protected sunglasses.",
     "price": 1299,
-    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&h=533",
     "specifications": "UV protection lenses, lightweight frame, stylish design, suitable for outdoor use."
   },
   {
@@ -132,7 +108,7 @@
     "name": "Leather Wallet",
     "description": "Genuine leather wallet.",
     "price": 899,
-    "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600",
+    "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&h=533",
     "specifications": "Genuine leather material, multiple card slots, slim design, long-lasting durability."
   },
   {
@@ -140,7 +116,7 @@
     "name": "Fitness Band",
     "description": "Fitness band with heart rate tracking.",
     "price": 1999,
-    "image": "https://www.gadstyle.com/wp-content/uploads/2023/11/fitbit-charge-6-fitness-tracker-with-google-apps-4.webp",
+    "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?auto=format&fit=crop&w=800&h=533",
     "specifications": "Heart rate monitoring, sleep tracking, step counter, water resistant, long battery life."
   },
   {
@@ -148,15 +124,7 @@
     "name": "Steel Water Bottle",
     "description": "Insulated stainless steel bottle.",
     "price": 599,
-    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&h=533",
     "specifications": "Stainless steel body, insulated design, keeps drinks hot or cold, 1-liter capacity."
-  },
-  {
-    "id": 20,
-    "name": "Sports Cap",
-    "description": "Breathable sports cap.",
-    "price": 499,
-    "image": "https://m.media-amazon.com/images/I/41G4YHWiOkL._AC_UY1100_.jpg",
-    "specifications": "Breathable polyester fabric, adjustable strap, lightweight design, suitable for sports activities."
   }
 ]

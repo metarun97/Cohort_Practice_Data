@@ -1,35 +1,52 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ProductDetails = ({ allProducts }) => {
   const { id } = useParams();
-  // console.log(id);
 
   const singleProductDets = allProducts.find((p) => p.id === Number(id));
   console.log(singleProductDets);
 
+  const navigate = useNavigate();
+
   // console.log(allProducts);
   return (
-    <div className="mt-15">
-      <div className="w-full flex p-10">
-        <div className="left w-1/2 flex items-center justify-center">
-          <div className="left aspect-square my-35">
-            <div className="w-full h-full object-cover">
-              <img src={singleProductDets.image} alt={singleProductDets.name} />
-            </div>
-          </div>
+    <div className="max-w-7xl mx-auto px-4 py-10 mt-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Image Section */}
+        <div className="flex justify-center">
+          <img
+            src={singleProductDets.image}
+            alt={singleProductDets.name}
+            className="w-full max-w-md object-contain rounded-lg"
+          />
         </div>
-        <div className="right w-1/2 items-center justify-center">
-          <div className="px-5 flex flex-col items-center my-35 gap-5">
-            <h2 className="text-7xl font-semibold text-blue-950">
-              {singleProductDets.name}
-            </h2>
-            <h3 className="text-4xl font-semibold text-slate-400">
-              {singleProductDets.description}
-            </h3>
-            <p className='text-slate-400 text-lg w-[60%] text-center'>{singleProductDets.specifications}</p>
-            <h4 className="text-5xl"> ₹ {singleProductDets.price}</h4>
-            <button className="mt-4 w-fit bg-blue-500 px-16 py-3 text-2xl text-white rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer">
-              Add to Card
+
+        {/* Details Section */}
+        <div>
+          <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-4">
+            {singleProductDets.name}
+          </h1>
+
+          <p className="text-gray-600 mb-4 text-l md:text-xl lg:text-2xl">
+            {singleProductDets.description}
+          </p>
+
+          <p className="text-xl font-semibold text-slate-400 mb-6">
+            {singleProductDets.specifications}
+          </p>
+          <p className="text-2xl font-semibold text-green-600 mb-6">
+            ₹{singleProductDets.price}
+          </p>
+
+          <div className="flex gap-2 items-center">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md cursor-pointer">
+              Add to Cart
+            </button>
+            <button
+              onClick={() => navigate('/products')}
+              className="bg-yellow-400 hover:bg-yellow-500 text-white px-6 py-3 rounded-md cursor-pointer"
+            >
+              Back to Products
             </button>
           </div>
         </div>
