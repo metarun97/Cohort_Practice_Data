@@ -58,7 +58,7 @@ const NewsLetter = () => {
           <input
             type="text"
             placeholder="Your Email Adress..."
-            className="py-3.5 px-1.5 lg:py-3.5 lg:px-3 w-[100%] border-0 outline-0 lg:w-[30%] bg-white rounded-md lg:text-2xl"
+            className="py-3.5 px-1.5 lg:py-3.5 lg:px-3 w-full border-0 outline-0 lg:w-[30%] bg-white rounded-md lg:text-2xl"
           />
           <button className="px-3.5 py-1.5 lg:px-14 lg:py-3.5 bg-blue-500 text-2xl hover:bg-blue-600 cursor-pointer rounded-md text-white">
             Subscribe
