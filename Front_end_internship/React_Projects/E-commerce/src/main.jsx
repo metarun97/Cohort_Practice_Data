@@ -5,6 +5,6 @@ import { SeacrchContextData } from './context/SearchContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <SeacrchContextData>
-    <App />
+      <App />
   </SeacrchContextData>
 );

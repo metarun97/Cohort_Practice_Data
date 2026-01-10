@@ -3,7 +3,7 @@ import bags from '/Png_data/bags-img.png?url';
 const Hero = () => {
   return (
     <>
-      <div className="w-full bg-slate-200 lg:flex h-auto px-10">
+      <div className="w-full bg-slate-200 lg:flex h-auto px-1">
         <div className="left w-full h-auto lg:w-1/2 pt-35 lg:px-5 flex flex-col items-center justify-self-start gap-y-1.5 md:gap-y-3 lg:gap-y-4">
           <h2 className="text-[40px] lg:text-7xl md:text-4xl leading-tighter text-blue-900">
             Big Sale 50% Off

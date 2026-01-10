@@ -11,7 +11,7 @@ const Products = ({ allProducts }) => {
 
   return (
     <>
-      <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-15 gap-5 py-20 px-2 md:p-4 lg:px-6">
+      <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-2 lg:mt-15 gap-5 py-20 px-2 md:p-4 lg:px-6 my-4">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} allProducts={allProducts} />
         ))}

@@ -10,7 +10,7 @@ const ProductDetails = ({ allProducts }) => {
 
   // console.log(allProducts);
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10 mt-20">
+    <div className="max-w-7xl h-auto mx-auto px-4 py-30 mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Image Section */}
         <div className="flex justify-center">

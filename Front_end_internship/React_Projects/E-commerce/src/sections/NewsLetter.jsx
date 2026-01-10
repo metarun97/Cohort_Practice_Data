@@ -6,13 +6,13 @@ import customers from '/logos/customers.png';
 const NewsLetter = () => {
   return (
     <>
-      <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8 my-5 px-2 lg:px-5 py-5">
+      <div className="w-full flex flex-col gap-4 md:gap-6 lg:gap-15 px-2 lg:px-5 py-5">
         <h2 className="text-4xl lg:text-6xl font-bold text-blue-950 text-center">
           Why Choose Us!
         </h2>
         <div className="letters w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 md:gap-6 lg:gap-8">
-          <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
-            <div className="aspect-square overflow-hidden">
+          <div className="letter max-w-52 w-full flex flex-col items-center gap-1">
+            <div className="h-30 w-30 md:w-35 md:h-35 lg:w-40 lg:h-40 overflow-hidden">
               <img
                 className="w-full h-full object-cover"
                 src={shipping}
@@ -22,7 +22,7 @@ const NewsLetter = () => {
             <h3 className="text-lg font-bold text-blue-950">Free Delivery</h3>
           </div>
           <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
-            <div className="aspect-square overflow-hidden">
+            <div className="h-30 w-30 md:w-35 md:h-35 lg:w-40 lg:h-40 overflow-hidden">
               <img
                 className="w-full h-full object-cover"
                 src={returnPackage}
@@ -32,13 +32,13 @@ const NewsLetter = () => {
             <h3 className="text-lg font-bold text-blue-950">Easy Return</h3>
           </div>
           <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
-            <div className="aspect-square overflow-hidden">
+            <div className="h-30 w-30 md:w-35 md:h-35 lg:w-40 lg:h-40 overflow-hidden">
               <img className="w-full h-full object-cover" src={credit} alt="" />
             </div>
             <h3 className="text-lg font-bold text-blue-950">Secure payment</h3>
           </div>
           <div className="letter max-w-52 w-full  flex flex-col items-center gap-1">
-            <div className="aspect-square overflow-hidden">
+            <div className="h-30 w-30 md:w-35 md:h-35 lg:w-40 lg:h-40 overflow-hidden">
               <img
                 className="w-full h-full object-cover"
                 src={customers}

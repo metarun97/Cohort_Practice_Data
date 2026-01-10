@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ product, allProducts }) => {
+
+const ProductCard = ({ product }) => {
   const { id, name, price, description, image } = product;
+
   return (
     <Link
       to={`/product/${product.id}`}
@@ -15,7 +17,10 @@ const ProductCard = ({ product, allProducts }) => {
         <p className="text-xl font-bold mt-2 text-blue-500">₹{price}</p>
         <p className="text-sm text-gray-500 capitalize">{description}</p>
       </div>
-      <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer">
+      <button
+        className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer"
+
+      >
         Add to Cart
       </button>
     </Link>

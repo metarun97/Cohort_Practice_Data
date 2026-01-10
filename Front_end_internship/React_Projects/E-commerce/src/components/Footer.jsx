@@ -8,6 +8,7 @@ import {
   FaTwitter,
 } from 'react-icons/fa';
 // import { FaXTwitter } from 'react-icons/fa6';
+import mainLogo from '/logos/shopping-cart.png';
 
 const Footer = () => {
   return (
@@ -15,8 +16,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Brand */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-4">
-            Shop<span className="text-blue-500">Zone</span>
+          <h2 className="text-2xl font-bold text-white mb-4 flex">
+            <img className="h-8" src={mainLogo} alt="" />
+            <span className="text-red-600">S</span>hop
+            <span className="text-blue-500">
+              <span className="text-yellow-500">Z</span>one
+            </span>
           </h2>
           <p className="text-sm leading-relaxed">
             Your trusted online store for quality products, best prices and fast
@@ -63,7 +68,7 @@ const Footer = () => {
             <FaPhoneAlt /> +91 98765 43210
           </p>
           <p className="flex items-center gap-2 text-sm">
-            <FaEnvelope /> support@shopcart.com
+            <FaEnvelope /> support@shopZone.com
           </p>
         </div>
       </div>
