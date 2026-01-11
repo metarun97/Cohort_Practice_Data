@@ -7,6 +7,7 @@ import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import PageNotFound from './pages/PageNotFound';
 import allProducts from './data/allProducts.json';
+import CatagoryPage from './pages/CatagoryPage';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
               element={<ProductDetails allProducts={allProducts} />}
             />
             <Route path="/cart" element={<Cart />} />
+            <Route path="category/:categoryName" element={<CatagoryPage/>} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
           <Footer />

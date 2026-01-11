@@ -15,45 +15,40 @@ body {
 }
 
 .weather-app {
-  width: 100%;
-  max-width: 380px;
-  margin: 0 auto;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-/* Search */
 .search-box {
   display: flex;
-  gap: 5px;
-  margin-bottom: 20px;
+  gap: 8px;
+  width: 100%;
 }
 
-.search-box input {
-  flex: 1;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  outline: none;
+.searchCityInp {
+  flex: 1; /* MOST IMPORTANT */
+  min-width: 0; /* input break fix */
+  padding: 12px;
   font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.search-box button {
-  padding: 10px 14px;
-  border-radius: 10px;
+.searchBtn {
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 8px;
   border: none;
-  cursor: pointer;
-  font-size: 16px;
-  background: #4a90e2;
-  color: #fff;
 }
 
 /* Main Weather */
 .weather-main {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
+
 }
 
 .city {

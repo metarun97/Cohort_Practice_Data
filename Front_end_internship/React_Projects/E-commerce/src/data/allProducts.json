@@ -5,7 +5,8 @@
     "description": "Comfortable running shoes for daily exercise.",
     "price": 2499,
     "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Lightweight mesh upper, breathable design, rubber sole for strong grip, suitable for daily running and workouts."
+    "specifications": "Lightweight mesh upper, breathable design, rubber sole for strong grip, suitable for daily running and workouts.",
+    "category": "footwear"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "description": "Noise cancelling wireless headphones.",
     "price": 2799,
     "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Bluetooth connectivity, active noise cancellation, up to 20 hours battery life, built-in microphone."
+    "specifications": "Bluetooth connectivity, active noise cancellation, up to 20 hours battery life, built-in microphone.",
+    "category": "electronics"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "description": "Premium leather bag for office use.",
     "price": 2999,
     "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Genuine leather material, multiple compartments, padded laptop section, ideal for office professionals."
+    "specifications": "Genuine leather material, multiple compartments, padded laptop section, ideal for office professionals.",
+    "category": "men"
   },
   {
     "id": 4,
@@ -29,102 +32,150 @@
     "description": "Wireless buds with clear sound.",
     "price": 899,
     "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Noise isolation, in-line mic, powerful bass, suitable for calls and music."
+    "specifications": "Noise isolation, in-line mic, powerful bass, suitable for calls and music.",
+    "category": "electronics"
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "Analog Watch",
     "description": "Classic analog wrist watch.",
     "price": 1599,
     "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Classic analog dial, leather strap, water resistant body, suitable for formal and casual wear."
+    "specifications": "Classic analog dial, leather strap, water resistant body, suitable for formal and casual wear.",
+    "category": "electronics"
   },
   {
-    "id": 7,
+    "id": 6,
     "name": "Casual Sneakers",
     "description": "Trendy sneakers for casual wear.",
     "price": 1999,
     "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Canvas upper material, lace-up closure, cushioned sole, perfect for daily casual outfits."
+    "specifications": "Canvas upper material, lace-up closure, cushioned sole, perfect for daily casual outfits.",
+    "category": "electronics"
   },
   {
-    "id": 8,
+    "id": 7,
     "name": "Bluetooth Earbuds",
     "description": "Compact earbuds with deep bass.",
     "price": 2199,
     "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&h=533",
-    "specifications": "True wireless earbuds, deep bass sound, charging case included, sweat and splash resistant."
+    "specifications": "True wireless earbuds, deep bass sound, charging case included, sweat and splash resistant.",
+    "category": "electronics"
   },
   {
-    "id": 9,
+    "id": 8,
     "name": "Denim Jacket",
     "description": "Stylish denim jacket for men.",
     "price": 2599,
     "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&h=533",
-    "specifications": "High-quality denim fabric, regular fit, full sleeves, suitable for casual and semi-formal looks."
+    "specifications": "High-quality denim fabric, regular fit, full sleeves, suitable for casual and semi-formal looks.",
+    "category": "men"
   },
   {
-    "id": 11,
+    "id": 9,
     "name": "Formal Shirt",
     "description": "Slim fit formal office shirt.",
     "price": 1399,
     "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Slim fit design, breathable cotton fabric, full sleeves, perfect for office and formal occasions."
+    "specifications": "Slim fit design, breathable cotton fabric, full sleeves, perfect for office and formal occasions.",
+    "category": "men"
   },
   {
-    "id": 12,
+    "id": 10,
     "name": "Casual T-Shirt",
     "description": "Soft cotton casual t-shirt.",
     "price": 799,
     "image": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&h=533",
-    "specifications": "100% cotton fabric, round neck, half sleeves, lightweight and comfortable for daily wear."
+    "specifications": "100% cotton fabric, round neck, half sleeves, lightweight and comfortable for daily wear.",
+    "category": "men"
   },
   {
-    "id": 14,
+    "id": 11,
     "name": "Wireless Mouse",
     "description": "Ergonomic wireless mouse.",
     "price": 699,
     "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Wireless connectivity, ergonomic design, adjustable DPI, smooth tracking on multiple surfaces."
+    "specifications": "Wireless connectivity, ergonomic design, adjustable DPI, smooth tracking on multiple surfaces.",
+    "category": "electronics"
   },
   {
-    "id": 15,
+    "id": 12,
     "name": "Mechanical Keyboard",
     "description": "RGB mechanical keyboard.",
     "price": 3299,
     "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Mechanical switches, RGB backlighting, durable keys, ideal for gaming and professional typing."
+    "specifications": "Mechanical switches, RGB backlighting, durable keys, ideal for gaming and professional typing.",
+    "category": "electronics"
   },
   {
-    "id": 16,
-    "name": "Sunglasses",
-    "description": "UV protected sunglasses.",
+    "id": 13,
+    "name": "Women's heels",
+    "description": "heels of latest collection",
     "price": 1299,
-    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&h=533",
-    "specifications": "UV protection lenses, lightweight frame, stylish design, suitable for outdoor use."
+    "image": "https://img.lazcdn.com/g/ff/kf/Sd21514e8f7004b0b83d480d5e46f7e760.jpg_720x720q80.jpg",
+    "specifications": "Elegant high heels designed for comfort, stability, and style, perfect for parties, wear, and evenings.",
+    "category": "footwear"
   },
   {
-    "id": 17,
+    "id": 14,
     "name": "Leather Wallet",
     "description": "Genuine leather wallet.",
     "price": 899,
     "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Genuine leather material, multiple card slots, slim design, long-lasting durability."
+    "specifications": "Genuine leather material, multiple card slots, slim design, long-lasting durability.",
+    "category": "men"
   },
   {
-    "id": 18,
+    "id": 15,
     "name": "Fitness Band",
     "description": "Fitness band with heart rate tracking.",
     "price": 1999,
     "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Heart rate monitoring, sleep tracking, step counter, water resistant, long battery life."
+    "specifications": "Heart rate monitoring, sleep tracking, step counter, water resistant, long battery life.",
+    "category": "electronics"
   },
   {
+    "id": 16,
+    "name": "Women Handbag",
+    "description": "Elegant handbag for daily and party use.",
+    "price": 1899,
+    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&h=533",
+    "specifications": "Premium material, spacious compartments, zip closure.",
+    "category": "women"
+  },
+    {
+    "id": 17,
+    "name": "Women Kurti",
+    "description": "Printed kurti for casual wear.",
+    "price": 1299,
+    "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/ethnic-set/k/b/e/4xl-f-ks-002-grn-citytalk-original-imahck52vfzxr9mk.jpeg?q=90",
+    "specifications": "Soft fabric, regular fit, breathable material.",
+    "category": "women"
+  },  {
+    "id": 18,
+    "name": "Women Wrist Watch",
+    "description": "Elegant analog watch for women.",
+    "price": 1599,
+    "image": "https://www.sonatawatches.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw4d62c182/images/Sonata/Catalog/SP80029WL02W_1.jpg?sw=600&sh=600",
+    "specifications": "Metal strap, water resistant, quartz movement.",
+    "category": "women"
+  },
+    {
     "id": 19,
-    "name": "Steel Water Bottle",
-    "description": "Insulated stainless steel bottle.",
-    "price": 599,
-    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Stainless steel body, insulated design, keeps drinks hot or cold, 1-liter capacity."
+    "name": "Men Sunglasses",
+    "description": "UV protected stylish sunglasses.",
+    "price": 1199,
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&h=533",
+    "specifications": "UV400 lenses, lightweight frame, scratch resistant.",
+    "category": "men"
+  },
+    {
+    "id": 20,
+    "name": "Men Formal Trousers",
+    "description": "Slim fit formal trousers for office wear.",
+    "price": 1799,
+    "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&h=533",
+    "specifications": "Poly-viscose fabric, wrinkle resistant, slim fit.",
+    "category": "men"
   }
 ]

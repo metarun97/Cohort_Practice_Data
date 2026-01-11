@@ -4,7 +4,7 @@ const ProductDetails = ({ allProducts }) => {
   const { id } = useParams();
 
   const singleProductDets = allProducts.find((p) => p.id === Number(id));
-  console.log(singleProductDets);
+  // console.log(singleProductDets);
 
   const navigate = useNavigate();
 
