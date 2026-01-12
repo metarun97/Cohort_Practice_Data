@@ -15,7 +15,7 @@
     "price": 2799,
     "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&h=533",
     "specifications": "Bluetooth connectivity, active noise cancellation, up to 20 hours battery life, built-in microphone.",
-    "category": "electronics"
+    "category": "gadgets"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "price": 2999,
     "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&h=533",
     "specifications": "Genuine leather material, multiple compartments, padded laptop section, ideal for office professionals.",
-    "category": "men"
+    "category": "menwear all"
   },
   {
     "id": 4,
@@ -33,16 +33,16 @@
     "price": 899,
     "image": "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=800&h=533",
     "specifications": "Noise isolation, in-line mic, powerful bass, suitable for calls and music.",
-    "category": "electronics"
+    "category": "gadgets"
   },
   {
     "id": 5,
-    "name": "Analog Watch",
-    "description": "Classic analog wrist watch.",
-    "price": 1599,
-    "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Classic analog dial, leather strap, water resistant body, suitable for formal and casual wear.",
-    "category": "electronics"
+    "name": "Smart Watch",
+    "description": "Fitness tracking smart watch",
+    "price": 3999,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRivdjndRz06NSFLFt971GfBuo25On8Pnudiw&s",
+    "specifications": "Smartwatch with heart rate monitor, step tracking, and notification support.",
+    "category": "gadgets"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "price": 1999,
     "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=800&h=533",
     "specifications": "Canvas upper material, lace-up closure, cushioned sole, perfect for daily casual outfits.",
-    "category": "electronics"
+    "category": "footwear"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "price": 2199,
     "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&h=533",
     "specifications": "True wireless earbuds, deep bass sound, charging case included, sweat and splash resistant.",
-    "category": "electronics"
+    "category": "gadgets"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "price": 2599,
     "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=800&h=533",
     "specifications": "High-quality denim fabric, regular fit, full sleeves, suitable for casual and semi-formal looks.",
-    "category": "men"
+    "category": "menwear"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "price": 1399,
     "image": "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&h=533",
     "specifications": "Slim fit design, breathable cotton fabric, full sleeves, perfect for office and formal occasions.",
-    "category": "men"
+    "category": "menwear"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "price": 799,
     "image": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=800&h=533",
     "specifications": "100% cotton fabric, round neck, half sleeves, lightweight and comfortable for daily wear.",
-    "category": "men"
+    "category": "menwear"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "price": 699,
     "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&h=533",
     "specifications": "Wireless connectivity, ergonomic design, adjustable DPI, smooth tracking on multiple surfaces.",
-    "category": "electronics"
+    "category": "gadgets"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "price": 3299,
     "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&h=533",
     "specifications": "Mechanical switches, RGB backlighting, durable keys, ideal for gaming and professional typing.",
-    "category": "electronics"
+    "category": "gadgets"
   },
   {
     "id": 13,
@@ -118,12 +118,12 @@
   },
   {
     "id": 14,
-    "name": "Leather Wallet",
-    "description": "Genuine leather wallet.",
-    "price": 899,
-    "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Genuine leather material, multiple card slots, slim design, long-lasting durability.",
-    "category": "men"
+    "name": "Men's Jeans",
+    "description": "Regular fit denim jeans",
+    "price": 2199,
+    "image": "https://www.bushirt.in/cdn/shop/collections/Bushirt_Men_s_Jeans_f5bc0b6d-1d7a-4373-b12b-403870276a5c.jpg?v=1703912592",
+    "specifications": "Durable denim jeans with a classic regular fit.",
+    "category": "menwear"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "price": 1999,
     "image": "https://images.unsplash.com/photo-1576243345690-4e4b79b63288?auto=format&fit=crop&w=800&h=533",
     "specifications": "Heart rate monitoring, sleep tracking, step counter, water resistant, long battery life.",
-    "category": "electronics"
+    "category": "gadgets"
   },
   {
     "id": 16,
@@ -141,41 +141,159 @@
     "price": 1899,
     "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&h=533",
     "specifications": "Premium material, spacious compartments, zip closure.",
-    "category": "women"
+    "category": "womenwear"
   },
-    {
+  {
     "id": 17,
     "name": "Women Kurti",
     "description": "Printed kurti for casual wear.",
     "price": 1299,
     "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/ethnic-set/k/b/e/4xl-f-ks-002-grn-citytalk-original-imahck52vfzxr9mk.jpeg?q=90",
     "specifications": "Soft fabric, regular fit, breathable material.",
-    "category": "women"
-  },  {
+    "category": "womenwear"
+  },
+  {
     "id": 18,
     "name": "Women Wrist Watch",
     "description": "Elegant analog watch for women.",
     "price": 1599,
     "image": "https://www.sonatawatches.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw4d62c182/images/Sonata/Catalog/SP80029WL02W_1.jpg?sw=600&sh=600",
     "specifications": "Metal strap, water resistant, quartz movement.",
-    "category": "women"
+    "category": "womenwear"
   },
-    {
+  {
     "id": 19,
-    "name": "Men Sunglasses",
-    "description": "UV protected stylish sunglasses.",
-    "price": 1199,
-    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&h=533",
-    "specifications": "UV400 lenses, lightweight frame, scratch resistant.",
-    "category": "men"
+    "name": "Men's Kurta",
+    "description": "Traditional cotton kurta",
+    "price": 1899,
+    "image": "https://www.fabfunda.com/product-img/premium-mirror-work-cotton-red-1727780516.jpeg",
+    "specifications": "Ethnic kurta perfect for festivals and traditional events.",
+    "category": "menwear"
   },
-    {
+  {
     "id": 20,
     "name": "Men Formal Trousers",
     "description": "Slim fit formal trousers for office wear.",
     "price": 1799,
     "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&h=533",
     "specifications": "Poly-viscose fabric, wrinkle resistant, slim fit.",
-    "category": "men"
+    "category": "menwear"
+  },
+  {
+    "id": 21,
+    "name": "Women's Sneakers",
+    "description": "Trendy casual sneakers",
+    "price": 1999,
+    "image": "https://redtape.com/cdn/shop/files/RLL0454_1..jpg?v=1767350093",
+    "specifications": "Stylish sneakers with soft cushioning, ideal for casual outings.",
+    "category": "footwear"
+  },
+  {
+    "id": 22,
+    "name": "Men's Formal Shoes",
+    "description": "Classic leather formal shoes",
+    "price": 2799,
+    "image": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=720",
+    "specifications": "Premium leather formal shoes perfect for office and formal occasions.",
+    "category": "footwear"
+  },
+  {
+    "id": 23,
+    "name": "Women's Sandals",
+    "description": "Comfortable daily wear sandals",
+    "price": 1499,
+    "image": "https://cdnimg.dreampairs.com/thumbnail/600x600/dreampairshoes/product/product/2024-01-31/6379/02:08--NUDE-NUBUCK4.jpg",
+    "specifications": "Flat sandals with cushioned sole for all-day comfort.",
+    "category": "footwear"
+  },
+  {
+    "id": 24,
+    "name": "Women's Saree",
+    "description": "Elegant silk saree",
+    "price": 2499,
+    "image": "https://www.bunaai.com/cdn/shop/products/onlineshoppingforwomen--31.jpg?v=1669454783&width=1728",
+    "specifications": "Premium silk saree with rich texture, ideal for weddings and festivals.",
+    "category": "womenwear"
+  },
+  {
+    "id": 25,
+    "name": "Women's Dress",
+    "description": "Party wear midi dress",
+    "price": 2199,
+    "image": "https://www.aachho.com/cdn/shop/products/40_c9daa4cf-af7b-44b5-846f-ed80b124c5eb_1080x.png?v=1684510407",
+    "specifications": "Elegant midi dress with modern fit for parties and evenings.",
+    "category": "womenwear"
+  },
+  {
+    "id": 26,
+    "name": "Women's Heeled Boots",
+    "description": "Stylish high-ankle boots",
+    "price": 3299,
+    "image": "https://www.jiomart.com/images/product/original/469510493_black/women-ankle-length-boots-with-zip-closure-model-469510493_black-0-202309290724.jpg?im=Resize=(500,630)",
+    "specifications": "Elegant ankle-length boots with block heels, ideal for parties and winter outings.",
+    "category": "footwear"
+  },
+  {
+    "id": 27,
+    "name": "Women's Leggings",
+    "description": "Comfort stretch leggings",
+    "price": 699,
+    "image": "https://cdn.thewirecutter.com/wp-content/media/2024/12/leggings-2048px-0029.jpg?auto=webp&quality=75&width=1024",
+    "specifications": "High-stretch leggings suitable for daily and ethnic wear.",
+    "category": "womenwear"
+  },
+  {
+    "id": 28,
+    "name": "Women's Ethnic Set",
+    "description": "Kurti palazzo set",
+    "price": 2699,
+    "image": "https://urbanstree.com/cdn/shop/files/April23-177.jpg?v=1756462438",
+    "specifications": "Stylish kurti and palazzo combo ideal for festive occasions.",
+    "category": "womenwear"
+  },
+  {
+    "id": 29,
+    "name": "Women's Jacket",
+    "description": "Winter wear jacket",
+    "price": 2899,
+    "image": "https://rukminim2.flixcart.com/image/480/640/xif0q/jacket/q/j/p/xl-1-no-women-winter-jacket52-slc-original-imahhmypfbudj5ng.jpeg?q=90",
+    "specifications": "Warm padded jacket designed for cold weather protection.",
+    "category": "womenwear"
+  },
+  {
+    "id": 30,
+    "name": "Men's Leather Boots",
+    "description": "Rugged leather ankle boots",
+    "price": 3499,
+    "image": "https://media.istockphoto.com/id/1191174327/photo/fashion-model-wearing-jeans-and-brown-boots-with-zipper.jpg?s=612x612&w=0&k=20&c=oSPZltRJ6J1mGVFHHoUevqha47n0Ipaucr341OS7gRs=",
+    "specifications": "Durable leather boots with strong grip sole, perfect for casual and outdoor wear.",
+    "category": "footwear"
+  },
+  {
+    "id": 32,
+    "name": "Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker",
+    "price": 2199,
+    "image": "https://m.media-amazon.com/images/I/715ZUYP5N5L._UF1000,1000_QL80_.jpg",
+    "specifications": "Portable speaker with powerful sound, waterproof design, and long battery backup.",
+    "category": "gadgets"
+  },
+  {
+    "id": 32,
+    "name": "Men's Hoodie",
+    "description": "Casual hooded sweatshirt",
+    "price": 1999,
+    "image": "https://images-cdn.ubuy.co.in/6938c1411d5f95e46c0a6006-men-hoodie-sweatshirt-casual-solid-color.jpg",
+    "specifications": "Comfortable hoodie ideal for casual and winter wear.",
+    "category": "menwear"
+  },
+  {
+    "id": 33,
+    "name": "Men's Blazer",
+    "description": "Formal slim fit blazer",
+    "price": 4999,
+    "image": "https://images-cdn.ubuy.co.in/6709db33a35b7049b579dd33-funicet-blazer-for-men-mens-fashion.jpg",
+    "specifications": "Stylish blazer suitable for formal and semi-formal occasions.",
+    "category": "menwear"
   }
 ]

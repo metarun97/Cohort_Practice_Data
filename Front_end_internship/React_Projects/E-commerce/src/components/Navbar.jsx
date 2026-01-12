@@ -6,11 +6,13 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross1 } from 'react-icons/rx';
 import { NavLink } from 'react-router-dom';
 import { searchContext } from '../context/SearchContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-
   const [isOpen, setisOpen] = useState(false);
   const { search, setSearch } = useContext(searchContext);
+
+
 
   return (
     <nav className="w-full flex flex-col fixed top-0 right-0 left-0 backdrop-blur-xs">
@@ -25,10 +27,16 @@ const Navbar = () => {
         </div>
         {/* center part */}
         <div className="center hidden lg:flex items-center gap-x-3.5 ">
-          <NavLink className="text-xl text-blue-500" to="/">
+          <NavLink
+            className="text-xl text-blue-500"
+            to="/"
+          >
             Home
           </NavLink>
-          <NavLink className="text-xl text-blue-500" to="/products">
+          <NavLink
+            className="text-xl text-blue-500"
+            to="/products"
+          >
             Products
           </NavLink>
         </div>
@@ -78,7 +86,10 @@ const Navbar = () => {
           <NavLink className="text-xl" to="/">
             Home
           </NavLink>
-          <NavLink className="text-xl" to="/products">
+          <NavLink
+            className="text-xl"
+            to="/products"
+          >
             Products
           </NavLink>
         </div>
