@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <SeacrchContextData>
-      <ToastContainer/>
+        <ToastContainer />
         <App />
     </SeacrchContextData>
   </BrowserRouter>

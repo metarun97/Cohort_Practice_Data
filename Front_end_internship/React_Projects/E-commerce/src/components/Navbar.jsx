@@ -4,7 +4,7 @@ import mainLogo from '/logos/shopping-cart.png';
 import { GiShoppingBag } from 'react-icons/gi';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross1 } from 'react-icons/rx';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { searchContext } from '../context/SearchContext';
 import { toast } from 'react-toastify';
 
@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
   const { search, setSearch } = useContext(searchContext);
 
-
+  const navigate = useNavigate();
 
   return (
     <nav className="w-full flex flex-col fixed top-0 right-0 left-0 backdrop-blur-xs">
@@ -27,16 +27,10 @@ const Navbar = () => {
         </div>
         {/* center part */}
         <div className="center hidden lg:flex items-center gap-x-3.5 ">
-          <NavLink
-            className="text-xl text-blue-500"
-            to="/"
-          >
+          <NavLink className="text-xl text-blue-500" to="/">
             Home
           </NavLink>
-          <NavLink
-            className="text-xl text-blue-500"
-            to="/products"
-          >
+          <NavLink className="text-xl text-blue-500" to="/products">
             Products
           </NavLink>
         </div>
@@ -51,7 +45,10 @@ const Navbar = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
             <div className="relative">
-              <GiShoppingBag className="text-2xl lg:text-3xl text-blue-800 cursor-pointer" />
+              <GiShoppingBag
+                className="text-2xl lg:text-3xl text-blue-800 cursor-pointer"
+                onClick={() => navigate('/cart')}
+              />
               <div className="absolute flex items-center justify-center w-5 h-5 rounded-full bottom-3 left-5 bg-[#E63946] text-white">
                 1
               </div>
@@ -86,10 +83,7 @@ const Navbar = () => {
           <NavLink className="text-xl" to="/">
             Home
           </NavLink>
-          <NavLink
-            className="text-xl"
-            to="/products"
-          >
+          <NavLink className="text-xl" to="/products">
             Products
           </NavLink>
         </div>

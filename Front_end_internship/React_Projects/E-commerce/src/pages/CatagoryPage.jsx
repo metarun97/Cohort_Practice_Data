@@ -1,11 +1,13 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoMdArrowRoundBack } from 'react-icons/io';
+
 const CatagoryPage = ({ allProducts }) => {
   const { categoryName } = useParams();
 
   const filterProduct = allProducts.filter((p) => p.category === categoryName);
 
   const navigate = useNavigate();
+
 
   return (
     <>
@@ -45,7 +47,10 @@ const CatagoryPage = ({ allProducts }) => {
                 {product.description}
               </p>
             </div>
-            <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer">
+            <button
+              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer"
+              onClick={() => addToCart()}
+            >
               Add to Cart
             </button>
           </div>
