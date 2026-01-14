@@ -1,11 +1,21 @@
+import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { cartContext } from '../context/CarContext';
 
-const ProductDetails = ({ allProducts,  }) => {
+const ProductDetails = ({ allProducts }) => {
   const { id } = useParams();
 
   const singleProduct = allProducts.find((p) => p.id === Number(id));
 
   const navigate = useNavigate();
+
+  const { addToCart } = useContext(cartContext);
+  // console.groupEnd(product);
+
+  const addCartFunc = () => {
+    addToCart(singleProduct);
+    navigate('/cart');
+  };
 
   return (
     <div className="max-w-7xl h-auto mx-auto px-4 py-30 mt-20">
@@ -37,7 +47,10 @@ const ProductDetails = ({ allProducts,  }) => {
           </p>
 
           <div className="flex gap-2 items-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md cursor-pointer">
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md cursor-pointer"
+              onClick={addCartFunc}
+            >
               Add to Cart
             </button>
             <button

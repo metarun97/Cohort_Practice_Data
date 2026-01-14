@@ -23,7 +23,7 @@ const MainRoutes = () => {
         path="category/:categoryName"
         element={<CatagoryPage allProducts={allProducts} />}
       />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/cart" element={<Cart allProducts={allProducts}  />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

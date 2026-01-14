@@ -6,11 +6,12 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross1 } from 'react-icons/rx';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { searchContext } from '../context/SearchContext';
-import { toast } from 'react-toastify';
+import { cartContext } from '../context/CarContext';
 
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
   const { search, setSearch } = useContext(searchContext);
+  const { cart } = useContext(cartContext);
 
   const navigate = useNavigate();
 
@@ -49,8 +50,8 @@ const Navbar = () => {
                 className="text-2xl lg:text-3xl text-blue-800 cursor-pointer"
                 onClick={() => navigate('/cart')}
               />
-              <div className="absolute flex items-center justify-center w-5 h-5 rounded-full bottom-3 left-5 bg-[#E63946] text-white">
-                1
+              <div className="absolute flex items-center justify-center w-4 h-4 text-sm rounded-full bottom-3 left-5 bg-[#E63946] text-white">
+                {cart.length}
               </div>
             </div>
           </div>

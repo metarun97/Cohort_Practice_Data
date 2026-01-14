@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 
 const CatagoryPage = ({ allProducts }) => {
@@ -8,17 +8,16 @@ const CatagoryPage = ({ allProducts }) => {
 
   const navigate = useNavigate();
 
-
   return (
     <>
-      <div className="flex items-center justify-center gap-4 mt-20">
+      <div className="flex items-center justify-center gap-1 md:gap-3 lg:gap-5 mt-20">
         <button
-          className="w-fit flex items-center gap-1 bg-yellow-500 text-white px-4 py-2  rounded-lg transition duration-100 hover:bg-yellow-600 cursor-pointer font-bold"
+          className="w-fit flex items-center gap-1 bg-yellow-500 text-white px-2 py-1 lg:px-6 lg:py-2.5  rounded-lg transition duration-100 hover:bg-yellow-600 cursor-pointer font-bold"
           onClick={() => navigate('/')}
         >
           <IoMdArrowRoundBack /> to Home
         </button>
-        <h1 className="text-5xl capitalize text-blue-950 text-center font-semibold underline">
+        <h1 className="text-xl md:text-3xl lg:text-6xl capitalize text-blue-950 text-center font-semibold underline">
           {categoryName} Section
         </h1>
       </div>
@@ -38,7 +37,7 @@ const CatagoryPage = ({ allProducts }) => {
                 className="h-full object-contain"
               />
             </div>
-            <div className="mt-4">
+            <div className="my-6 ">
               <h2 className="text-lg font-semibold mt-1">{product.name}</h2>
               <p className="text-xl font-bold mt-2 text-blue-500">
                 ₹{product.price}
@@ -47,12 +46,12 @@ const CatagoryPage = ({ allProducts }) => {
                 {product.description}
               </p>
             </div>
-            <button
-              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition duration-100 hover:bg-blue-600 cursor-pointer"
-              onClick={() => addToCart()}
+            <Link
+              className="w-fit bg-green-500 text-white px-8 py-3 rounded-lg transition duration-100 hover:bg-green-600 cursor-pointer"
+              to={`/product/${product.id}`}
             >
-              Add to Cart
-            </button>
+              View more...
+            </Link>
           </div>
         ))}
       </div>

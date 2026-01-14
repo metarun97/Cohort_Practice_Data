@@ -19,12 +19,11 @@
   },
   {
     "id": 3,
-    "name": "Leather Office Bag",
-    "description": "Premium leather bag for office use.",
-    "price": 2999,
-    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&h=533",
-    "specifications": "Genuine leather material, multiple compartments, padded laptop section, ideal for office professionals.",
-    "category": "menwear all"
+    "name": "Power Bank 20000mAh",
+    "price": 1599,
+    "image": "https://www.ugreenindia.com/cdn/shop/files/51d9z-M-GzL._AC_SL1500.jpg?v=1763828022&width=1214",
+    "description": "Fast charging power bank with dual USB output",
+    "category": "gadgets"
   },
   {
     "id": 4,

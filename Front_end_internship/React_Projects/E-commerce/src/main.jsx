@@ -4,12 +4,15 @@ import App from './App.jsx';
 import { SeacrchContextData } from './context/SearchContext.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { CartContextData } from './context/CarContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <SeacrchContextData>
+      <CartContextData>
         <ToastContainer />
         <App />
+      </CartContextData>
     </SeacrchContextData>
   </BrowserRouter>
 );
