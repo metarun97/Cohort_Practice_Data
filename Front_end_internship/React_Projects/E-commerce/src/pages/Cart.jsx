@@ -4,6 +4,20 @@ import { cartContext } from '../context/CarContext';
 const Cart = () => {
   const { cart, removeFromCart } = useContext(cartContext);
 
+  // console.log(cart);
+
+  const cartTotal = cart.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
+  const shippingCharge = cartTotal > 3000 ? 0 : 149;
+
+  let subTotal = 0;
+
+  if (cartTotal) {
+     subTotal = cartTotal + shippingCharge;
+  }
+
   return (
     <div className="max-w-6xl h-auto mx-auto p-6 mt-15">
       <h1 className="text-2xl font-semibold mb-6">Your Cart</h1>
@@ -38,23 +52,22 @@ const Cart = () => {
             );
           })}
         </div>
-
         <div className="border rounded-lg p-4 h-fit">
           <h2 className="text-lg font-semibold mb-4">Order Summary</h2>
 
           <div className="flex justify-between text-sm mb-2">
             <span>Subtotal</span>
-            <span>₹5298</span>
+            <span>₹{cartTotal}</span>
           </div>
 
           <div className="flex justify-between text-sm mb-2">
             <span>Shipping</span>
-            <span>₹99</span>
+            <span>₹{shippingCharge}</span>
           </div>
 
           <div className="flex justify-between font-semibold border-t pt-3">
             <span>Total</span>
-            <span>₹5397</span>
+            <span>₹{subTotal}</span>
           </div>
 
           <button className="w-full mt-4 bg-black text-white py-2 rounded hover:opacity-90">
