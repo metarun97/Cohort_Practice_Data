@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  increment,
   decrement,
   increasedByAmount,
-  increment,
 } from './redux/features/counterSlice';
 import { useState } from 'react';
 
