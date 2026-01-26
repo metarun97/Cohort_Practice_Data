@@ -11,32 +11,67 @@ import { useEffect } from 'react';
 const ResultGrid = () => {
   const dispatch = useDispatch();
 
-  const { query, results, activeTab, loading, error } = useSelector(
+  const { query, activeTab, results, loading, error } = useSelector(
     (store) => store.search,
   );
 
   useEffect(
     function () {
-      let data;
+      if (!query) return;
       const getData = async () => {
-        if (activeTab == 'photos') {
-          let response = await fetchPhotos(query);
-          data = response.results;
+        try {
+          dispatch(setLoading());
+          let data = [];
+          if (activeTab == 'photos') {
+            let response = await fetchPhotos(query);
+            data = response.results.map((item) => ({
+              id: item.id,
+              type: 'photo',
+              title: item.alt_description,
+              thumbnail: item.urls.small,
+              src: item.urls.full,
+            }));
+          }
+          if (activeTab == 'videos') {
+            let response = await fetchVideos(query);
+            data = response.videos.map((item) => ({
+              id: item.id,
+              type: 'video',
+              title: item.user.name || 'video',
+              thumbnail: item.image,
+              src: item.video_files[0].link,
+            }));
+          }
+          if (activeTab == 'gifs') {
+            let response = await fetchGifs(query);
+            data = response.data.map((item) => ({
+              id: item.id,
+              type: 'gif',
+              title: item.title,
+              thumbnail: item.bitly_url,
+              src: item.embed_url,
+            }));
+          }
+          dispatch(setResults(data));
+        } catch (err) {
+          dispatch(setError(err.message));
         }
-        if (activeTab == 'videos') {
-          data = await fetchVideos(query);
-        }
-        if (activeTab == 'gifs') {
-          data = await fetchGifs(query);
-        }
-        // console.log(data);
       };
       getData();
     },
     [query, activeTab],
   );
 
-  return <div>ResultGrid</div>;
+  if (error) return <h1>Error</h1>;
+  if (loading) return <h1>Loading...</h1>;
+
+  return (
+    <div>
+      {results.map((elem, idx) => {
+        return <div key={idx}>{elem.title}</div>;
+      })}
+    </div>
+  );
 };
 
 export default ResultGrid;
