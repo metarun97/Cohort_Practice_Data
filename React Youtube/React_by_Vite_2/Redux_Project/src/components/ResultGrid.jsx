@@ -8,7 +8,7 @@ import {
 import { useEffect } from 'react';
 
 const ResultGrid = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const { query, activeTab, results, loading, error } = useSelector(
     (store) => store.search,
