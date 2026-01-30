@@ -6,6 +6,7 @@ import {
   setResults,
 } from '../redux/features/searchSlice';
 import { useEffect } from 'react';
+import ResultCard from './ResultCard';
 
 const ResultGrid = () => {
   const dispatch = useDispatch();
@@ -46,12 +47,12 @@ const ResultGrid = () => {
             data = response.data.map((item) => ({
               id: item.id,
               type: 'gif',
-              title: item.title,
+              title: item.title || 'GIF',
               thumbnail: item.bitly_url,
               src: item.embed_url,
             }));
           }
-          dispatch(setResults(data));
+          dispatch(setResults(data[1].src));
         } catch (err) {
           dispatch(setError(err.message));
         }
@@ -65,9 +66,13 @@ const ResultGrid = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div>
-      {results.map((elem, idx) => {
-        return <div key={idx}>{elem.title}</div>;
+    <div className="flex flex-wrap px-2 py-6 gap-6">
+      {results.map((item, idx) => {
+        return (
+          <div key={idx}>
+            <ResultCard item={item} />
+          </div>
+        );
       })}
     </div>
   );
