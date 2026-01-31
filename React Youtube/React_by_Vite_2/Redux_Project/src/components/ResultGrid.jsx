@@ -63,7 +63,7 @@ const ResultGrid = () => {
   );
 
   if (error) return <h1>Error</h1>;
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <h1>Loading</h1>;
 
   return (
     <div className="flex flex-wrap px-2 py-6 gap-6">
