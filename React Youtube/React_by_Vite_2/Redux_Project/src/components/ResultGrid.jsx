@@ -66,7 +66,7 @@ const ResultGrid = () => {
   if (loading) return <h1>Loading</h1>;
 
   return (
-    <div className="flex flex-wrap px-2 py-6 gap-6">
+    <div className="flex flex-wrap px-2 py-6 gap-4">
       {results.map((item, idx) => {
         return (
           <div key={idx}>
