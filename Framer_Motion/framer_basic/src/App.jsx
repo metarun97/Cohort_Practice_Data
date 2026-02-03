@@ -11,6 +11,8 @@ const App = () => {
         transition={{
           delay: 2,
           duration: 3,
+          repeat:Infinity,
+          ease:"anticipate"
         }}
         className="box"
       ></motion.div>
