@@ -1,13 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { nanoid } from 'nanoid';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { asyncRegisterUser } from './../store/actions/userActions';
+import { useDispatch } from 'react-redux';
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const registerHandler = (user) => {
     user.id = nanoid();
-    console.log(user);
+    user.isAdmin = false;
+    dispatch(asyncRegisterUser(user));
+    navigate('/login');
   };
 
   return (
@@ -30,7 +36,7 @@ const Register = () => {
             className="w-full p-1.5 rounded border-none outline-1 outline-gray-300 focus:outline-blue-500 text-slate-800"
             type="text"
             placeholder="Enter username..."
-            {...register('email')}
+            {...register('username')}
           />
           <small className="text-red-500">Error</small>
         </div>
