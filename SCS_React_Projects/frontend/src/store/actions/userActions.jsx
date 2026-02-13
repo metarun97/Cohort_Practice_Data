@@ -16,7 +16,7 @@ export const asyncCurrentUser = (user) => async (dispatch, getState) => {
 export const asyncLogoutUser = (user) => async (dispatch, getState) => {
   try {
     localStorage.setItem('user', '');
-    localStorage.setItem('user', JSON.stringify(data[0]));
+    localStorage.setItem('user', JSON.stringify(data[0]))
   } catch (error) {
     console.log(error);
   }
