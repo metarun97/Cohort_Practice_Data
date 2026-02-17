@@ -13,6 +13,48 @@
       "email": "karan_singh@mail.com",
       "password": "123456",
       "isAdmin": false
+    },
+    {
+      "id": "js5-014nAI3LgxcWiaiDW",
+      "username": "",
+      "email": "",
+      "password": "",
+      "isAdmin": false
+    },
+    {
+      "id": "JbVbQmJCt5H2rpPiqkuQi",
+      "username": "",
+      "email": "",
+      "password": "",
+      "isAdmin": false
+    },
+    {
+      "id": "mVnwS8o1LuD4eW6C5z-pq",
+      "username": "",
+      "email": "",
+      "password": "",
+      "isAdmin": false
+    },
+    {
+      "id": "SMtJTiYK3WBMOvt7Il2N5",
+      "username": "",
+      "email": "",
+      "password": "",
+      "isAdmin": false
+    },
+    {
+      "id": "Ha1eO4MFfjgam407tTG6A",
+      "username": "",
+      "email": "",
+      "password": "",
+      "isAdmin": false
+    },
+    {
+      "id": "vODiGl3lcEjp4Pvzmgf1w",
+      "username": "",
+      "email": "",
+      "password": "",
+      "isAdmin": false
     }
   ],
   "products": [
@@ -22,11 +64,7 @@
       "price": 109.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-      "rating": {
-        "rate": 3.9,
-        "count": 120
-      }
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
     }
   ],
   "carts": []

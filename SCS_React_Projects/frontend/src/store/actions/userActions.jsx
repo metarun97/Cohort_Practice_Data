@@ -1,8 +1,8 @@
 import axios from '../../api/axiosconfig';
 import { loadUser } from '../reducers/userSlice';
 
-// Logout action:-
-export const asyncCurrentUser = (user) => async (dispatch, getState) => {
+// Currentuser action:-
+export const asyncCurrentUser = () => async (dispatch, getState) => {
   try {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) dispatch(loadUser(user));
@@ -15,8 +15,8 @@ export const asyncCurrentUser = (user) => async (dispatch, getState) => {
 // Logout action:-
 export const asyncLogoutUser = (user) => async (dispatch, getState) => {
   try {
-    localStorage.setItem('user', '');
-    localStorage.setItem('user', JSON.stringify(data[0]))
+    localStorage.removeItem('user');
+    console.log("User logged out!")
   } catch (error) {
     console.log(error);
   }
