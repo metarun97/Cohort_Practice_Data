@@ -1,10 +1,19 @@
 import { useForm } from 'react-hook-form';
+import { nanoid } from 'nanoid';
+import { useNavigate } from 'react-router-dom';
+import { asyncCreateProduct } from '../store/actions/productActions';
+import { useDispatch } from 'react-redux';
 
 const CreateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const createProductHandler = (product) => {
-    product.id = product.nanoid();
+    product.id = nanoid();
+    console.log(product);
+    dispatch(asyncCreateProduct(product));
+    navigate('/products');
   };
 
   return (
@@ -76,7 +85,7 @@ const CreateProduct = () => {
           <div className="w-full ">
             <label
               htmlFor="category"
-              className="block text-slate-900 font-semibold mb-2 "
+              className="block text-slate-900 font-semibold mb-2"
             >
               Category
             </label>
@@ -88,7 +97,7 @@ const CreateProduct = () => {
             />
           </div>
           <button className="w-full p-1.5 rounded border-none font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer mt-2.5">
-            Create Now
+            Create Product
           </button>
         </div>
       </form>

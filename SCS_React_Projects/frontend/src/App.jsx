@@ -3,12 +3,14 @@ import Nav from './components/Nav';
 import MainRoutes from './routes/MainRoutes';
 import { asyncCurrentUser } from './store/actions/userActions';
 import { useDispatch } from 'react-redux';
+import { asyncLoadProducts } from './store/actions/productActions';
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(asyncCurrentUser());
+    dispatch(asyncLoadProducts());
   }, []);
 
   return (
