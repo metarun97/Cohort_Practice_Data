@@ -16,7 +16,6 @@ const ProductDetails = () => {
   const product = products?.find((product) => product.id == id);
   console.log(product, users);
 
-  console.log(id);
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       image: product?.image,
@@ -47,7 +46,7 @@ const ProductDetails = () => {
             <img
               src={product.image}
               className="w-full h-full object-cover"
-              alt=""
+              alt={product.title}
             />
           </div>
         </div>
@@ -64,11 +63,11 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      {users && users.isAdmin && (
-        <div className="w-full mt-20 flex justify-center items-center px-5">
+      {users && users?.isAdmin && (
+        <div className="w-full py-20 flex justify-center items-center px-5">
           <form
             onSubmit={handleSubmit(updateProductHandler)}
-            className="w-full max-w-xl bg-white rounded-xl p-5"
+            className="w-full max-w-5xl bg-white rounded-xl p-5"
           >
             <h1 className="text-center font-semibold text-md md:text-2xl mb-5 text-slate-950">
               Update Product

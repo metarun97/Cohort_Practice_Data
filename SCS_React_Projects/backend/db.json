@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "id": "cfYdgPOgBmgek661aAo-J",
-      "username": "admin-me",
-      "email": "admin@mail.com",
-      "password": "123456",
+      "id": "eAT0DeSNDLOJlsa-pqtbr",
+      "username": "meadmin",
+      "email": "meadmin@mail.com",
+      "password": "12345",
       "isAdmin": true
     },
     {
