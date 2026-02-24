@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   asyncDeleteUser,
+  asyncLogoutUser,
   asyncUpdateUser,
 } from '../../store/actions/userActions';
 
@@ -30,74 +31,93 @@ const UserProfile = () => {
     dispatch(asyncDeleteUser(users.id));
     navigate('/login');
   };
-  return users ? (
-    <div className="w-full py-20 flex justify-center items-center px-5">
-      <form
-        onSubmit={handleSubmit(updateUserHandler)}
-        className="w-full max-w-3xl bg-white rounded-xl p-5"
-      >
-        <h1 className="text-center font-semibold text-md md:text-2xl mb-5 text-slate-950">
-          Update Product
-        </h1>
-        <div className="w-full ">
-          <label
-            htmlFor="username"
-            className="block text-slate-900 font-semibold mb-2 "
-          >
-            Username
-          </label>
-          <input
-            className="w-full p-1.5 mb-2 rounded border-none outline-1 outline-gray-300 focus:outline-blue-500 text-slate-800"
-            type="text"
-            placeholder="Enter username..."
-            {...register('username')}
-          />
-        </div>
-        <div className="w-full ">
-          <label
-            htmlFor="email"
-            className="block text-slate-900 font-semibold mb-2 "
-          >
-            Email
-          </label>
-          <input
-            className="w-full p-1.5 mb-2 rounded border-none outline-1 outline-gray-300 focus:outline-blue-500 text-slate-800"
-            type="email"
-            placeholder="Enter email..."
-            {...register('email')}
-          />
-        </div>
+  const logOutHandler = () => {
+    dispatch(asyncLogoutUser());
+    navigate('/login');
+  };
 
-        <div className=" flex flex-col gap-y-1">
+  return users ? (
+    <>
+      <div className="w-full py-20 flex flex-col gap-y-10 items-center">
+        <div>
+          <h1 className="text-5xl font-semibold text-slate-300">
+            Username: {users.username}
+          </h1>
+          <h3 className="text-2xl font-thin text-slate-400 mt-2">Email: {users.email}</h3>
+        </div>
+        <form
+          onSubmit={handleSubmit(updateUserHandler)}
+          className="w-full max-w-3xl bg-white rounded-xl p-5"
+        >
+          <h1 className="text-center font-semibold text-md md:text-2xl mb-5 text-slate-950">
+            Update Product
+          </h1>
           <div className="w-full ">
             <label
-              htmlFor="password"
-              className="block text-slate-900 font-semibold mb-2"
+              htmlFor="username"
+              className="block text-slate-900 font-semibold mb-2 "
             >
-              Passoword
+              Username
             </label>
             <input
               className="w-full p-1.5 mb-2 rounded border-none outline-1 outline-gray-300 focus:outline-blue-500 text-slate-800"
-              type="password"
-              placeholder="Enter password..."
-              {...register('password')}
+              type="text"
+              placeholder="Enter username..."
+              {...register('username')}
             />
           </div>
-          <div className="flex items-center gap-2">
-            <button className="w-fit p-1.5 rounded border-none font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer mt-2.5">
-              Update user
-            </button>
-            <button
-              type="button"
-              onClick={deleteHandler}
-              className="w-fit p-1.5 rounded border-none font-semibold bg-red-500 hover:bg-red-600 cursor-pointer mt-2.5"
+          <div className="w-full ">
+            <label
+              htmlFor="email"
+              className="block text-slate-900 font-semibold mb-2 "
             >
-              Delete user
-            </button>
+              Email
+            </label>
+            <input
+              className="w-full p-1.5 mb-2 rounded border-none outline-1 outline-gray-300 focus:outline-blue-500 text-slate-800"
+              type="email"
+              placeholder="Enter email..."
+              {...register('email')}
+            />
           </div>
-        </div>
-      </form>
-    </div>
+
+          <div className=" flex flex-col gap-y-1">
+            <div className="w-full ">
+              <label
+                htmlFor="password"
+                className="block text-slate-900 font-semibold mb-2"
+              >
+                Passoword
+              </label>
+              <input
+                className="w-full p-1.5 mb-2 rounded border-none outline-1 outline-gray-300 focus:outline-blue-500 text-slate-800"
+                type="password"
+                placeholder="Enter password..."
+                {...register('password')}
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <button className="w-fit p-1.5 rounded border-none font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer mt-2.5">
+                Update user
+              </button>
+              <button
+                onClick={logOutHandler}
+                className="w-fit p-1.5 rounded border-none font-semibold bg-red-500 hover:bg-red-600 cursor-pointer mt-2.5"
+              >
+                Logout user
+              </button>
+              <button
+                type="button"
+                onClick={deleteHandler}
+                className="w-fit p-1.5 rounded border-none font-semibold bg-red-700 hover:bg-red-800 cursor-pointer mt-2.5"
+              >
+                Delete user
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </>
   ) : (
     'Loading...'
   );

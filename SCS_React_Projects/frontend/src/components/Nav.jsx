@@ -9,7 +9,9 @@ const Nav = () => {
       <NavLink to="/">Home</NavLink>
       {users ? (
         <>
-          <NavLink to="/admin/create-product">Create Product</NavLink>
+          {users && users?.isAdmin && (
+            <NavLink to="/admin/create-product">Create Product</NavLink>
+          )}
           <NavLink to="/admin/user-profile">Settings</NavLink>
         </>
       ) : (

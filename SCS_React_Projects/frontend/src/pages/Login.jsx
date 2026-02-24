@@ -12,7 +12,7 @@ const Login = () => {
   const loginHandler = (user) => {
     console.log(user);
     dispatch(asyncLoginUser(user));
-    navigate('/')
+    navigate('/');
   };
 
   return (
@@ -38,7 +38,6 @@ const Login = () => {
               placeholder="Enter your email..."
               {...register('email')}
             />
-            <small className="text-red-500">Error</small>
           </div>
           <div className="w-full ">
             <label
@@ -53,7 +52,6 @@ const Login = () => {
               placeholder="Enter your password..."
               {...register('password')}
             />
-            <small className="text-red-500">Error</small>
           </div>
           <button className="w-full p-1.5 rounded border-none font-semibold bg-blue-500 hover:bg-blue-600 cursor-pointer mt-2.5">
             Login Now
