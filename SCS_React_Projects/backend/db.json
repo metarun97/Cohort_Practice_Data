@@ -6,6 +6,13 @@
       "email": "meadmin@mail.com",
       "password": "654321",
       "isAdmin": true
+    },
+    {
+      "id": "JNCXg6wTIB024PfmSrFKO",
+      "username": "karan-singh",
+      "email": "karan_singh@mail.com",
+      "password": "123456",
+      "isAdmin": false
     }
   ],
   "products": [
