@@ -1,18 +1,20 @@
 {
   "users": [
     {
-      "id": "eAT0DeSNDLOJlsa-pqtbr",
+      "id": "E0C-KW_8GveQ11_yX9GdW",
       "username": "meadmin",
-      "email": "meadmin@mail.com",
-      "password": "654321",
-      "isAdmin": true
+      "email": "meadmin_Sir@mail.com",
+      "password": "123456",
+      "isAdmin": true,
+      "cart": []
     },
     {
-      "id": "JNCXg6wTIB024PfmSrFKO",
-      "username": "karan-singh",
-      "email": "karan_singh@mail.com",
-      "password": "123456",
-      "isAdmin": false
+      "id": "gY1DYzjOgDy0ITCVc8EF6",
+      "username": "metarun_user",
+      "email": "tarun95@mail.com",
+      "password": "2468",
+      "isAdmin": false,
+      "cart": []
     }
   ],
   "products": [
