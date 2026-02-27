@@ -8,13 +8,13 @@ import {
 
 const ProductDetails = () => {
   const { id } = useParams();
+
   const {
     productReducer: { products },
     userReducer: { users },
   } = useSelector((state) => state);
 
-  const product = products?.find((product) => product.id == id);
-  console.log(product, users);
+  const product = products?.find((product) => product?.id == id);
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {

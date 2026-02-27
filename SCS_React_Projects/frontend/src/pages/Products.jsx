@@ -1,26 +1,31 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { asyncUpdateUser } from './../store/actions/userActions';
 
 const Products = () => {
+  const dispatch = useDispatch();
+
   const {
     productReducer: { products },
     userReducer: { users },
   } = useSelector((state) => state);
 
-  const addToCartHandler = (id) => {
+  const addToCartHandler = (product) => {
     const copyUser = { ...users, cart: [...users.cart] };
-    // console.log(copyUser);
-    const productId = copyUser.cart.findIndex((c) => c.id == id);
-    // console.log(cartItem);
-    if (productId === -1) {
-      copyUser.cart.push({ productId: id, quantity: 1 });
+    const Id = copyUser.cart.findIndex((c) => c?.product?.id == product.id);
+
+    if (Id === -1) {
+      copyUser.cart.push({ product, quantity: 1 });
     } else {
-      copyUser.cart[productId].quantity += 1;
+      copyUser.cart[Id] = {
+        product,
+        quantity: copyUser.cart[Id].quantity + 1,
+      };
     }
-    console.log(copyUser);
+    dispatch(asyncUpdateUser(copyUser.id, copyUser));
   };
 
-  const renderProducts = products.map((product) => {
+  const renderProducts = products?.map((product) => {
     return (
       <div
         className="max-w-[20%] h-auto bg-slate-200 shadow-xl shadow-slate-500 rounded-lg overflow-hidden"
@@ -46,7 +51,7 @@ const Products = () => {
               ₹{product.price}
             </h3>
             <button
-              onClick={() => addToCartHandler(product.id)}
+              onClick={() => addToCartHandler(product)}
               className="w-fit px-2.5 mb-2 py-1.5 border-none rounded transition-all duration-200 bg-green-500 hover:bg-green-600 cursor-pointer text-white"
             >
               Add to cart
@@ -63,7 +68,7 @@ const Products = () => {
     );
   });
 
-  return products.length > 0 ? (
+  return products?.length > 0 ? (
     <div className="w-[95%] h-screen flex flex-wrap gap-5 items-start mx-auto">
       {renderProducts}
     </div>

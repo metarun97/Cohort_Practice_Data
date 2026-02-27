@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const loginHandler = (user) => {
-    console.log(user);
+    // console.log(user);
     dispatch(asyncLoginUser(user));
     navigate('/');
   };
