@@ -26,7 +26,7 @@ const Cart = () => {
     if (users.cart[index].quantity > 1) {
       copyUser.cart[index] = {
         ...copyUser.cart[index],
-        quantity: copyUser.cart[index].quantity - 1,
+        quantity: copyUser.cart[index].quantity - 1
       };
       console.log(copyUser);
     } else {
