@@ -69,7 +69,7 @@ const Products = () => {
   });
 
   return products?.length > 0 ? (
-    <div className="w-[95%] h-screen flex flex-wrap gap-5 items-start mx-auto">
+    <div className="min-w-5xl h-full py-5 bg-slate-700 justify-center flex flex-wrap gap-x-10 gap-y-5">
       {renderProducts}
     </div>
   ) : (
