@@ -1,14 +1,38 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { asyncUpdateUser } from './../store/actions/userActions';
+import { useEffect, useState } from 'react';
+import axios from '../api/axiosconfig';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Products = () => {
   const dispatch = useDispatch();
 
-  const {
-    productReducer: { products },
-    userReducer: { users },
-  } = useSelector((state) => state);
+  const { users } = useSelector((state) => state.userReducer);
+  // const { products } = useSelector((state) => state.productReducer);
+  const [products, setProducts] = useState([]);
+  const [hasMore, setHasmore] = useState(true);
+
+  const fetchProducts = async () => {
+    try {
+      const { data } = await axios.get(
+        `/products?_limit=6&_start=${products.length}`,
+      );
+      // console.log(res);
+      if (data) {
+        setHasmore(true);
+        setProducts(data);
+      } else {
+        setHasmore(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const addToCartHandler = (product) => {
     const copyUser = { ...users, cart: [...users.cart] };
@@ -69,9 +93,20 @@ const Products = () => {
   });
 
   return products?.length > 0 ? (
-    <div className="min-w-5xl h-full py-5 bg-slate-700 justify-center flex flex-wrap gap-x-10 gap-y-5">
+    <InfiniteScroll
+      className="min-w-5xl h-full py-5 bg-slate-700 justify-center flex flex-wrap gap-x-10 gap-y-5"
+      dataLength={products.length}
+      next={fetchProducts}
+      loader={<h4>Loading...</h4>}
+      hasMore={hasMore}
+      endMessage={
+        <p style={{ textAlign: 'center' }}>
+          <b>Yey! You have seen it all </b>
+        </p>
+      }
+    >
       {renderProducts}
-    </div>
+    </InfiniteScroll>
   ) : (
     'Loading...'
   );
