@@ -11,7 +11,7 @@ const Products = () => {
   const { users } = useSelector((state) => state.userReducer);
   // const { products } = useSelector((state) => state.productReducer);
   const [products, setProducts] = useState([]);
-  const [hasMore, setHasmore] = useState(true);
+  const [hasMore, sethasMore] = useState(true);
 
   const fetchProducts = async () => {
     try {
@@ -19,14 +19,14 @@ const Products = () => {
         `/products?_limit=6&_start=${products.length}`,
       );
       // console.log(res);
-      if (data) {
-        setHasmore(true);
+      if (data.length != 0) {
+        sethasMore(true);
         setProducts(data);
       } else {
-        setHasmore(false);
+        sethasMore(false);
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
@@ -94,7 +94,6 @@ const Products = () => {
 
   return products?.length > 0 ? (
     <InfiniteScroll
-      className="min-w-5xl h-full py-5 bg-slate-700 justify-center flex flex-wrap gap-x-10 gap-y-5"
       dataLength={products.length}
       next={fetchProducts}
       loader={<h4>Loading...</h4>}
@@ -105,7 +104,9 @@ const Products = () => {
         </p>
       }
     >
-      {renderProducts}
+      <div className="min-w-5xl h-full py-5 bg-slate-700 justify-center flex flex-wrap gap-x-10 gap-y-5">
+        {renderProducts}
+      </div>
     </InfiniteScroll>
   ) : (
     'Loading...'
