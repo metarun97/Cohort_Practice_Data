@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { asyncUpdateUser } from './../store/actions/userActions';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import axios from '../api/axiosconfig';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -19,12 +19,13 @@ const Products = () => {
         `/products?_limit=6&_start=${products.length}`,
       );
       // console.log(res);
-      if (data.length != 0) {
-        sethasMore(true);
+      if (data.length === 0) {
+        sethasMore(false);
         setProducts(data);
       } else {
-        sethasMore(false);
+        sethasMore(true);
       }
+      setProducts([...products, ...data]);
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +53,7 @@ const Products = () => {
   const renderProducts = products?.map((product) => {
     return (
       <div
-        className="max-w-[20%] h-auto bg-slate-200 shadow-xl shadow-slate-500 rounded-lg overflow-hidden"
+        className="max-w-[24%] h-auto bg-slate-200 shadow-xl shadow-slate-500 rounded-lg overflow-hidden"
         key={product.id}
       >
         <div className="w-full aspect-square ">
@@ -92,7 +93,7 @@ const Products = () => {
     );
   });
 
-  return products?.length > 0 ? (
+  return (
     <InfiniteScroll
       dataLength={products.length}
       next={fetchProducts}
@@ -105,11 +106,15 @@ const Products = () => {
       }
     >
       <div className="min-w-5xl h-full py-5 bg-slate-700 justify-center flex flex-wrap gap-x-10 gap-y-5">
-        {renderProducts}
+        <Suspense
+          fallback={
+            <h1 className="text-5xl text-center text-yellow-500">LOADING...</h1>
+          }
+        >
+          {renderProducts}
+        </Suspense>
       </div>
     </InfiniteScroll>
-  ) : (
-    'Loading...'
   );
 };
 
