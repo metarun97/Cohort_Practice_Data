@@ -1,23 +1,22 @@
-//^ Yaha server declare hua ki vo kisey banra h:-
-const express = require('express');
+const express = require("express");
 
-//^ Yaha server bangya:-
+
 const app = express();
 
-//* /home => Hello welcome to Home page
-//* /about => Hello welcome to About page
+// /home route
 
-//^ Isme homepage request ka hume response mila hai:-
 app.get('/home', (req, res) => {
-  res.send('Hello welcome to Home page');
-});
+  res.send("Welcome to homepage")
+})
 
-//^ Isme aboutpage request ka hume response mila hai:-
+// /about route
+
 app.get('/about', (req, res) => {
-  res.send('Hello welcome to About page');
-});
+  res.send("Welcome to aboutpage")
+})
 
-//^ Yaha server start kr dia usne listen krna chalu kr dia:-
+
+
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+  console.log("server is running on port 3000")
+})
