@@ -1,6 +1,5 @@
 // Express required for further use⬇️
 const express = require("express");
-
 // Server created here⬇️
 const app = express();
 
