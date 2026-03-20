@@ -1,6 +1,11 @@
 // Express required for further use⬇️
 const express = require("express");
 
+// Set DNS:-
+const dns = require("dns");
+dns.setServers(["1.1.1.1", '8.8.8.8']);
+
+
 // Export the DB file from the DB folder⬇️
 const connectToDB = require('./src/db/db');
 
