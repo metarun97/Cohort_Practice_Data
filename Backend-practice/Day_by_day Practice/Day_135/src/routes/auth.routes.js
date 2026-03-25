@@ -21,7 +21,7 @@ router.post("/register", async (req, res) => {
     id: user._id
   }, process.env.JWT_SECRET)
 
-
+  // Save Token in cookies⬇️
   res.cookie("token", token);
 
   res.status(201).json({
