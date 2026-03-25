@@ -1,5 +1,6 @@
 // Express required here⬇️
 const express = require("express");
+
 // authRoutes required here⬇️
 const authRoutes = require("./routes/auth.routes");
 
