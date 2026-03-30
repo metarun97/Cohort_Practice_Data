@@ -1,26 +1,22 @@
-// Mongoose require here:-
+// Required items:-
 const mongoose = require("mongoose");
 
-
-
-// Schema created here:-
+// Schema created:-
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   password: {
-    type: String
+    type: String,
+    required: true,
   }
 })
 
-// Model created here:-
+
+// Model created:-
 const userModel = mongoose.model("user", userSchema);
 
-// Model exported here:-
+// Model exported:-
 module.exports = userModel;
-
-
-
-

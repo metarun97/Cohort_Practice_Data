@@ -1,20 +1,22 @@
-// Express required here:-
+// Required items:-
 const express = require("express");
+const authRoutes = require("../src/routes/auth.routes");
+const cookieParser = require("cookie-parser");
 
-// Express required here:-
-const authRoutes = require("./routes/auth.routes");
-
-
-// Server created here:-
+// Server created:-
 const app = express();
 
-// use express.json middleware to read server data:-
+// Express middleware used:-
 app.use(express.json());
 
+// Express middleware used:-
+app.use(cookieParser());
 
-// Auth routes called here:-
-app.use('/auth', authRoutes)
+// Auth routes used:-
+app.use("/api/auth", authRoutes)
 
-
-// Server exported here:-
+// Server exported:-
 module.exports = app;
+
+
+
