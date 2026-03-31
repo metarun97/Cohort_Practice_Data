@@ -1,6 +1,7 @@
 // Required items:-
 const express = require("express");
 const authRoutes = require("../src/routes/auth.routes");
+const postRoutes = require("../src/routes/post.routes");
 const cookieParser = require("cookie-parser");
 
 // Server created:-
@@ -14,6 +15,9 @@ app.use(cookieParser());
 
 // Auth routes used:-
 app.use("/api/auth", authRoutes)
+
+// Post routes used:-
+app.use("/api/posts", postRoutes)
 
 // Server exported:-
 module.exports = app;
