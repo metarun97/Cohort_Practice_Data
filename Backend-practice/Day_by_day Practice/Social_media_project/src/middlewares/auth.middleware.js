@@ -15,7 +15,7 @@ async function authMiddleware(req, res, next) {
 
   // If token found then do this and find the user behalf of the decoded:-
   try {
-    const decoded = jwt.verify(token, process.env.MONGO_URL)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
     const user = await userModel.findOne({
       _id: decoded.id,
