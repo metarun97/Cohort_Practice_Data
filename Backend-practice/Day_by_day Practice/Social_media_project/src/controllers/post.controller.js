@@ -13,7 +13,7 @@ async function createPostController(req, res) {
   // console.log("base64Image", base64Image);
 
   const caption = await generateCaption(base64Image);
-  // console.log(caption);
+  console.log(caption);
 
   res.json({
     caption,
