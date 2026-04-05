@@ -8,7 +8,7 @@ const connectTodB = require('./src/db/db');
 // Server set krna dns se:-
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
-
+// Database call kiya gaya:-
 connectTodB();
 
 // Server start krna:-
