@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 
-// Register, login, user(Protected), logout API:-
+// Register, login, user(Protected), logout API for Authentication:-
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/user", findUser);
