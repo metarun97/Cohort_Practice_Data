@@ -165,3 +165,6 @@
 // toaster("download done✅");
 
 //^ This keyword in JS:-
+
+
+// Note ->
