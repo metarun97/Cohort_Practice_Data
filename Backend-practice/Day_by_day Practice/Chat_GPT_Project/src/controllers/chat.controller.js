@@ -7,7 +7,7 @@ async function createChat(req, res) {
   // user found:-
   const user = req.user;
 
-
+  /* Creating a chat:-  */
   const chat = await chatModel.create({
     user: user._id,
     title
