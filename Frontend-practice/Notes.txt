@@ -1,0 +1,15 @@
+[React By Tapas Adhikary Sir]
+Video - 1
+
+-> Declarative = React is a declarative library we describe what you want to do not specific how we get it done.
+-> Component Based = React is a Component based library where we brak our monolith desigen pattern into small small components to reuse it again and again.
+
+
+Q. Why React is a library why it isn't a framework...?
+Ans. It is a library because it is used only for desigen UI and it hasn't inbuild routing,testing etc and when we want these unbuild features we can install and use it what we want so it is a library thats it.
+
+
+Q. State VS Props...?
+Ans. State = state are the local variables which is used in only inside the function.
+     Props = props are the arguments that can be passed as an argument for a function to excess it by another function.
+
