@@ -27,7 +27,7 @@ const App = () => {
   const handleBuyNow = (productData) => {
     console.log('Buy Now clicked for:', productData);
     // Add your payment/cart logic here
-    alert(`Product "${productData.title}" added to cart!`);
+    // alert(`Product "${productData.title}" added to cart!`);
   };
 
   if (loading) {

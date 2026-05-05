@@ -21,17 +21,13 @@ const paymentSchema = new mongoose.Schema({
       required: true,
     }
   },
-  currency: {
-    type: String,
-    required: true,
-  },
   status: {
     type: String,
     default: 'PENDING',
-    enum: ["SUCCESS", "PENDING", "FAILED"]
+    enum: ["COMPLETED", "PENDING", "FAILED"]
   },
 }, { timestamps: true });
 
-const Payment = mongoose.model('Payment', paymentSchema);
+const paymentModel = mongoose.model('Payment', paymentSchema);
 
-module.exports = Payment;
+module.exports = paymentModel;

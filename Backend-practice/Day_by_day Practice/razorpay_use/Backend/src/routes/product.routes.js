@@ -11,11 +11,3 @@ router.get("/get-item",productController.getProduct);
 
 module.exports = router;
 
-
-
-
-
-
-
-
-
