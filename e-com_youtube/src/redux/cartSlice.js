@@ -21,13 +21,17 @@ const cartSlice = createSlice({
       localStorage.setItem("CART", JSON.stringify(state.cart));
     },
     changeQuantity: (state, action) => {
+      const { id, finalQty } = action.payload;
+      state.cart = state.cart.filter(obj => {
+        if (obj.id === id) {
+          obj['qty'] = finalQty;
+        }
+        return obj;
+      })
+      localStorage.setItem("CART".JSON.stringify(state.cart));
     }
   }
 })
 
-
-
-
 export const { addToCart, removeFromCart, changeQuantity } = cartSlice.actions;
-
 export default cartSlice.reducer;
