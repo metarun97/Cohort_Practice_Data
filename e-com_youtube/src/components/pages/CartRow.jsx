@@ -3,22 +3,23 @@ import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
-import { changeQuantity, removeFromCart } from '../../redux/cartSlice';
+import { decItemQty, incItemQty, removeFromCart } from '../../redux/cartSlice';
 
 const CartRow = ({ cartObject }) => {
-  // console.log(cartObject);
   const {
     id,
     thumbnail,
     title,
     price,
     stock,
-    qty,
+    quantity,
     category,
     discountPercentage,
   } = cartObject;
 
   const dispatch = useDispatch();
+
+  console.log(typeof id);
 
   //* Remove from cart:-
   const handleRemoveFromCart = () => {
@@ -42,19 +43,15 @@ const CartRow = ({ cartObject }) => {
     });
   };
 
-  //* Change Quantity:-
-  const changeQty = (type) => {
-    let finalQty = qty;
-    if (type == '+') {
-      finalQty = qty + 1;
-    } else {
-      if (qty > 1) {
-        finalQty = qty - 1;
-      }
-    }
-    dispatch(changeQuantity({ id, finalQty }));
+  //* Increase Quantity:-
+  const incItemQtyHandler = () => {
+    dispatch(incItemQty(id));
   };
 
+  //* Increase Quantity:-
+  const decItemQtyHandler = () => {
+        dispatch(decItemQty(id));
+  };
   return (
     <div>
       {/* Cart Item */}
@@ -84,7 +81,9 @@ const CartRow = ({ cartObject }) => {
             <div>
               <p className="text-sm text-gray-500 text-center">Total</p>
 
-              <h3 className="text-xl font-bold text-black">${Math.floor(qty * price)}</h3>
+              <h3 className="text-xl font-bold text-black">
+                ${Math.floor(quantity * price)}
+              </h3>
             </div>
           </div>
 
@@ -102,16 +101,16 @@ const CartRow = ({ cartObject }) => {
             <div className="flex items-center border rounded-lg overflow-hidden">
               <button
                 className="px-4 py-2 hover:bg-gray-100 text-md font-bold"
-                onClick={() => changeQty('-')}
+                onClick={decItemQtyHandler}
               >
                 -
               </button>
 
-              <span className="px-5 py-2 font-medium">{qty}</span>
+              <span className="px-5 py-2 font-medium">{quantity}</span>
 
               <button
                 className="px-4 py-2 hover:bg-gray-100 text-md font-bold"
-                onClick={() => changeQty('+')}
+                onClick={incItemQtyHandler}
               >
                 +
               </button>

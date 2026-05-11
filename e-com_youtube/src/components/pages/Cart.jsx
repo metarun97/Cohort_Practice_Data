@@ -3,19 +3,18 @@ import CartRow from './CartRow';
 import { useSelector } from 'react-redux';
 
 function Cart() {
-  const { cart } = useSelector((state) => state.cartReducer);
-
+  const { cart } = useSelector((state) => state?.cartReducer);
+  console.log(cart);
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-6">
         {/* Left Side */}
         <div className="lg:col-span-2 bg-white rounded-2xl p-5 shadow-md">
           <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
-          {cart.map((cartObj, idx) => {
-            return <CartRow cartObject={cartObj} key={idx} />;
-          })}
+          {cart?.map((cartObj, idx) => (
+            <CartRow cartObject={cartObj} key={idx} />
+          ))}
         </div>
-
         {/* Right Side */}
         <div className="bg-white rounded-2xl p-5 shadow-md h-fit">
           <h2 className="text-xl font-bold mb-5">Order Summary</h2>

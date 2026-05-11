@@ -17,6 +17,7 @@ function ProductCard({ data }) {
     stock,
     category,
     discountPercentage,
+    quantity,
   } = data;
 
   const { cart } = useSelector((state) => state.cartReducer);
@@ -25,7 +26,7 @@ function ProductCard({ data }) {
 
   const dispatch = useDispatch();
 
-    //* Add to cart:-
+  //* Add to cart:-
   const handleAddToCart = () => {
     const cartObj = {
       id,
@@ -35,7 +36,7 @@ function ProductCard({ data }) {
       stock,
       category,
       discountPercentage,
-      qty:1,
+      quantity: 1,
     };
 
     // console.log(cartObj);
