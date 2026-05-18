@@ -1,0 +1,26 @@
+# Combo of linux os + nodejs
+FROM node:18
+
+# create a work directory
+WORKDIR /app
+
+# Indiviadually adding trick
+# COPY package.josn ./
+# COPY package-lock.josn ./
+
+
+# Wildcard adding trick
+COPY package*.json ./
+
+
+# For make nodemodules folder
+RUN npm install
+
+# For copy server.js file
+COPY server.js ./
+
+# For tell the port
+EXPOSE 3000
+
+# Command for run image
+CMD [ "node","server.js" ]
