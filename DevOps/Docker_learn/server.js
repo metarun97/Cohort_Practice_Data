@@ -4,7 +4,7 @@ const app = express();
 
 
 app.get("/", (req, res) => {
-  res.status(201).json({ message: "Hello world" })
+  res.status(201).json({ message: "Hello world" });
 })
 
 
