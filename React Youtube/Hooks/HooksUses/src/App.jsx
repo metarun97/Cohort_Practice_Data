@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+// import UseMemo from './components/useMemo/UseMemo';
 // import RecatUseEffect from './components/RecatUseEffect';
 // import ReactUseEffect2 from './components/ReactUseEffect2';
 // import UseEffectChellange from './components/UseEffectChellange';
-import CleanUp from './components/CleanUp';
-import ReactMemo from './components/ReactMemo';
+// import CleanUp from './components/useEffect/CleanUp';
+import ReactMemo from './components/ReactMemo/ReactMemo';
+import UseCallback from './components/useCallback/UseCallback';
 
 const App = () => {
   // const [show, setshow] = useState(false);
@@ -14,7 +16,9 @@ const App = () => {
       {/* <ReactUseEffect2 /> */}
       {/* <UseEffectChellange /> */}
       {/* {show && <CleanUp />} */}
-      <ReactMemo />
+      {/* <ReactMemo /> */}
+      {/* <UseMemo /> */}
+      <UseCallback />
     </div>
   );
 };
