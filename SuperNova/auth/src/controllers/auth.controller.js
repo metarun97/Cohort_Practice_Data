@@ -2,6 +2,8 @@
 const userModel = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const redis = require("../db/redis")
+
 
 // Register user controller function⬇️
 const registerUser = async (req, res) => {
@@ -62,7 +64,13 @@ const registerUser = async (req, res) => {
       }
     })
   } catch (error) {
-    console.log("Error in registerUser controller:", error);
+    // If Mongoose validation failed, return 400 with a clear message
+    if (error && error.name === 'ValidationError') {
+      console.error('Validation error in registerUser:', error.message);
+      return res.status(400).json({ message: 'Validation error' });
+    }
+
+    console.error("Error in registerUser controller:", error && error.message ? error.message : error);
     res.status(500).json({ message: "Internal server error" });
   }
 }
@@ -72,7 +80,6 @@ const loginUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    console.log(username, email, password)
     // Find user by username or email and include password field⬇️
     const user = await userModel.findOne({
       $or: [
@@ -133,5 +140,39 @@ const loginUser = async (req, res) => {
   }
 }
 
+// me user controller function⬇️
+const getCurrentUser = async (req, res) => {
+  res.status(200).json({
+    message: "Current user fetched successfully",
+    user: req.user
+  });
+}
+
+// logiut user controller function⬇️
+const logoutUser = async (req, res) => {
+  try {
+    const token = req.cookies.token;
+
+    // if token found, blacklist it in redis so that it cannot be used again until it expires⬇️
+    if (token) {
+      // blacklist token in redis with expiry same as token expiry⬇️
+      await redis.set(`blacklist:${token}`, true, 'EX', 24 * 60 * 60); // 1 day
+    }
+    // clear cookie⬇️
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,
+    });
+    // final response⬇️
+    res.status(200).json({
+      message: "User logged out successfully"
+    });
+  } catch (error) {
+    console.log("Error in logoutUser controller:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+
 // Export element⬇️
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, getCurrentUser, logoutUser };

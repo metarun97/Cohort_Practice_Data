@@ -1,8 +1,8 @@
-process.env.JWT_SECRET = 'testsecret';
 const request = require('supertest');
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const app = require('../app');
+process.env.JWT_SECRET = 'testsecret';
 
 describe('Auth - Login', () => {
   let mongoServer;

@@ -82,15 +82,15 @@ describe('Auth - Register', () => {
     expect(res.body).toHaveProperty('message', 'User with the same username or email already exists');
   });
 
-  test('POST /api/auth/register - missing fullName returns 500', async () => {
+  test('POST /api/auth/register - missing fullName returns 400', async () => {
     const res = await request(app).post('/api/auth/register').send({
       username: 'noFull',
       email: 'nofull@example.com',
       password: 'password123'
     });
 
-    expect(res.status).toBe(500);
-    expect(res.body).toHaveProperty('message', 'Internal server error');
+    expect(res.status).toBe(400);
+    expect(res.body).toHaveProperty('message', 'Full name is required');
   });
 
 });
