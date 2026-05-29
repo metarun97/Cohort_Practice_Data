@@ -174,5 +174,98 @@ const logoutUser = async (req, res) => {
 }
 
 
+// ⬇️ List addresses for current user⬇️
+const getUserAddresses = async (req, res) => {
+  try {
+    // Find user by ID from req.user set by auth middleware⬇️
+    const id = req.user.id;
+
+    const user = await userModel.findById(id).select("addresses");
+
+    // Check if user exists⬇️
+    if (!user) {
+      return res.status(404).json({
+        message: 'User not found'
+      });
+    }
+
+    // final response⬇️
+    return res.status(200).json({
+      message: 'Addresses fetched successfully',
+      addresses: user.addresses
+    });
+  } catch (err) {
+    console.error('Error in listAddresses:', err);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+}
+// Add address for current user⬇️
+const addUserAddress = async (req, res) => {
+  try {
+    const id = req.user.id;
+    const { street, city, state, country, pincode, isDefault = false, phone } = req.body;
+
+    const user = await userModel.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // If new address should be default, unset previous defaults
+    if (isDefault) {
+      user.addresses.forEach(a => { a.isDefault = false; });
+    }
+
+    user.addresses.push({ street, city, state, pincode, country, isDefault, phone });
+    await user.save();
+
+    const newAddr = user.addresses[user.addresses.length - 1];
+
+    return res.status(201).json({
+      message: 'Address added successfully',
+      address: newAddr
+    });
+  } catch (err) {
+    console.error('Error in addAddress:', err);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+// Delete address for current user⬇️
+const deleteUserAddress = async (req, res) => {
+  try {
+    const id = req.user.id;
+    const { addressId } = req.params;
+
+    // Find user first to verify existence and whether the address exists⬇️
+    const user = await userModel.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if the address exists on the user document⬇️
+    const addr = user.addresses.id(addressId);
+    if (!addr) {
+      return res.status(404).json({ message: 'Address not found' });
+    }
+
+    // Remove the address from the array and save the user⬇️
+    user.addresses = user.addresses.filter(a => a._id.toString() !== addressId);
+    await user.save();
+
+    return res.status(200).json({ message: 'Address deleted successfully' });
+  } catch (err) {
+    console.error('Error in deleteUserAddress:', err);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
 // Export element⬇️
-module.exports = { registerUser, loginUser, getCurrentUser, logoutUser };
+module.exports = {
+  registerUser,
+  loginUser,
+  getCurrentUser,
+  logoutUser,
+  getUserAddresses,
+  addUserAddress,
+  deleteUserAddress,
+};

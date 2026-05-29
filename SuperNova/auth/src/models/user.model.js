@@ -3,11 +3,14 @@ const mongoose = require("mongoose");
 
 // addressSchema created⬇️
 const addressSchema = new mongoose.Schema({
-  street: String,
-  city: String,
+  street: { type: String, required: true },
+  city: { type: String, required: true },
   state: String,
   zip: String,
   country: String,
+  pincode: String,
+  phone: String,
+  isDefault: { type: Boolean, default: false },
 })
 
 // userSchema created⬇️
