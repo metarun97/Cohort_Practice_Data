@@ -8,7 +8,14 @@ const redis = require("../db/redis")
 // Register user controller function⬇️
 const registerUser = async (req, res) => {
   try {
-    const { username, email, password, fullName } = req.body;
+    const { username, email, password, fullName, role } = req.body;
+    const firstName = fullName && fullName.firstName;
+    const lastName = fullName && fullName.lastName;
+
+    // Validate fullName presence⬇️
+    if (!firstName || !lastName) {
+      return res.status(400).json({ message: "Full name is required" });
+    }
 
     //  Check if user with same username or email already exists⬇️
     const isUserAlreadyExists = await userModel.findOne({
@@ -34,7 +41,8 @@ const registerUser = async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      fullName
+      fullName,
+      role: role || "user", // default role is "user"
     });
 
     // create token⬇️

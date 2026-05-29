@@ -30,7 +30,8 @@ describe('Auth - Register', () => {
       username: 'testuser',
       email: 'test@example.com',
       password: 'password123',
-      fullName: { firstName: 'Test', lastName: 'User' }
+      fullName: { firstName: 'Test', lastName: 'User' },
+      role: 'user'
     });
     expect(res.status).toBe(201);
     expect(res.body.user).toHaveProperty('username', 'testuser');
@@ -46,14 +47,16 @@ describe('Auth - Register', () => {
       username: 'existingUser',
       email: 'existing@example.com',
       password: hashed,
-      fullName: { firstName: 'Ex', lastName: 'Ist' }
+      fullName: { firstName: 'Ex', lastName: 'Ist' },
+      role: 'user'
     });
 
     const res = await request(app).post('/api/auth/register').send({
       username: 'existingUser',
       email: 'new@example.com',
       password: 'password123',
-      fullName: { firstName: 'New', lastName: 'User' }
+      fullName: { firstName: 'New', lastName: 'User' },
+      role: 'user'
     });
 
     expect(res.status).toBe(409);
@@ -68,14 +71,16 @@ describe('Auth - Register', () => {
       username: 'userA',
       email: 'dup@example.com',
       password: hashed,
-      fullName: { firstName: 'A', lastName: 'User' }
+      fullName: { firstName: 'A', lastName: 'User' },
+      role: 'user'
     });
 
     const res = await request(app).post('/api/auth/register').send({
       username: 'userB',
       email: 'dup@example.com',
       password: 'password123',
-      fullName: { firstName: 'B', lastName: 'User' }
+      fullName: { firstName: 'B', lastName: 'User' },
+      role: 'user'
     });
 
     expect(res.status).toBe(409);
@@ -86,7 +91,9 @@ describe('Auth - Register', () => {
     const res = await request(app).post('/api/auth/register').send({
       username: 'noFull',
       email: 'nofull@example.com',
-      password: 'password123'
+      password: 'password123',
+      fullName: {}, // missing firstName and lastName
+      role: 'user'
     });
 
     expect(res.status).toBe(400);
