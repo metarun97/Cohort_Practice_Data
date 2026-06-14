@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "name": "Aarav Sharma",
+    "avatar": "https://i.pravatar.cc/150?img=1",
+    "role": "Frontend Developer",
+    "message": "Working on the dashboard UI.",
+    "isVerified": true
+  },
+  {
+    "id": 2,
+    "name": "Priya Verma",
+    "avatar": "https://i.pravatar.cc/150?img=2",
+    "role": "Backend Developer",
+    "message": "API integration completed.",
+    "isVerified": true,
+    "extra": "Thankx for the motivation in this filed."
+  },
+  {
+    "id": 3,
+    "name": "Rohan Singh",
+    "avatar": "https://i.pravatar.cc/150?img=3",
+    "role": "UI/UX Designer",
+    "message": "New design mockups are ready.",
+    "isVerified": false,
+    "extra": "Thankx for the motivation in this filed."
+  },
+  {
+    "id": 4,
+    "name": "Neha Gupta",
+    "avatar": "https://i.pravatar.cc/150?img=4",
+    "role": "Project Manager",
+    "message": "Sprint planning meeting at 4 PM.",
+    "isVerified": true
+  }
+]
