@@ -1,12 +1,13 @@
 import TestimonialCard from './components/TestimonialCard';
 import testimonials from './data/testimonial.json';
+import styles from './components/cards.module.css';
 
 const Cards = () => {
   console.log(testimonials);
   return (
     <div>
       <h2>Our studenst says</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+      <div className={styles.cardSection}>
         {testimonials.map(
           ({
             id,
