@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
 const Api = () => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Bulandshahr');
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
+
+  const date = new Date(
+    (weather?.dt + weather?.timezone) * 1000,
+  ).toLocaleDateString('en-GB', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
 
   const API_KEY = '0567c70b21126eb12b5cc516bb7e2750';
 
@@ -24,6 +32,7 @@ const Api = () => {
       }
       /* If URL fetched data successfully */
       const data = await res.json();
+      console.log(data);
       setWeather(data);
       setCity('');
     } catch (err) {
@@ -64,12 +73,13 @@ const Api = () => {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold">New Delhi</h2>
-              <p className="text-sm text-gray-300">Thursday, 18 June</p>
+              <h2 className="text-2xl font-bold">{weather?.name}</h2>
+              <p className="text-sm text-gray-300">{date}</p>
             </div>
 
             <img
-              src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png"
+              // src={`https://openweathermap.org/img/wn/${}@2x.png`}
+              src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
               alt="Weather Icon"
               className="w-16 h-16"
             />
@@ -77,25 +87,34 @@ const Api = () => {
 
           {/* Temperature */}
           <div className="mt-6">
-            <h1 className="text-6xl font-bold">32°</h1>
-            <p className="text-lg text-gray-300">Partly Cloudy</p>
+            <h1 className="text-6xl font-bold">
+              {Math.floor(weather?.main?.temp)}°C
+            </h1>
+
+            <p className="text-lg text-gray-300"></p>
           </div>
 
           {/* Extra Details */}
           <div className="grid grid-cols-3 gap-4 mt-8 text-center">
             <div className="bg-white/10 rounded-xl p-3">
               <p className="text-sm text-gray-300">Humidity</p>
-              <p className="font-semibold">65%</p>
+              <p className="font-semibold">
+                {Math.floor(weather?.main?.humidity)}%
+              </p>
             </div>
 
             <div className="bg-white/10 rounded-xl p-3">
               <p className="text-sm text-gray-300">Wind</p>
-              <p className="font-semibold">12 km/h</p>
+              <p className="font-semibold">
+                {Math.floor(weather?.wind?.speed)} km/h
+              </p>
             </div>
 
             <div className="bg-white/10 rounded-xl p-3">
               <p className="text-sm text-gray-300">Feels Like</p>
-              <p className="font-semibold">35°</p>
+              <p className="font-semibold">
+                {Math.floor(weather?.main?.feels_like)}°C
+              </p>
             </div>
           </div>
         </div>
