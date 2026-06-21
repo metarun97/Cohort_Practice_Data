@@ -7,6 +7,8 @@ import Api from './components/Api';
 import Parent from './components/Parent';
 import GrandChild from './components/GrandChild';
 import ReducerHook from './components/ReducerHook';
+import Navbar from './components/Navbar';
+import MainRoutes from './routes/MainRoutes';
 
 const App = () => {
   return (
@@ -18,7 +20,9 @@ const App = () => {
       {/* <Api /> */}
       {/* <Parent /> */}
       {/* <GrandChild /> */}
-      <ReducerHook />
+      {/* <ReducerHook /> */}
+      {/* <Navbar /> */}
+      {/* <MainRoutes /> */}
     </div>
   );
 };
