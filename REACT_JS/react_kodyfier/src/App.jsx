@@ -9,6 +9,7 @@ import GrandChild from './components/GrandChild';
 import ReducerHook from './components/ReducerHook';
 import Navbar from './components/Navbar';
 import MainRoutes from './routes/MainRoutes';
+import Search from './components/Search';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       {/* <ReducerHook /> */}
       {/* <Navbar /> */}
       {/* <MainRoutes /> */}
+      <Search />
     </div>
   );
 };
