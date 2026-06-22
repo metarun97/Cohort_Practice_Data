@@ -1,0 +1,58 @@
+{
+  "gadgets": [
+    {
+      "id": 1,
+      "name": "iPhone 15 Pro",
+      "brand": "Apple",
+      "category": "Smartphone",
+      "price": 129999,
+      "rating": 4.8,
+      "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S24 Ultra",
+      "brand": "Samsung",
+      "category": "Smartphone",
+      "price": 124999,
+      "rating": 4.7,
+      "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500"
+    },
+    {
+      "id": 3,
+      "name": "MacBook Air M3",
+      "brand": "Apple",
+      "category": "Laptop",
+      "price": 114999,
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1517336714739-489689fd1ca8?w=500"
+    },
+    {
+      "id": 4,
+      "name": "Sony WH-1000XM5",
+      "brand": "Sony",
+      "category": "Headphones",
+      "price": 29999,
+      "rating": 4.8,
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+    },
+    {
+      "id": 5,
+      "name": "Apple Watch Series 9",
+      "brand": "Apple",
+      "category": "Smartwatch",
+      "price": 41999,
+      "rating": 4.7,
+      "image": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500"
+    },
+    {
+      "id": 6,
+      "name": "iPad Air M2",
+      "brand": "Apple",
+      "category": "Tablet",
+      "price": 69999,
+      "rating": 4.8,
+      "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500"
+    }
+  ]
+}

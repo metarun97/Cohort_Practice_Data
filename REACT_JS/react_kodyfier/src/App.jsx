@@ -10,8 +10,14 @@ import ReducerHook from './components/ReducerHook';
 import Navbar from './components/Navbar';
 import MainRoutes from './routes/MainRoutes';
 import Search from './components/Search';
+import UseIdHook from './components/UseIdHook';
+import UseActionState from './components/UseActionState';
+import Products from './components/Products';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const App = () => {
+  const queryClient = new QueryClient();
+
   return (
     <div className="w-full h-screen ">
       {/* <Counter /> */}
@@ -24,7 +30,12 @@ const App = () => {
       {/* <ReducerHook /> */}
       {/* <Navbar /> */}
       {/* <MainRoutes /> */}
-      <Search />
+      {/* <Search /> */}
+      {/* <UseIdHook /> */}
+      {/* <UseActionState /> */}
+      <QueryClientProvider client={queryClient}>
+        <Products />
+      </QueryClientProvider>
     </div>
   );
 };
