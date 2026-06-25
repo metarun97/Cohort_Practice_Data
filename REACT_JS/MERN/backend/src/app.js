@@ -8,7 +8,9 @@ const app = express();
 
 
 /* Middleware for avoid cors error policy */
-app.use(cors());
+app.use(cors({
+  origin:"http://localhost:5173"
+}));
 
 /* Middleware to read req.body data */
 app.use(express.json());
