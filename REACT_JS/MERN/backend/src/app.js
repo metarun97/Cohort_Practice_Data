@@ -1,6 +1,7 @@
 /* Imported packages/files */
 import express from "express";
-import ecomRoutes from "./routes/ecom.routes.js";
+import categoryRoutes from "./routes/category.routes.js";
+import productRoutes from './routes/product.routes.js';
 import cors from 'cors';
 
 /* Server created here */
@@ -16,9 +17,9 @@ app.use(cors({
 app.use(express.json());
 
 
-
 /* Routes main endpoints */
-app.use("/api/ecom", ecomRoutes);
+app.use("/api/ecom",categoryRoutes);
+app.use("/api/ecom",productRoutes);
 
 
 export default app;

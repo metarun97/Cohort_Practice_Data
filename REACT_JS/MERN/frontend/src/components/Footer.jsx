@@ -115,7 +115,7 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500 text-center sm:text-left">
-            © {new Date().getFullYear()} BrandName. All rights reserved.
+            © {new Date().getFullYear()} ShopMart. All rights reserved.
           </p>
 
           {/* Social Icons */}

@@ -1,6 +1,6 @@
 /* Imported packages/files */
 import express from "express";
-import { createCategories, getCategories } from "../controllers/ecom.controller.js";
+import { createCategories, getCategories } from "../controllers/category.controller.js";
 
 
 /* Router created here */
