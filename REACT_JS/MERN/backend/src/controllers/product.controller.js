@@ -1,7 +1,7 @@
 /* Imported packages/files */
 import productModel from "../models/product.model.js";
 
-
+/* POST products controller */
 export const insertProducts = async (req, res) => {
   try {
     const { products } = req.body;
@@ -26,7 +26,7 @@ export const insertProducts = async (req, res) => {
   }
 }
 
-
+/* GETT products controller */
 export const fetchProducts = async (req, res) => {
   try {
     /* Find the products in the database */

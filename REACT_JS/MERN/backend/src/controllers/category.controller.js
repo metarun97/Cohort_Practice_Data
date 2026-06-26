@@ -1,6 +1,7 @@
 /* Imported packages/files */
 import categoryModel from "../models/category.model.js"
 
+
 /* POST Categories controller */
 export const createCategories = async (req, res) => {
 
@@ -54,3 +55,32 @@ export const getCategories = async (req, res) => {
   }
 }
 
+/* GET Category by slug controller */
+export const getCategoryBySlug = async (req, res) => {
+  try {
+    const { slug } = req.params;
+
+    /* Find category by slug name in database */
+    const category = await categoryModel.findOne({ slug });
+    // console.log(category);
+
+    /* If category not found do this */
+    if (!category) {
+      return res.status(404).json({
+        message: "Category not found.",
+      })
+    }
+    /* final response */
+    res.status(200).json({
+      message: "Category fetched successfully.",
+      data: category,
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    })
+  }
+
+
+}

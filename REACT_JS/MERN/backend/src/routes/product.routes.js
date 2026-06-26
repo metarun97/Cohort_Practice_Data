@@ -1,11 +1,14 @@
 /* Imported packages/files */
-import express  from 'express';
-import { insertProducts } from '../controllers/product.controller.js';
+import express from 'express';
+import { fetchProducts, insertProducts } from '../controllers/product.controller.js';
+
+
 /* Route created here */
 const router = express.Router();
 
-router.post("/products",insertProducts)
-
+/* API Endpoints for products */
+router.post("/products", insertProducts)
+router.get("/products", fetchProducts)
 
 
 export default router;
