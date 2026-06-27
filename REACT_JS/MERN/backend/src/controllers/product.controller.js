@@ -1,8 +1,9 @@
 /* Imported packages/files */
 import productModel from "../models/product.model.js";
 
+
 /* POST products controller */
-export const insertProducts = async (req, res) => {
+export const insertAllProducts = async (req, res) => {
   try {
     const { products } = req.body;
 
@@ -42,6 +43,33 @@ export const fetchProducts = async (req, res) => {
     res.status(200).json({
       message: "Products fetched successfully✅",
       data: products,
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    })
+  }
+}
+
+/* GETT products controller */
+export const fetchProductById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    /* Find a single product by id */
+    const product = await productModel.findById(id);
+
+    /* If product not found */
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      })
+    }
+    /* Final response */
+    res.status(200).json({
+      message: "Product fetched successfully✅",
+      data: product,
     })
 
   } catch (error) {

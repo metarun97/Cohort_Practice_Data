@@ -7,8 +7,8 @@ import { createCategories, getCategories, getCategoryBySlug } from "../controlle
 const router = express.Router();
 
 /* API Endpoints for category */
-router.post('/category', createCategories)
-router.get('/category', getCategories)
+router.post('/', createCategories)
+router.get('/', getCategories)
 router.get('/category/:slug', getCategoryBySlug)
 
 

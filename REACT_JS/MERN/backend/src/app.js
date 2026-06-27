@@ -18,8 +18,8 @@ app.use(express.json());
 
 
 /* Routes main endpoints */
-app.use("/api/ecom",categoryRoutes);
-app.use("/api/ecom",productRoutes);
+app.use("/api/category",categoryRoutes);
+app.use("/api/products",productRoutes);
 
 
 export default app;
