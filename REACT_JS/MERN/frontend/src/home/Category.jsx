@@ -6,7 +6,7 @@ const Category = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await fetch('http://localhost:3000/api/ecom/category');
+      const res = await fetch('http://localhost:3000/api/category/');
       const result = await res.json();
       // console.log(result.data);
       setCategory(result.data);

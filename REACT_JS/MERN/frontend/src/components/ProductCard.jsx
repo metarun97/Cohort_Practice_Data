@@ -4,6 +4,7 @@ import {
   FaRegStar,
   FaShoppingCart,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   const {
@@ -18,6 +19,8 @@ const ProductCard = ({ product }) => {
     brand,
     imageUrl,
   } = product;
+
+  // console.log(product)
 
   const renderStars = () => {
     const stars = [];
@@ -47,69 +50,41 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="w-full max-w-sm bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
-      {/* Image */}
-      <div className="relative bg-gray-50">
-        <img
-          src={imageUrl}
-          alt={title}
-          className="w-full h-48 sm:h-56 object-cover"
-        />
-        <span className="absolute top-3 left-3 bg-white/90 text-xs font-medium text-gray-700 px-2.5 py-1 rounded-full">
-          {category}
-        </span>
-        <span
-          className={`absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full ${
-            !isStock ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-          }`}
-        >
-          {!isStock ? 'In Stock' : 'Out of Stock'}
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className="p-4 sm:p-5">
-        <p className="text-xs font-medium text-blue-600 uppercase tracking-wide mb-1">
-          {brand}
-        </p>
-
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 leading-snug mb-1.5">
-          {title}
-        </h3>
-
-        <p className="text-sm text-gray-500 leading-relaxed mb-3 line-clamp-2">
-          {description}
-        </p>
-
-        {/* Rating */}
-        <div className="flex items-center gap-2 mb-3">
-          <div className="flex items-center gap-0.5">{renderStars()}</div>
-          <span className="text-sm text-gray-700 font-medium">{rating}</span>
-          <span className="text-xs text-gray-400">({reviews} reviews)</span>
+    <Link
+      to={`/products/${product._id}`}
+      className="w-full max-w-sm bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+    >
+      <div
+        key={product.id}
+        className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+      >
+        <div className="bg-gray-50">
+          <img
+            src={product.imageUrl}
+            alt={product.title}
+            className="w-full h-44 sm:h-48 object-cover"
+          />
         </div>
-
-        {/* Price + Stock count */}
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-xl sm:text-2xl font-bold text-gray-900">
-            ${price.toFixed(2)}
+        <div className="p-4">
+          <p className="text-xs font-medium text-blue-600 uppercase tracking-wide mb-1">
+            {product.category}
           </p>
-          <p className="text-xs text-gray-500">{stock} left in stock</p>
+          <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-2 line-clamp-2">
+            {product.title}
+          </h3>
+          <div className="flex items-center gap-1 mb-2">
+            <FaStar className="w-3 h-3 text-yellow-400" />
+            <span className="text-xs font-medium text-gray-700">
+              {product.rating}
+            </span>
+            <span className="text-xs text-gray-400">({product.reviews})</span>
+          </div>
+          <p className="text-lg font-bold text-gray-900">
+            ${product.price.toFixed(2)}
+          </p>
         </div>
-
-        {/* Add to Cart Button */}
-        <button
-          disabled={isStock}
-          className={`w-full flex items-center justify-center gap-2 font-medium text-sm py-2.5 rounded-full transition-colors ${
-            isStock
-              ? 'bg-gray-200 text-gray-400 cursor-not-allowed '
-              : 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'
-          }`}
-        >
-          <FaShoppingCart className="w-4 h-4" />
-          Add to Cart
-        </button>
       </div>
-    </div>
+    </Link>
   );
 };
 

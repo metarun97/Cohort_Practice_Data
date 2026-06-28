@@ -19,8 +19,12 @@ const productSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-  inStock: {
+  isStock: {
     type: Boolean,
+    require: true,
+  },
+  stock: {
+    type: Number,
     require: true,
   },
   reviews: {
