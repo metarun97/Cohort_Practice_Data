@@ -2,6 +2,7 @@
 import express from "express";
 import categoryRoutes from "./routes/category.routes.js";
 import productRoutes from './routes/product.routes.js';
+import cartRoutes from './routes/cart.routes.js';
 import cors from 'cors';
 
 /* Server created here */
@@ -16,10 +17,10 @@ app.use(cors({
 /* Middleware to read req.body data */
 app.use(express.json());
 
-
-/* Routes main endpoints */
+/* Main routes endpoints */
 app.use("/api/category",categoryRoutes);
 app.use("/api/products",productRoutes);
+app.use("/api/cart",cartRoutes);
 
 
 export default app;

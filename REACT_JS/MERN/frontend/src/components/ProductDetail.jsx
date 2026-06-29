@@ -40,7 +40,7 @@ const ProductDetail = ({ singleProduct }) => {
             className="bg-black text-white p-1.5 rounded-full cursor-pointer"
             onClick={() => navigate(-1)}
           >
-            <IoMdArrowBack/>
+            <IoMdArrowBack />
           </span>
           <span className="mx-1">/</span> {brand}
           <span className="mx-1"></span>
@@ -107,9 +107,34 @@ const ProductDetail = ({ singleProduct }) => {
               </span>
             </p>
 
+            {/* Quantity Selector */}
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-sm font-medium text-gray-700">
+                Quantity
+              </span>
+              <div className="flex items-center border border-gray-200 rounded-full">
+                <button className="p-2.5 sm:p-3 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer">
+                  <FaMinus className="w-3 h-3" />
+                </button>
+                <span className="w-10 text-center text-sm font-medium text-gray-900">
+                  1
+                </span>
+                <button className="p-2.5 sm:p-3 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer">
+                  <FaPlus className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+
             {/* Action Buttons */}
             <div className="flex items-center gap-3 mb-8">
-              <button className="flex-1 flex items-center justify-center gap-2 font-medium text-sm sm:text-base py-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+              <button
+                disabled={stock <= 0}
+                className={`flex-1 flex items-center justify-center gap-2 font-medium text-sm sm:text-base py-3 rounded-full transition-colors ${
+                  stock > 0
+                    ? 'bg-blue-600 text-white hover:bg-blue-700'
+                    : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
+              >
                 <FaShoppingCart className="w-4 h-4" />
                 Add to Cart
               </button>
