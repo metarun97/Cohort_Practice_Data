@@ -1,7 +1,7 @@
 /* Imported packages/files */
 import cartModel from "../models/cart.model.js";
 
-
+/* AddToCart API controller */
 export const addToCart = async (req, res) => {
 
   try {
@@ -23,14 +23,15 @@ export const addToCart = async (req, res) => {
       })
 
       /* Cart creation response */
-      res.status(201).json({
+      return res.status(201).json({
         message: "Cart created & product added successfully",
+        cart,
       })
     }
 
 
     /* Check if product already exists in cart */
-    const existingItem = cart.items.find((item) => (items.productId.toString() === productId))
+    const existingItem = cart.items.find((item) => (item.productId.toString() === productId))
 
     /* If cart exists then increase quantity of product then else add a new product */
     if (existingItem) {
@@ -40,7 +41,7 @@ export const addToCart = async (req, res) => {
     }
 
     /* Save cart in database */
-    await cartModel.save()
+    await cart.save();
 
     /* Final response */
     res.status(200).json({
@@ -53,5 +54,33 @@ export const addToCart = async (req, res) => {
     return res.status(500).json({
       error: error.message,
     })
+  }
+}
+
+
+/* GetCartData API controller */
+export const getCartData = async (req, res) => {
+  try {
+
+    /* Find a cart in the database */
+    const cart = await cartModel.findOne().populate("items.productId");
+
+    /* if cart not found in the database */
+    if (!cart) {
+      return res.status(404).json({
+        message: "Cart not found.",
+      })
+    }
+
+    /* Final response */
+    res.status(200).json({
+      message: "Cart fetched successfully",
+      cart,
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
   }
 }

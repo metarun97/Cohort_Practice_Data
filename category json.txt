@@ -1,0 +1,29 @@
+{"categories":[{
+ "categoryName": "Home & Furniture",
+  "slug": "home-furniture",
+  "description": "Stylish and comfortable furniture and decor items to upgrade your living space.",
+  "categoryImage": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800",
+  "productCount": 5,
+  "isActive": true,
+},{
+  "categoryName": "Sports & Fitness",
+  "slug": "sports-fitness",
+  "description": "Equipment and gear for workouts, outdoor sports, and an active lifestyle.",
+  "categoryImage": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800",
+  "productCount": 5,
+  "isActive": true,
+},{
+  "categoryName": "Fashion",
+  "slug": "fashion",
+  "description": "Trendy clothing, footwear, and accessories for men and women.",
+  "categoryImage": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800",
+  "productCount": 5,
+  "isActive": true,
+},{
+ "categoryName": "Electronics",
+  "slug": "electronics",
+  "description": "Latest gadgets, smartphones, laptops, cameras, and audio devices for everyday tech needs.",
+  "categoryImage": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800",
+  "productCount": 5,
+  "isActive": true,
+}]}

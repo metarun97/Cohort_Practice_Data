@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import SingleProduct from './../pages/SingleProduct';
+import { useEffect, useState } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
 import {
   FaStar,
@@ -30,7 +31,41 @@ const ProductDetail = ({ singleProduct }) => {
   } = singleProduct;
 
   const navigate = useNavigate();
-  // console.log(singleProduct);
+
+  const [quantity, setQuantity] = useState(1);
+
+  /* Add to cart function */
+  const addToCart = async (productId) => {
+    try {
+      const res = await fetch('http://localhost:3000/api/cart/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: singleProduct._id,
+          quantity,
+        }),
+      });
+      const result = await res.json();
+      console.log(result.cart.items);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  /*  Increase quantity function */
+
+  const increaseQtyHandler = () => {
+    if (singleProduct.stock > quantity) {
+      setQuantity((prev) => prev + 1);
+    }
+  };
+
+  /* Decrease quantity function */
+  const decreaseQtyHandler = () => {
+      setQuantity((prev) => prev - 1);
+  };
+
   return (
     <div className="bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -113,13 +148,19 @@ const ProductDetail = ({ singleProduct }) => {
                 Quantity
               </span>
               <div className="flex items-center border border-gray-200 rounded-full">
-                <button className="p-2.5 sm:p-3 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer">
+                <button
+                  onClick={decreaseQtyHandler}
+                  className="p-2.5 sm:p-3 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                >
                   <FaMinus className="w-3 h-3" />
                 </button>
                 <span className="w-10 text-center text-sm font-medium text-gray-900">
-                  1
+                  {quantity}
                 </span>
-                <button className="p-2.5 sm:p-3 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer">
+                <button
+                  onClick={increaseQtyHandler}
+                  className="p-2.5 sm:p-3 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                >
                   <FaPlus className="w-3 h-3" />
                 </button>
               </div>
@@ -128,6 +169,7 @@ const ProductDetail = ({ singleProduct }) => {
             {/* Action Buttons */}
             <div className="flex items-center gap-3 mb-8">
               <button
+                onClick={addToCart}
                 disabled={stock <= 0}
                 className={`flex-1 flex items-center justify-center gap-2 font-medium text-sm sm:text-base py-3 rounded-full transition-colors ${
                   stock > 0

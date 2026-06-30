@@ -1,6 +1,6 @@
 /* Imported packages/files */
 import express from 'express';
-import { addToCart } from '../controllers/cart.controller.js';
+import { addToCart, getCartData } from '../controllers/cart.controller.js';
 
 
 /* Cart route created */
@@ -8,7 +8,8 @@ const router = express.Router();
 
 
 /* Add to cart API endpoint */
-router.post("/", addToCart);
+router.post("/add", addToCart);
+router.get("/", getCartData);
 
 
 export default router;
