@@ -48,13 +48,13 @@ const ProductDetail = ({ singleProduct }) => {
         }),
       });
       const result = await res.json();
-      console.log(result.cart.items);
+      console.log(result);
+      // console.log(result?.cart?.items);
     } catch (error) {
       console.log(error);
     }
   };
   /*  Increase quantity function */
-
   const increaseQtyHandler = () => {
     if (singleProduct.stock > quantity) {
       setQuantity((prev) => prev + 1);
@@ -63,7 +63,7 @@ const ProductDetail = ({ singleProduct }) => {
 
   /* Decrease quantity function */
   const decreaseQtyHandler = () => {
-      setQuantity((prev) => prev - 1);
+    setQuantity((prev) => prev - 1);
   };
 
   return (
