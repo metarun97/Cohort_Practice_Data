@@ -10,23 +10,32 @@ import {
 } from 'react-icons/fa';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cart, setCart] = useState([]);
   const [promoCode, setPromoCode] = useState('');
+  const [total, setTotal] = useState(null);
 
-  console.log(cartItems);
+  // console.log(cart.items);
 
   useEffect(() => {
-    const fetchCartData = async () => {
-      const res = await fetch('http://localhost:3000/api/cart');
-      const result = await res.json();
-      // console.log(result.cart.items);
-      setCartItems(result.cart.items);
-    };
-
     fetchCartData();
   }, []);
 
-  if (cartItems.length === 0) {
+  const fetchCartData = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/cart');
+      const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
+      // console.log(result.cart.items);
+      setCart(result.cart.items);
+      setTotal(result.totalPrice);
+    } catch (error) {
+      console.error('Fail to fetch cart:', error);
+    }
+  };
+
+  if (cart.length === 0) {
     return (
       <div className="bg-white min-h-screen flex items-center justify-center">
         <div className="text-center px-4">
@@ -58,8 +67,7 @@ const Cart = () => {
               Shopping Cart
             </h1>
             <p className="text-sm text-gray-500 mt-1">
-              {cartItems.length} item{cartItems.length > 1 ? 's' : ''} in your
-              cart
+              {cart?.length} item{cart?.length > 1 ? 's' : ''} in your cart
             </p>
           </div>
           <Link
@@ -74,7 +82,7 @@ const Cart = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Cart Items */}
           <div className="flex-1 space-y-4">
-            {cartItems.map((item) => (
+            {cart?.map((item) => (
               <div
                 key={item._id}
                 className="flex flex-col sm:flex-row gap-4 border border-gray-100 rounded-2xl p-4 hover:shadow-sm transition-shadow"
@@ -82,8 +90,8 @@ const Cart = () => {
                 {/* Image */}
                 <div className="w-full sm:w-28 h-28 shrink-0 bg-gray-50 rounded-xl overflow-hidden">
                   <img
-                    src={item.product.imageUrl}
-                    alt={item.product.title}
+                    src={item.productId.imageUrl}
+                    alt={item.productId.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -92,13 +100,13 @@ const Cart = () => {
                 <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <p className="text-xs font-medium text-blue-600 uppercase tracking-wide mb-1">
-                      {item.product.brand}
+                      {item.productId.brand}
                     </p>
                     <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">
-                      {item.product.title}
+                      {item.productId.title}
                     </h3>
                     <p className="text-sm text-gray-500">
-                      ${item.product.price} each
+                      ${item.productId.price} each
                     </p>
                   </div>
 
@@ -119,14 +127,9 @@ const Cart = () => {
                     {/* Price + Remove */}
                     <div className="flex items-center gap-3">
                       <p className="text-base font-bold text-gray-900">
-                        $
-                        {(
-                          item.product.price * item.quantity
-                        ).toFixed(2)}
+                        ${(item.productId.price * item.quantity).toFixed(2)}
                       </p>
-                      <button
-                        className="text-gray-400 hover:text-red-500 transition-colors"
-                      >
+                      <button className="text-gray-400 hover:text-red-500 transition-colors">
                         <FaTrashAlt className="w-4 h-4" />
                       </button>
                     </div>
@@ -162,19 +165,15 @@ const Cart = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span className="font-medium text-gray-900">$999</span>
+                  <span className="font-medium text-gray-900">${total}</span>
                 </div>
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Shipping</span>
-                  <span className="font-medium text-gray-900">
-                    $149
-                  </span>
+                  <span className="font-medium text-gray-900">$149</span>
                 </div>
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Tax (5%)</span>
-                  <span className="font-medium text-gray-900">
-                    10
-                  </span>
+                  <span className="font-medium text-gray-900">10</span>
                 </div>
               </div>
 
@@ -184,9 +183,7 @@ const Cart = () => {
                 <span className="text-base font-semibold text-gray-900">
                   Total
                 </span>
-                <span className="text-xl font-bold text-gray-900">
-                  $9999
-                </span>
+                <span className="text-xl font-bold text-gray-900">${total + 149}</span>
               </div>
 
               <button className="w-full bg-blue-600 text-white font-medium text-sm py-3 rounded-full hover:bg-blue-700 transition-colors">

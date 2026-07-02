@@ -69,6 +69,7 @@ export default function Hero() {
                 src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80"
                 alt="Featured product"
                 className="relative z-10 w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover rounded-3xl shadow-xl"
+                fetchPriority='high'
               />
             </div>
           </div>

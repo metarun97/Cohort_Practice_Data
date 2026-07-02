@@ -35,7 +35,7 @@ const ProductDetail = ({ singleProduct }) => {
   const [quantity, setQuantity] = useState(1);
 
   /* Add to cart function */
-  const addToCart = async (productId) => {
+  const addToCart = async (productId, quantity) => {
     try {
       const res = await fetch('http://localhost:3000/api/cart/add', {
         method: 'POST',
@@ -43,13 +43,12 @@ const ProductDetail = ({ singleProduct }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          productId: singleProduct._id,
+          productId,
           quantity,
         }),
       });
       const result = await res.json();
-      console.log(result);
-      // console.log(result?.cart?.items);
+      // console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +62,9 @@ const ProductDetail = ({ singleProduct }) => {
 
   /* Decrease quantity function */
   const decreaseQtyHandler = () => {
-    setQuantity((prev) => prev - 1);
+    if (quantity >= 2) {
+      setQuantity((prev) => prev - 1);
+    }
   };
 
   return (
@@ -169,7 +170,7 @@ const ProductDetail = ({ singleProduct }) => {
             {/* Action Buttons */}
             <div className="flex items-center gap-3 mb-8">
               <button
-                onClick={addToCart}
+                onClick={() => addToCart(singleProduct._id, quantity)}
                 disabled={stock <= 0}
                 className={`flex-1 flex items-center justify-center gap-2 font-medium text-sm sm:text-base py-3 rounded-full transition-colors ${
                   stock > 0

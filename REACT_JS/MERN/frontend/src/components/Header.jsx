@@ -1,11 +1,32 @@
 import { useState } from 'react';
 import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const navigate = useNavigate();
+  const [cartLength, setCartlength] = useState([]);
+
+  useEffect(() => {
+    fetchCartLength();
+  }, [cartLength]);
+
+  const fetchCartLength = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/cart');
+      const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
+      // console.log(result.cart.items);
+      setCartlength(result.cart.items);
+    } catch (error) {
+      console.error('Fail to fetch cart length:', error);
+      setCartlength(0);
+    }
+  };
 
   return (
     <nav className="relative bg-white shadow-md px-4 sm:px-6 py-4">
@@ -52,9 +73,14 @@ export default function Header() {
             onClick={() => {
               navigate('/cart');
             }}
-            className="text-gray-700 hover:text-blue-600 transition-colors"
+            className="text-gray-700 hover:text-blue-600 transition-colors relative"
           >
-            <ShoppingCart className="w-5 h-5" />
+            <ShoppingCart className="w-5 h-5 " />
+            {cartLength.length > 0 && (
+              <span className="bg-black text-white text-xs px-1 py-.5  rounded-full absolute left-3.5 -top-1.5">
+                {cartLength.length}
+              </span>
+            )}
           </button>
         </div>
 
