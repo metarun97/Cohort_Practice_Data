@@ -105,3 +105,69 @@ export const getCartData = async (req, res) => {
     });
   }
 }
+
+/* Delete a product API controller */
+export const removeFromCart = async (req, res) => {
+  try {
+    const { productId } = req.params;
+
+    /* finc cart in the database */
+    const cart = await cartModel.findOne();
+
+    /* Cart not found */
+    if (!cart) {
+      return res.status(404).json({
+        message: "Cart not found."
+      })
+    }
+
+    /* Remove item by producId and save in cart */
+    cart.items = cart.items.filter((item) => item.productId.toString() !== productId);
+
+    /* Save cart data */
+    await cart.save()
+
+    /* Final response */
+    res.status(200).json({
+      message: "Product deleted successfully.",
+      cart,
+    }
+    )
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
+/* Delete all cart items API controller */
+export const clearCart = async (req, res) => {
+  try {
+    const cart = await cartModel.findOne();
+
+    /* Cart not found */
+    if (!cart) {
+      return res.status(404).json({
+        message: "Cart not found.",
+      })
+    }
+
+    /* Make cart empty */
+    cart.items = [];
+
+    /* Save cart in database */
+    await cart.save();
+
+    /* Final response */
+    res.status(200).json({
+      message: "Cart cleared successfully.",
+      cart,
+    })
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
+

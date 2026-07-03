@@ -35,6 +35,49 @@ const Cart = () => {
     }
   };
 
+  /* Remove single product from cart */
+  const removeFromCartHandler = async (productId) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/cart/remove/${productId}`,
+        {
+          method: 'DELETE',
+        },
+      );
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
+
+      // console.log(result);
+
+      /* fetch the cart again to get data */
+      fetchCartData();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  /* Remove all products from cart */
+  const clearCartHandler = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/cart/clear', {
+        method: 'DELETE',
+      });
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
+
+      // console.log(result);
+      fetchCartData();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   if (cart.length === 0) {
     return (
       <div className="bg-white min-h-screen flex items-center justify-center">
@@ -61,6 +104,7 @@ const Cart = () => {
     <div className="bg-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Header */}
+        {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
@@ -70,13 +114,27 @@ const Cart = () => {
               {cart?.length} item{cart?.length > 1 ? 's' : ''} in your cart
             </p>
           </div>
-          <Link
-            to="/products"
-            className="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
-          >
-            <FaArrowLeft className="w-3.5 h-3.5" />
-            Continue Shopping
-          </Link>
+
+          <div className="flex items-center gap-3">
+            {/* Clear Cart Button */}
+            {cart?.length > 0 && (
+              <button
+                onClick={() => clearCartHandler()}
+                className="flex items-center gap-2 text-sm font-medium text-red-500 border border-red-200 px-4 py-2 rounded-full hover:bg-red-50 transition-colors cursor-pointer"
+              >
+                <FaTrashAlt className="w-3.5 h-3.5" />
+                Clear Cart
+              </button>
+            )}
+
+            <Link
+              to="/products"
+              className="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <FaArrowLeft className="w-3.5 h-3.5" />
+              Continue Shopping
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
@@ -129,7 +187,12 @@ const Cart = () => {
                       <p className="text-base font-bold text-gray-900">
                         ${(item.productId.price * item.quantity).toFixed(2)}
                       </p>
-                      <button className="text-gray-400 hover:text-red-500 transition-colors">
+                      <button
+                        onClick={() =>
+                          removeFromCartHandler(item.productId._id)
+                        }
+                        className="text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                      >
                         <FaTrashAlt className="w-4 h-4" />
                       </button>
                     </div>
@@ -156,7 +219,7 @@ const Cart = () => {
                   placeholder="Promo code"
                   className="bg-transparent outline-none px-3 text-sm w-full text-gray-700 placeholder-gray-400"
                 />
-                <button className="bg-gray-900 hover:bg-black text-white text-xs font-medium px-4 py-1.5 rounded-full shrink-0 transition-colors">
+                <button className="bg-gray-900 hover:bg-black text-white text-xs font-medium px-4 py-1.5 rounded-full shrink-0 transition-colors cursor-pointer">
                   Apply
                 </button>
               </div>
@@ -165,7 +228,7 @@ const Cart = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span className="font-medium text-gray-900">${total}</span>
+                  <span className="font-medium text-gray-900">${(total).toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Shipping</span>
@@ -183,10 +246,12 @@ const Cart = () => {
                 <span className="text-base font-semibold text-gray-900">
                   Total
                 </span>
-                <span className="text-xl font-bold text-gray-900">${total + 149}</span>
+                <span className="text-xl font-bold text-gray-900">
+                  ${total + 149}
+                </span>
               </div>
 
-              <button className="w-full bg-blue-600 text-white font-medium text-sm py-3 rounded-full hover:bg-blue-700 transition-colors">
+              <button className="w-full bg-blue-600 text-white font-medium text-sm py-3 rounded-full hover:bg-blue-700 transition-colors cursor-pointer">
                 Proceed to Checkout
               </button>
 

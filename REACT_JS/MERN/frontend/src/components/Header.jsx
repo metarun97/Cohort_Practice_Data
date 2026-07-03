@@ -77,7 +77,7 @@ export default function Header() {
           >
             <ShoppingCart className="w-5 h-5 " />
             {cartLength.length > 0 && (
-              <span className="bg-black text-white text-xs px-1 py-.5  rounded-full absolute left-3.5 -top-1.5">
+              <span className="bg-red-600 text-white text-xs px-1 py-.5  rounded-full absolute left-3.5 -top-1.5">
                 {cartLength.length}
               </span>
             )}
