@@ -12,7 +12,7 @@ import {
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [promoCode, setPromoCode] = useState('');
-  const [total, setTotal] = useState(null);
+  const [total, setTotal] = useState(0);
 
   // console.log(cart.items);
 
@@ -20,6 +20,7 @@ const Cart = () => {
     fetchCartData();
   }, []);
 
+  /* Fetech all items in the cart page */
   const fetchCartData = async () => {
     try {
       const res = await fetch('http://localhost:3000/api/cart');
@@ -78,7 +79,32 @@ const Cart = () => {
     }
   };
 
-  if (cart.length === 0) {
+  /* Update single item's quantity in cart */
+
+  const handleUpdateQuantity = async (productId, action) => {
+    try {
+      const res = await fetch('http://localhost:3000/api/cart/updateQty', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId,
+          action,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result?.cart?.items) {
+        setCart([...result?.cart?.items]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (cart?.items?.length === 0) {
     return (
       <div className="bg-white min-h-screen flex items-center justify-center">
         <div className="text-center px-4">
@@ -171,13 +197,24 @@ const Cart = () => {
                   <div className="flex items-center justify-between sm:flex-col sm:items-end gap-3">
                     {/* Quantity */}
                     <div className="flex items-center border border-gray-200 rounded-full">
-                      <button className="p-2 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors">
+                      <button
+                        onClick={() => {
+                          handleUpdateQuantity(item.productId._id, 'decrement');
+                        }}
+                        disabled={item.quantity <= 1}
+                        className="p-2 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                      >
                         <FaMinus className="w-2.5 h-2.5" />
                       </button>
                       <span className="w-8 text-center text-sm font-medium text-gray-900">
                         {item.quantity}
                       </span>
-                      <button className="p-2 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors">
+                      <button
+                        onClick={() =>
+                          handleUpdateQuantity(item.productId._id, 'increment')
+                        }
+                        className="p-2 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                      >
                         <FaPlus className="w-2.5 h-2.5" />
                       </button>
                     </div>
@@ -228,7 +265,9 @@ const Cart = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span className="font-medium text-gray-900">${(total).toFixed(2)}</span>
+                  <span className="font-medium text-gray-900">
+                    ${total?.toFixed(2)}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between text-gray-600">
                   <span>Shipping</span>
@@ -247,7 +286,7 @@ const Cart = () => {
                   Total
                 </span>
                 <span className="text-xl font-bold text-gray-900">
-                  ${total + 149}
+                  ${(total + 149).toFixed(2)}
                 </span>
               </div>
 

@@ -15,6 +15,7 @@ import {
   FaMinus,
   FaPlus,
 } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const ProductDetail = ({ singleProduct }) => {
   const {
@@ -49,6 +50,7 @@ const ProductDetail = ({ singleProduct }) => {
       });
       const result = await res.json();
       // console.log(result);
+      toast.success('Item added to cart', { autoClose: 900 });
     } catch (error) {
       console.log(error);
     }
@@ -172,7 +174,7 @@ const ProductDetail = ({ singleProduct }) => {
               <button
                 onClick={() => addToCart(singleProduct._id, quantity)}
                 disabled={stock <= 0}
-                className={`flex-1 flex items-center justify-center gap-2 font-medium text-sm sm:text-base py-3 rounded-full transition-colors ${
+                className={`flex-1 flex items-center justify-center gap-2 font-medium text-sm sm:text-base py-3 rounded-full transition-colors cursor-pointer ${
                   stock > 0
                     ? 'bg-blue-600 text-white hover:bg-blue-700'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'

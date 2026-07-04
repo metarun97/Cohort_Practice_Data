@@ -170,4 +170,58 @@ export const clearCart = async (req, res) => {
   }
 }
 
+/* Update product quantity in cart API controller */
+export const updateQuantity = async (req, res) => {
+  try {
+    const { productId, action } = req.body;
 
+    /* Find cart in the database */
+    const cart = await cartModel.findOne({});
+
+    if (!cart) {
+      return res.status(404).json({
+        message: "Cart not found",
+      })
+    }
+
+
+    /* Find item by productId in cart database and store in the item variable */
+    const item = cart.items.find((item) => item.productId.toString() === productId);
+
+    /* If item not found then show message  */
+    if (!item) {
+      return res.status(404).json({
+        message: "Item not found",
+      })
+    }
+
+    /* If action increment then do increment */
+    if (action === "increment") {
+      item.quantity = Number(item.quantity) + 1;
+
+      // console.log(item.quantity)
+      // console.log(typeof item.quantity)
+    }
+
+    /* If action decrement and if item's quantity is more than one then do decrement */
+    if (action === "decrement") {
+      if (item.quantity > 1) {
+        item.quantity = Number(item.quantity) - 1;
+      }
+    }
+
+    /* Save item quantity in the cart */
+    await cart.save();
+
+    /* Final response */
+    res.status(200).json({
+      message: "Quantity updated successfully,",
+      cart,
+    })
+
+  } catch (error) {
+    res.statu(500).json({
+      message: error.message,
+    })
+  }
+}
