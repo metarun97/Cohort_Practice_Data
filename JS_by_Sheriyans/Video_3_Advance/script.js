@@ -170,7 +170,6 @@ const toastNotification = (config) => {
     const div = document.createElement("div");
     div.textContent = str;
     div.className = `${config.theme === "dark" ? "bg-slate-100 text-black" : "bg-black text-slate-100"} text-sm font-medium px-4 py-2.5 rounded-full shadow-lg transition-all duration-300 transform translate-y-0 scale-100`
-    document.querySelector(".parent").classList.add = `${config.positionX === "left" ? "left-25" : "right-25"} ${config.positionY === "top" ? "top-5" : "bottom-5"}`
     document.querySelector(".parent").appendChild(div);
 
     setTimeout(() => {
