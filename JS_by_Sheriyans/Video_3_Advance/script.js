@@ -49,7 +49,7 @@
 
 
 //^ Dynamic scoping in JS:-
-// * Def => Kha se csll kar rhe ho uspe depend krega ki value kya milegi variable ki hume.
+// * Def => Kha se call kar rhe ho uspe depend krega ki value kya milegi variable ki hume.
 
 // let a = 12;
 
@@ -65,7 +65,7 @@
 
 //^ Closures in JS:-
 
-// * Def => Ek function jo return kare ek or function or returning function apne parent function k variable ko excess kr paye closures hota h.
+// * Def => Ek function jo return kare ek or function and returning function apne parent function k variable ko excess kr paye closures hota h.
 
 // function abc() {
 //   let a = 10;
@@ -104,16 +104,16 @@
 //   }
 // }
 
-// let counterRes = privateCounter();           // ye counter alag h
-// counterRes();
-// counterRes();
-// counterRes();
+// let counterRes = privateCounter();           // ye counter alag h alag block (count = 0) se start hoge
+// counterRes();                                // 1
+// counterRes();                                // 2
+// counterRes();                                // 3
 
-// let counterRes2 = privateCounter();          // ye counter alag h
-// counterRes2();
-// counterRes2();
-// counterRes2();
-// counterRes2();
+// let counterRes2 = privateCounter();          // ye counter alag h alag block (count = 0) se start hoge
+// counterRes2();                               // 1
+// counterRes2();                               // 2
+// counterRes2();                               // 3
+// counterRes2();                               // 4
 
 
 //^ Click clickLimiter(Closure related => encapsulation):-
@@ -130,12 +130,12 @@
 //   }
 // }
 // let resLimitClick = clickLimiter();
-// resLimitClick()
-// resLimitClick()
-// resLimitClick()
-// resLimitClick()
-// resLimitClick()
-// resLimitClick()              // limit exceeded here because it is 6th time.
+// resLimitClick();
+// resLimitClick();
+// resLimitClick();
+// resLimitClick();
+// resLimitClick();
+// resLimitClick();                 // limit exceeded here because it is 6th time clicked/called.
 
 // ~Note -> Hum poori details inner logic hide kr dete h or excess bahar de dete ho jitna mann h apko dene ka bs.
 
@@ -164,7 +164,56 @@
 // })
 // toaster("download done✅");
 
-//^ This keyword in JS:-
 
+const toastNotification = (config) => {
+  return (str) => {
+    const div = document.createElement("div");
+    div.textContent = str;
+    div.className = `${config.theme === "dark" ? "bg-slate-100 text-black" : "bg-black text-slate-100"} text-sm font-medium px-4 py-2.5 rounded-full shadow-lg transition-all duration-300 transform translate-y-0 scale-100`
+    document.querySelector(".parent").classList.add = `${config.positionX === "left" ? "left-25" : "right-25"} ${config.positionY === "top" ? "top-5" : "bottom-5"}`
+    document.querySelector(".parent").appendChild(div);
+
+    setTimeout(() => {
+      document.querySelector(".parent").removeChild(div);
+
+    }, config.duration * 1000);
+  }
+}
+
+
+const toast = toastNotification({
+  positionX: "left",
+  positionY: "top",
+  theme: "light",
+  duration: 3
+})
+
+
+toast("Successfuly downloaded✅")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//^ This keyword in JS:-
 
 // Note ->
