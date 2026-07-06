@@ -165,54 +165,110 @@
 // toaster("download done✅");
 
 
-const toastNotification = (config) => {
-  return (str) => {
-    const div = document.createElement("div");
-    div.textContent = str;
-    div.className = `${config.theme === "dark" ? "bg-slate-100 text-black" : "bg-black text-slate-100"} text-sm font-medium px-4 py-2.5 rounded-full shadow-lg transition-all duration-300 transform translate-y-0 scale-100`
-    document.querySelector(".parent").appendChild(div);
-
-    setTimeout(() => {
-      document.querySelector(".parent").removeChild(div);
-
-    }, config.duration * 1000);
-  }
-}
-
-
-const toast = toastNotification({
-  positionX: "left",
-  positionY: "top",
-  theme: "light",
-  duration: 3
-})
-
-
-toast("Successfuly downloaded✅")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //^ This keyword in JS:-
 
-// Note ->
+//~ Note -> This ek special keyword hai ,kyuki jese or keyword ki value or nature same rehta hai this ki value or nature badal jaate hai is baat se ki aap usey use kaha kar rahe ho.
+
+//* Globally value of this keyword:-
+// console.log(this);                              // window
+
+//* Funtionally value of this keyword:-
+// function abc() {
+// console.log(this);                            // window
+// }
+// abc();
+
+
+//* In object's method what the  value of this keyword:-
+
+// const obj = {
+//   name: "Tarun",
+//   age: 30,
+//   sayName: function () {
+//     console.log(this);                        // while object
+//     console.log(this.name);                   // name ageya
+//   }
+// }
+// obj.sayName();
+
+//~ Note -> In method take normal function only if you take arrow function then this will louse his value and  become window .
+
+//* In event handler what the  value of this keyword:-
+
+// document.querySelector("h2").addEventListener("click", function () {
+//   console.log(this.style.color = "red");      // vo element jispe event laga h vo hoga this ki vaue event handler me
+// })
+
+
+//* In class what the  value of this keyword:-
+
+// class Abcd {
+//   constructor() {
+//     console.log("Hey hello");
+//     this.a = 10;
+//   }
+// }
+// let val = new Abcd;                            // Abcd {a: 10}      //Class me value blank {} object hoti h.
+
+//^ Manually Binding: Call,Apply and Bind in JS:-
+
+//~ Note -> Function ko call karte waqt ap set kar sakte ho ki uske this ki value kya hogi.
+
+//* Call method in JS:-
+
+// let obj = {
+//   name: "Tarun",
+// }
+
+// function abc() {
+//   console.log(this);
+//   console.log(this.name);   // {name: 'Tarun'}
+// }
+
+// abc();                      // window
+// abc.call();                 // window
+// But if i pass object at the time of call the object become this's value.
+// abc.call(obj);              // {name: 'Tarun'}
+
+//* Call method with paramenters:-
+
+// let obj = {
+//   name: "Tarun",
+// }
+
+// function abc(a, b, c) {
+//   console.log(this, a, b, c);
+//   // console.log(this.name);   // {name: 'Tarun'}
+// }
+
+// abc();                      // window
+// abc.call();                 // window
+// But if i pass object and three paramenters at the time of call the object become this's value.
+// abc.call(obj, 1, 2, 3);     // {name: 'Tarun'} 1 2 3
+
+
+//* Apply method in JS:-
+
+// let obj = {
+//   name: "Tarun",
+// }
+
+// function abc(a, b, c) {
+// console.log(this, a, b, c);
+// }
+
+// But if i pass object and a array of number means take only two arguments the time of apply the object become this's value.
+// abc.apply(obj, [1, 2, 3]);           // {name: 'Tarun'} 1 2 3
+
+//* Bind method in JS:-
+
+// let obj = {
+//   name: "Tarun",
+// }
+
+// function abc(a, b, c) {
+// console.log(this, a, b, c);
+// }
+
+// // But if i pass object and some number as arguments at that time of bind make a copy of that function that stored but not to execute.
+// const fnc = abc.bind(obj, 1, 2, 3);     // {name: 'Tarun'} 1 2 3
