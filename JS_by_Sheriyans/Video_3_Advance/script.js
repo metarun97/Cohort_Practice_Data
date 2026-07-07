@@ -272,3 +272,90 @@
 
 // // But if i pass object and some number as arguments at that time of bind make a copy of that function that stored but not to execute.
 // const fnc = abc.bind(obj, 1, 2, 3);     // {name: 'Tarun'} 1 2 3
+
+
+//^ OOPS (Object Oriented Programming) in JS:-
+
+// & Construnctor function in JS:-
+
+//* Eg-1:-
+
+// function CreateBiscuit(name, price, qty, company, category) {
+//   this.name = name;
+//   this.price = price;
+//   this.qty = qty;
+//   this.company = company;
+//   this.category = category;
+// }
+
+// const biscuit1 = new CreateBiscuit("Oreo", 10, 10, "Cadbury", "Chocolate Biscuits");
+// const biscuit2 = new CreateBiscuit("Dary Fantsy", 20, 3, "Parle", "Chocolate filled cakes");
+
+//* Eg-2:-
+
+// function CreatePencil(name, price, color) {
+//   this.name = name;
+//   this.price = price;
+//   this.color = color;
+//   this.write = function (text) {
+//     let h1 = document.createElement("h1");
+//     h1.textContent = text;
+//     h1.style.color = color;
+//     document.body.appendChild(h1);
+//   }
+// }
+
+// const pencil1 = new CreatePencil("Natraj", 10, "black",);
+// const pencil2 = new CreatePencil("Doms", 10, "red",);
+
+//^ Prototypes in JS:-
+
+//~ Note -> Agar apka constructor function apne prototype me koi field attach kar leta hai to  us constructor se banne wale sabhi new instances yaani ki objects ke pass vo wala field  automatically attach ho jata h.
+
+
+// function CreateBat(name, grip, player, nationality) {
+//   this.name = name;
+//   this.grip = grip;
+//   this.player = player;
+//   this.nationality = nationality;
+//   CreateBat.prototype.write = function (stroke) {
+//     let h1 = document.createElement("h1");
+//     h1.textContent = stroke;
+//     document.body.appendChild(h1);
+//   }
+// }
+
+// const bat1 = new CreateBat("CEAT", "white", "Rohit Sharma", "Indian");
+// const bat2 = new CreateBat("MRF", "white", "Virat Kohli", "Indian");
+
+
+//^ Classes in JS:-
+
+class CreatePencil {
+  constructor(name, company, price, color) {
+    this.name = name;
+    this.company = company;
+    this.price = price;
+    this.color = color;
+  }
+
+  clear() {
+    document.querySelectorAll("h1").forEach((elem) => {
+      if (elem.style.color === this.color) {
+        elem.remove();
+      }
+    })
+  }
+
+  write(text) {
+    const h1 = document.createElement("h1");
+    h1.textContent = text;
+    h1.style.color = this.color;
+    document.body.appendChild(h1);
+  }
+}
+
+const pencil1 = new CreatePencil("B2", "Natraj", 10, "red");
+const pencil2 = new CreatePencil("HB", "Doms", 15, "blue");
+
+
