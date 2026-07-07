@@ -331,31 +331,68 @@
 
 //^ Classes in JS:-
 
-class CreatePencil {
-  constructor(name, company, price, color) {
-    this.name = name;
-    this.company = company;
-    this.price = price;
-    this.color = color;
-  }
+// class CreatePencil {
+//   constructor(name, company, price, color) {
+//     this.name = name;
+//     this.company = company;
+//     this.price = price;
+//     this.color = color;
+//   }
 
-  clear() {
-    document.querySelectorAll("h1").forEach((elem) => {
-      if (elem.style.color === this.color) {
-        elem.remove();
-      }
-    })
-  }
+//   clear() {
+//     document.querySelectorAll("h1").forEach((elem) => {
+//       if (elem.style.color === this.color) {
+//         elem.remove();
+//       }
+//     })
+//   }
 
-  write(text) {
-    const h1 = document.createElement("h1");
-    h1.textContent = text;
-    h1.style.color = this.color;
-    document.body.appendChild(h1);
-  }
-}
+//   write(text) {
+//     const h1 = document.createElement("h1");
+//     h1.textContent = text;
+//     h1.style.color = this.color;
+//     document.body.appendChild(h1);
+//   }
+// }
 
-const pencil1 = new CreatePencil("B2", "Natraj", 10, "red");
-const pencil2 = new CreatePencil("HB", "Doms", 15, "blue");
+// const pencil1 = new CreatePencil("B2", "Natraj", 10, "red");
+// const pencil2 = new CreatePencil("HB", "Doms", 15, "blue");
 
 
+//^ Extend and Super in JS:-
+
+// class User {
+//   constructor(name, city, username, email, role) {
+//     this.name = name;
+//     this.city = city;
+//     this.username = username;
+//     this.email = email;
+//     this.role = role;
+//   }
+
+//   write(text) {
+//     const h1 = document.createElement("h1");
+//     h1.textContent = `${this.name} : ${text}`;
+//     document.body.appendChild(h1);
+//   }
+// }
+
+
+// class Admin extends User {
+//   constructor(name, city, username, email, role) {
+//     super(name, city, username, email, role)
+//     this.role = "Admin"
+//   }
+
+//   remove() {
+//     document.querySelectorAll("h1").forEach((elem) => {
+//       elem.remove()
+//     })
+//   }
+// }
+
+// const user1 = new User("Tarun", "Bulandshahr", "metarun", "metarun@mail.com", "user");
+// const user2 = new User("Shweta", "Agra", "meshweta", "meshweta@mail.com", "user");
+// const admin = new Admin("Mamta", "BSR Headquater", "memamta", "memamta@mail.com", "admin");
+
+//^ Protypal inheritance VS classical inheritance in  JS:-
