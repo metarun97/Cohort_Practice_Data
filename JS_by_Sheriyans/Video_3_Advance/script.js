@@ -396,3 +396,246 @@
 // const admin = new Admin("Mamta", "BSR Headquater", "memamta", "memamta@mail.com", "admin");
 
 //^ Protypal inheritance VS classical inheritance in  JS:-
+
+//* inheritance concept:-
+// classical inheritance - class -> class inherit
+// prototypal inheritance - object -> object inherit
+
+// classical inheritance ka example tha jo humne extends padha tha vo ki Admin user ko extend krra tha.
+
+//* Prototypal inheritance example:-
+
+//* Eg1:-
+// let coffee = {
+//   color: "dark",
+//   drink: function () {
+//     console.log("ghut ghut gut")
+//   }
+// }
+
+// let arabiataCoffee = Object.create(coffee);
+// // console.log(arabiataCoffee);
+
+// arabiataCoffee.taste = "bitter";
+// arabiataCoffee.drink();
+
+//* Eg2:-
+
+//~ Note -> Ek object hai ap chaho to uske saare props/methods ko inherit kara sakte ho doosre object me.
+
+// let obj1 = {};
+// let obj2 = Object.create(obj1);
+
+// Note => Obj2 vo saari values hold karta hai jo obj1 me hai.
+
+
+//^ Callbacks Promises and Async/await in  JS:-
+
+//* Synchronous VS Asynchrolous:-
+
+// Koi bhi code line by line chalta hai Js me uske Synchronous singlethreaded nature ki vajha se but kabhi kabhi esi condtion ajati hai jaha code chalne ka wait krta hai or uske baad ka code chal jaata hao fir time khatam hone pe waited code chal jata hai.
+
+
+// console.log("Hey1")
+// console.log("Hey2")
+// setTimeout(() => {
+//   console.log("Hey3")
+// }, 2000);
+// console.log("Hey4")
+
+// Note => Hey1, Hey2, Hey4 chalne k baad 2000 ms means 2 seconds k time khatam hone k baad Hey3 chalge.
+
+// Sync Code => Jo code line by line chale vo sync code.
+// Async Code => Esa code jo chale k liye ready ho jaye tab chale to vo code hota h async code.
+
+//* Callback pattern & callback hell:-
+
+// function kuchDerBaadChalunga(fnc) {
+//   setTimeout(fnc, Math.floor(Math.random() * 10) * 1000)
+// }
+
+// kuchDerBaadChalunga(function () {
+//   console.log("hey")
+// })
+
+//~ Note -> Agar ap ek function me ek or function bhej rahe ho as a parameter to vo parameter wala function callback function hote hai.
+
+
+//* Callback hell in JS:-
+
+// function savePostLekeAao(id, cb) {
+//   console.log("Saved posts fetching...")
+//   setTimeout(() => {
+//     cb({ _id: id, savedPosts: [1, 2, 3, 4, 8, 6, 15, 34] })
+//   }, 3000);
+// }
+
+
+// function saarePostLekarAao(id, cb) {
+//   console.log("Posts fetching...")
+//   setTimeout(() => {
+//     cb({ _id: id, posts: ["hey", "hello", "gudmorning"] })
+//   }, 3000);
+// }
+
+// function profileLekeAao(username, cb) {
+//   console.log("Profile fetching...")
+//   setTimeout(() => {
+//     cb({ _id: "adsad5asdsa5d", username, email: "huihui@hui.com" });
+//   }, 1000);
+// }
+
+// profileLekeAao("Tarun", function (data) {
+//   console.log(data)
+//   saarePostLekarAao(data._id, function (posts) {
+//     console.log(posts);
+//     savePostLekeAao(data._id, function (data) {
+//       console.log(data)
+//     })
+//   })
+// })
+
+//* Promises in JS:-
+
+//~ Note -> Ap ek promise banate ho to vo 2 states me ja sakta h hai ya to vo fullfill hoga ya reject ye to waqt btayega ki vo resolve hoga ya reject but hum dono states k liye code likhte hai.
+
+//* Eg 1:-
+
+// let pr = new Promise(function (res, rej) {
+//   setTimeout(() => {
+//     const rn = Math.floor(Math.random() * 10 + 1);
+//     if (rn > 5) res("Resolved : " +  rn)
+//     else rej("Rejected : " + rn)
+//   }, 3000)
+// })
+
+//   .then
+//   ((val) => {
+//     console.log(val);
+//   })
+//   .catch
+//   ((val) => {
+//     console.log(val);
+//   })
+
+
+//* Async/Await and how to handle try/catch in JS:-
+
+// let pr = new Promise(function (res, rej) {
+//   setTimeout(() => {
+//     const rn = Math.floor(Math.random() * 10 + 1);
+//     if (rn > 5) res("Resolved : " + rn)
+//     else rej("Rejected : " + rn)
+//   }, 3000)
+// })
+
+// async function getPrVal() {
+//   try {
+//     let val = await pr;
+//     console.log(val);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// getPrVal();
+
+
+//^ Fetch and HTTP Basics in  JS:-
+
+// fetch("https://randomuser.me/api/?results=3")
+//   .then((rawData) => rawData.json())
+//   .then((data) => {
+//     console.log(data)
+//     data.results.forEach((user) => {
+//       const card = document.createElement("div");
+//       card.className =
+//         "w-80 bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 mx-auto mt-50";
+
+//       // Cover
+//       const cover = document.createElement("div");
+//       cover.className =
+//         "h-28 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500";
+
+//       // Profile Container
+//       const profileContainer = document.createElement("div");
+//       profileContainer.className = "flex justify-center -mt-14";
+
+//       const profileImg = document.createElement("img");
+//       profileImg.src = user.picture.large;
+//       profileImg.alt = "User";
+//       profileImg.className =
+//         "w-28 h-28 rounded-full border-4 border-white object-cover";
+
+//       profileContainer.appendChild(profileImg);
+
+//       // Content
+//       const content = document.createElement("div");
+//       content.className = "text-center px-6 py-5";
+
+//       // Name
+//       const name = document.createElement("h2");
+//       name.className = "text-2xl font-bold text-gray-800";
+//       name.textContent = `${user.name.first} ${user.name.last}`;
+
+//       // Role
+//       const role = document.createElement("p");
+//       role.className = "text-blue-600 font-medium mt-1";
+//       role.textContent = "Frontend Developer";
+
+//       // Description
+//       const desc = document.createElement("p");
+//       desc.className = "text-gray-500 text-sm mt-3";
+//       desc.textContent =
+//         "Passionate about React, JavaScript, Tailwind CSS, and creating beautiful user experiences.";
+
+//       // Stats
+//       const stats = document.createElement("div");
+//       stats.className = "grid grid-cols-3 gap-4 mt-6 text-center";
+
+//       function createStat(number, label) {
+//         const box = document.createElement("div");
+
+//         const value = document.createElement("h3");
+//         value.className = "text-xl font-bold text-gray-800";
+//         value.textContent = number;
+
+//         const text = document.createElement("p");
+//         text.className = "text-xs text-gray-500";
+//         text.textContent = label;
+
+//         box.append(value, text);
+//         return box;
+//       }
+
+//       stats.append(
+//         createStat("120", "Projects"),
+//         createStat("8.5K", "Followers"),
+//         createStat("350", "Following")
+//       );
+
+//       // Buttons
+//       const btnContainer = document.createElement("div");
+//       btnContainer.className = "flex gap-3 mt-6";
+
+//       const followBtn = document.createElement("button");
+//       followBtn.className =
+//         "flex-1 bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition";
+//       followBtn.textContent = "Follow";
+
+//       const messageBtn = document.createElement("button");
+//       messageBtn.className =
+//         "flex-1 border border-blue-600 text-blue-600 py-2 rounded-lg font-semibold hover:bg-blue-50 transition";
+//       messageBtn.textContent = "Message";
+
+//       btnContainer.append(followBtn, messageBtn);
+
+//       // Append content
+//       content.append(name, role, desc, stats, btnContainer);
+
+//       // Append all to card
+//       card.append(cover, profileContainer, content);
+
+//       // Add card to body (or any container)
+//       document.body.appendChild(card);
+//     })
+//   })
