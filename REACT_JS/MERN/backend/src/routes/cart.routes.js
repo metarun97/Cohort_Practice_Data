@@ -12,7 +12,7 @@ router.post("/add", addToCart);
 router.get("/", getCartData);
 router.delete("/remove/:productId", removeFromCart);
 router.delete("/clear", clearCart)
-router.patch("/updateQty", updateQuantity);
+router.patch("/updateQty", updateQuantity)
 
 export default router;
 
