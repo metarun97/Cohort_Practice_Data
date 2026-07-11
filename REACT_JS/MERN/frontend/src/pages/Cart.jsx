@@ -93,12 +93,7 @@ const Cart = () => {
           action,
         }),
       });
-
-      const result = await res.json();
-
-      if (res.ok && result?.cart?.items) {
-        setCart([...result?.cart?.items]);
-      }
+      fetchCartData();
     } catch (error) {
       console.log(error);
     }
@@ -129,7 +124,6 @@ const Cart = () => {
   return (
     <div className="bg-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        {/* Header */}
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -199,7 +193,7 @@ const Cart = () => {
                     <div className="flex items-center border border-gray-200 rounded-full">
                       <button
                         onClick={() => {
-                          handleUpdateQuantity(item.productId._id, 'decrement');
+                          handleUpdateQuantity(item.productId, 'decrement');
                         }}
                         disabled={item.quantity <= 1}
                         className="p-2 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
@@ -210,9 +204,9 @@ const Cart = () => {
                         {item.quantity}
                       </span>
                       <button
-                        onClick={() =>
-                          handleUpdateQuantity(item.productId._id, 'increment')
-                        }
+                        onClick={() => {
+                          handleUpdateQuantity(item.productId, 'increment');
+                        }}
                         className="p-2 text-gray-600 hover:text-blue-600 disabled:text-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
                       >
                         <FaPlus className="w-2.5 h-2.5" />
