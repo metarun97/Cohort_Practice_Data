@@ -37,5 +37,26 @@ const registerUserValidation = [
   respondWithVelidationErrors,
 ];
 
+// Validations for register user :-
+const loginUserValidation = [
+  body("email")
+    .optional()
+    .isEmail()
+    .withMessage("Invalid email address"),
+  body("username")
+    .optional()
+    .isString("")
+    .withMessage("username must be a string"),
+  body("password")
+    .isLength({ min: 6 })
+    .withMessage("password must be 6 characters long"),
+  (req, res, next) => {
+    if (!req.body.email && !req.body.username) {
+      return res.status(400).json({ errors: [{ message: "Either username or either email is require for login" }] })
+    }
+    respondWithVelidationErrors(req, res, next)
+  }
+];
+
 // Exported items:-
-module.exports = { registerUserValidation };
+module.exports = { registerUserValidation, loginUserValidation };

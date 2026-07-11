@@ -15,6 +15,7 @@ app.use(express.json());
 // Middleware for reading cookies in browser:
 app.use(cookieParser());
 
+
 // Auth endpoint:-
 app.use("/api/auth/", authRoutes);
 
