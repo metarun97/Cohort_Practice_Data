@@ -3,12 +3,13 @@ const userModel = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const redis = require("../db/redis");
+const { json } = require("express");
 
 
-// Register user API:-
+// RegisterUser  API:-
 const regitserUser = async (req, res) => {
   try {
-    const { username, email, password, fullName: { firstName, lastName } } = req.body;
+    const { username, email, password, fullName: { firstName, lastName }, role } = req.body;
 
     // Find the exixting user in database:-
     const isUserAlrearyExists = await userModel.findOne({
@@ -33,7 +34,8 @@ const regitserUser = async (req, res) => {
       username,
       email,
       password: hash,
-      fullName: { firstName, lastName }
+      fullName: { firstName, lastName },
+      role: role || 'user',
     })
 
     // Give token to the user:-
@@ -71,7 +73,7 @@ const regitserUser = async (req, res) => {
   }
 }
 
-// Login user API:-
+// Login  API:-
 const loginUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -139,7 +141,7 @@ const loginUser = async (req, res) => {
 
 }
 
-// currentUser user API:-
+// currentUser  API:-
 const getCurrentUser = async (req, res) => {
   return res.status(200).json({
     message: "Current user fetched successfully",
@@ -147,7 +149,7 @@ const getCurrentUser = async (req, res) => {
   })
 }
 
-// logoutUser user API:-
+// logoutUser  API:-
 const logoutUser = async (req, res) => {
   const token = req.cookies.token;
 
@@ -174,6 +176,106 @@ const logoutUser = async (req, res) => {
   }
 }
 
+// getUserAddresses  API:-
+const getUserAddresses = async (req, res) => {
+  try {
+    const id = req.user.id;
+
+    // Find user by id:-
+    const user = await userModel.findById(id).select("addresses");
+
+    // If not found then do this:-
+    if (!user) {
+      return res.status(404), json({
+        message: "User not found",
+      })
+    }
+
+    // final response:-
+    res.status(200).json({
+      message: "Addresses fetched successfully",
+      addresses: user.addresses,
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    })
+  }
+}
+
+// addUserAddress  API:-
+const addUserAddress = async (req, res) => {
+  const id = req.user.id;
+  const { street, state, city, pincode, country, isDefault } = req.body;
+
+  // find user by id and update/create a new address:-
+  const user = await userModel.findByIdAndUpdate({ _id: id }, {
+    $push: {
+      addresses: {
+        street,
+        state,
+        city,
+        pincode,
+        country,
+        isDefault,
+      }
+    }
+  }, { returnDocument: "after" })
+
+  // If user not found:-
+  if (!user) {
+    return res.status(404).json({
+      message: "User not found."
+    })
+  }
+
+  // final response:-
+  res.status(201).json({
+    message: "Address added successfully.",
+    address: user.addresses[user.addresses.length - 1],
+  })
+
+}
+
+// removeUserAddress  API:-
+const deletUserAddress = async (req, res) => {
+  try {
+    const id = req.user.id;
+    const { addressId } = req.params;
+
+
+    // Find the user and check whether the address exists before attempting removal
+    const userBefore = await userModel.findById(id).select("addresses");
+    if (!userBefore) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const addressExistsBefore = userBefore.addresses.some(addr => addr._id.toString() === String(addressId));
+
+    // Address doesn't exist on the user
+    if (!addressExistsBefore) {
+      return res.status(404).json({ message: "Address not found" });
+    }
+
+    // Remove the address subdocument from the user's addresses array and return the updated document
+    const user = await userModel.findOneAndUpdate(
+      { _id: id },
+      { $pull: { addresses: { _id: addressId } } },
+      { returnDocument: "after" }
+    );
+
+    // final response:-
+    res.status(200).json({
+      message: "Address deleted successfully.",
+      addresses: user.addresses,
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 
 // Exported items:-
-module.exports = { regitserUser, loginUser, getCurrentUser, logoutUser };
+module.exports = { regitserUser, loginUser, getCurrentUser, logoutUser, getUserAddresses, addUserAddress, deletUserAddress };
