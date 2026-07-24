@@ -165,5 +165,126 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // }
 // let b1 = new BottleMaker('Milton', 'brassy', 1200, 'brass');
 // let b2 = new BottleMaker('Cello', 'transparent', 120, 'plastic');
-//
+//* Access Modifiers (public,private,protected):-
+//* with public key:-
+// class BottleMaker {
+//   constructor(public name: string) {}
+// }
+// let b1 = new BottleMaker('Milton');
+// b1.name = "huihui"                          // It changed easily without any error.
+//* with private key:-
+// class BottleMaker {
+// constructor(private name: string) {}
+// }
+// let b1 = new BottleMaker('Milton');
+// b1.name = "huihui"                          // It changed easily for output but error showed by Typescript.
+//* Changing concept of public & private keyowrds:-
+//* Public:-
+// class BottleMaker {
+//   constructor(public name: string) {
+//     this.name = name;
+//   }
+//   changing(){
+//     this.name = "Cello";
+//   }
+// }
+// let b = new BottleMaker("Milton");
+// b.changing();
+//* Private:-
+// class BottleMaker {
+//   constructor(private name: string) {
+//     this.name = name;
+//   }
+//   changing(){
+//     this.name = "Cello";
+//   }
+// }
+// let b = new BottleMaker("Milton");
+// b.changing();
+//~ Note -> Both can be changeable even in the method because this method is also inside the BottleMaker class so it will excessable and changeble too but real example is in the extends class in Typescript.
+//* Main example of public and private keyword:-
+// class BottleMaker {
+//   private halua: string = 'halue';
+//   constructor(private name: string) {}
+// }
+// class MetalBottleMaker extends BottleMaker {
+//   constructor(name: string) {
+//     super(name);
+//   }
+//   getValue() {
+//     console.log(this.name, this.halua);
+//   }
+// }
+// let b1 = new MetalBottleMaker('Chilton');
+// b1.getValue();
+//~ Note => Both are not excessable because those are in the BottleMaker class and those are private so for extend classes it can't be ised.
+//* Main example of protected keyword:-
+// class BottleMaker {
+// protected name = 'Milton';
+// }
+// class MetalBottleMaker extends BottleMaker {
+// public material = 'Brass';
+// getChange() {
+// this.name = 'Cello';
+// }
+// }
+// let b1 = new MetalBottleMaker();
+// b1.getChange();
+// b1.name = "halua";                 // Here it throw error it can't change the name outside it's class and also extended class.
+//* Readonly properties:-
+// class User {
+//   constructor(public readonly name: string) {}
+//   getChange() {
+//     this.name = 'hellew';         //  If i paste readonly before accessmodifier then it show error in file but code still compile successfully.
+//   }
+// }
+// let u1 = new User('Tarun');
+// u1.getChange();
+//* Optional properties in classes:-
+// class User {
+//   constructor(
+//     public name: string,
+//     public age: number,
+//     public gender?: string,        // now it become Optional if given very gud if not then pass
+//   ) {}
+// }
+// let u1 = new User('Tarun', 30, 'male');
+// let u2 = new User('Arun', 24);
+//* Getter and setter in Typescript:-
+// class User {
+//   constructor(
+//     public _name: string,
+//     public _age: number,
+//   ) {}
+//   get name() {
+//     return this._name;
+//   }
+//   set age(value: number) {
+//     this._age = value;
+//   }
+// }
+// let u1 = new User('Tarun', 31);
+//* Static members:-
+// class shery {
+//   static version = 1.0;
+//   static getRandomNumber() {
+//     return Math.random();
+//   }
+// }
+//* Abstract classes and methods:-
+// class CookingEsentials {
+//   constructor(
+//     protected gas: number,
+//     public gasKaName: string,
+//   ) {}
+// }
+// class Sabji extends CookingEsentials {}
+// class Cake extends CookingEsentials {}
+//^ Functions in Typescript:-
+// function abcd(name: string, age: number, cb: (value: string) => void) {
+//   cb('hey');
+// }
+// abcd('tarun', 31, (value) => {
+//   console.log(value);
+// });
 //# sourceMappingURL=app.js.map
