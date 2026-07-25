@@ -1,5 +1,7 @@
 //^ Basic types Typescript termologies for defining:-
 
+// import BottleMaker from "./payment";
+
 //* Primitive (number, sting, boolean):-
 
 // let a = 12;
@@ -401,12 +403,192 @@
 // class Sabji extends CookingEsentials {}
 // class Cake extends CookingEsentials {}
 
-
 //^ Functions in Typescript:-
 
-// function abcd(name: string, age: number, cb: (value: string) => void) {
-//   cb('hey');
+//* function types:-
+
+// function abcd(name: string, age: number, cd: (value: string) => void) {
+//   cd('hello');
 // }
-// abcd('tarun', 31, (value) => {
+
+// abcd('Tarun', 31, (value: string) => {
 //   console.log(value);
 // });
+
+//* Optional parameter:-
+
+// function abc(name: string, age: number, gender?: string) {
+//   console.log(name, age, gender);
+// }
+// abc('Tarun', 31, 'male');
+// abc('Lucbutaq', 22);
+
+//~ Note -> gender is Optional if it is defined very gud if not then pass it as undefined.
+
+//* Default parameter:-
+
+// function abc(
+//   name: string,
+//   age: number,
+//   gender: string = 'Not to be disclosed',
+// ) {
+//   console.log(name, age, gender);
+// }
+// abc('Tarun', 31, 'male');
+// abc('Lucbutaq', 22);
+
+//~ Note -> gender is given as defaul value if it is defined very gud it will replace default value but if not then give default value as it is.
+
+//* Rest operator:-
+
+// Eg1:-
+
+// function abc(...arg: number[]) {
+//   console.log(arg);
+// }
+// abc(1, 2, 3, 4);
+
+// Eg2:-
+
+// function friend(...group: string[]) {
+//   console.log(group);
+// }
+// friend('Mohit', 'Hitesh', 'Utkarsh');
+
+//* Spread operator:-
+
+// let arr = [1, 2, 3, 4];
+// let arrCopy = [...arr];
+// console.log(arrCopy);
+
+//* Function overloading:-
+
+// function abc(a: string): void;
+// function abc(a: string, b: number): number;
+
+// function abc(a: any, b?: any) {
+//   if (typeof a === 'string' && b === undefined) {
+//     console.log('hey');
+//   }
+//   if (typeof a === 'string' && b === 'number') {
+//     return 123;
+//   } else throw new Error('something is wrong');
+// }
+
+// abc('hello');
+// abc('hello', 123);
+
+//* Generic function:-
+
+// function log<T>(a: T) {
+//   console.log(a);
+// }
+// log<number>(12);
+// log<string>('tarun');
+
+//* But we don't want to tell the type when we give arguments to the function when call.
+
+// function log<T>(a: T) {
+//   console.log(a);
+// }
+// log(12);
+// log('tarun');
+
+//* Generic interfaces:-
+
+// interface Halua<T> {
+//   name: string;
+//   age: number;
+//   key: T;
+// }
+
+// function abc(obj: Halua<string>) {}
+
+// abc({ name: 'tarun', age: 31, key: 'asakbad' });
+
+//* Generic classes:-
+
+// class BottleMaker<T> {
+//   constructor(public key: T) {}
+// }
+
+// let b1 = new BottleMaker<string>('hey');
+// let b2 = new BottleMaker<number>(5);
+// console.log(b1, b2);
+
+//* Generic hack:-
+
+// function abc<T>(a: T, b: T) {
+//   // return 'hey' as T;                  // kuch ese type incertion kar sakte h
+//   return <T>'hey';                       // kuch ese type incertion kar sakte h
+// }
+
+// abc<string>('hey', 'hello');
+
+//~Note -> Everything in Typescript which is written in singe and double couts isn't a string it is called string literals.
+
+//* import and export in Typescript:-
+
+// import { doPayment, getDetails } from './payment';
+
+// doPayment(12);
+
+// let p1 = new BottleMaker(120);
+// let p2 = new BottleMaker(1200);
+
+//^ Type casting and type assertion in Typescript:-
+
+//* Type assertion in TS:-
+
+// let a: any = 12;
+
+// (a as string)                   // a ko as string use kro/ya mano ab ap
+// (<string>a)
+
+//* Type casting in TS:-
+
+// let a = Number("12");
+// console.log(typeof a);          // number
+
+//* Non null assertion operator:-
+
+// let a: null | undefined | string;
+
+// a = "hey";
+// // a!                              // ! lagane se ye value ab na hi null or na  undefined hogi.
+
+//* Type guard and typescript utility guards (type narrowing):-
+
+// function abc(arg: number | string) {
+//   if (typeof arg === 'number') return 'number';
+//   if (typeof arg === 'string') return 'string';
+//   else throw new Error('Pagal hai kya bhai');
+// }
+// console.log(abc(12));
+// console.log(abc('hey'));
+
+//* Instance type narrowing:-
+
+// class TvKaRemote {
+//   switcOffTv() {
+//     console.log('Switching off the tv');
+//   }
+// }
+
+// class AcKaRemote {
+//   switcOffAc() {
+//     console.log('Switching off the ac');
+//   }
+// }
+
+// let tv = new TvKaRemote();
+// let ac = new AcKaRemote();
+
+// function switchcOffKaro(device: TvKaRemote | AcKaRemote) {
+//   if (device instanceof TvKaRemote) {
+//     device.switcOffTv();
+//   }
+//   if(device instanceof AcKaRemote){
+//     device.switcOffAc();
+//   }
+// }
