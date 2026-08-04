@@ -118,53 +118,131 @@ const getProductById = async (req, res) => {
 
 /* Update a single product it's id */
 const updateProduct = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
 
-  // If id doesn't valdi:-
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({
-      message: "Invalid product id",
+    // If id doesn't valdi:-
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        message: "Invalid product id",
+      })
+    }
+
+    // Find product on the behalf of id and seller:-
+    const product = await productModel.findOne({
+      _id: id,
+      seller: req.user.id,
     })
-  }
 
-  // Find product on the behalf of id and seller:-
-  const product = await productModel.findOne({
-    _id: id,
-    seller: req.user.id,
-  })
+    // If product not found:-
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      })
+    }
 
-  // If product not found:-
-  if (!product) {
-    return res.status(404).json({
-      message: "Product not found",
-    })
-  }
+    // Allowed updates:-
+    const allowedUpdates = ["title", "description", "price"];
 
-  // Allowed updates:-
-  const allowedUpdates = ["title", "description", "price"];
-
-  // Update product fields:-
-  for (const key of Object.keys(req.body)) {
-    if (allowedUpdates.includes(key)) {
-      if (key === "price" && typeof req.body.price === "object") {
-        if (req.body.price.amount !== undefined) {
-          product.price.amount = req.body.price.amount;
-        } if (req.body.price.currency !== undefined) {
-          product.price.currency = req.body.price.currency;
+    // Update product fields:-
+    for (const key of Object.keys(req.body)) {
+      if (allowedUpdates.includes(key)) {
+        if (key === "price" && typeof req.body.price === "object") {
+          if (req.body.price.amount !== undefined) {
+            product.price.amount = req.body.price.amount;
+          } if (req.body.price.currency !== undefined) {
+            product.price.currency = req.body.price.currency;
+          }
+        } else {
+          product[key] = req.body[key];
         }
-      } else {
-        product[key] = req.body[key];
       }
     }
+
+    // Save the updated product:-
+    await product.save();
+
+    res.status(200).json({
+      message: "Product updated successfully",
+      product,
+    })
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    })
   }
-
-  // Save the updated product:-
-  await product.save();
-
-  res.status(200).json({
-    message: "Product updated successfully",
-    product,
-  })
 }
 
-module.exports = { createProduct, getProducts, getProductById, updateProduct };
+/* Delete a single product it's id */
+const deleteProduct = async (req, res) => {
+
+  try {
+    const { id } = req.params;
+
+    // If id doesn't valid:-
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        message: "Invalid product Id",
+      })
+    }
+    // Find product on the behalf of id:-
+    const product = await productModel.findOne({
+      _id: id,
+    })
+
+    //  If product not found:-
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      })
+    }
+
+    // Check if the product belongs to the seller:-
+    if (product.seller.toString() !== req.user.id) {
+      return res.status(403).json({
+        message: "forbidden: You cand delete only your own product",
+      })
+    }
+
+    // Delete the product:-
+    await productModel.findOneAndDelete({
+      _id: id
+    })
+    // Final response:-
+    res.status(200).json({
+      message: "Product deleted successfully",
+    })
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    })
+  }
+}
+
+/* Get products for the authenticated seller */
+const getSellerProducts = async (req, res) => {
+  try {
+    const sellerId = req.user.id;
+
+    const products = await productModel.find({ seller: sellerId });
+
+    res.status(200).json({
+      message: "Seller products fetched successfully",
+      data: products,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+
+module.exports = {
+  createProduct,
+  getProducts,
+  getProductById,
+  updateProduct,
+  deleteProduct,
+  getSellerProducts,
+};

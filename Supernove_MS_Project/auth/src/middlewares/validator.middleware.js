@@ -34,6 +34,10 @@ const registerUserValidation = [
     .withMessage("lastName must be a string")
     .notEmpty()
     .withMessage("lastName is required"),
+  body("role")
+    .optional()
+    .isIn(["user", "seller"])
+    .withMessage("Role must be either 'user' or 'seller'"),
   respondWithVelidationErrors,
 ];
 
@@ -58,5 +62,44 @@ const loginUserValidation = [
   }
 ];
 
+// Validations for register user :-
+const addUserAddressValidations = [
+  body("street")
+    .isString()
+    .withMessage("street must be string")
+    .notEmpty()
+    .withMessage("street must be required"),
+  body("city")
+    .isString()
+    .withMessage("city must be string")
+    .notEmpty()
+    .withMessage("city must be required"),
+  body("state")
+    .isString()
+    .withMessage("state must be string")
+    .notEmpty()
+    .withMessage("state must be required"),
+  body("pincode")
+    .isString()
+    .withMessage("pincode must be string")
+    .notEmpty()
+    .withMessage("pincode must be required")
+    .isLength({ min: 6, max: 6 })
+    .withMessage("pincode must be 6 digits long")
+    .matches(/^\d{6}$/)
+    .withMessage("pincode must contain only digits"),
+  body("country")
+    .isString()
+    .withMessage("country must be string")
+    .notEmpty()
+    .withMessage("country must be required"),
+  body("isDefault")
+    .optional()
+    .isBoolean()
+    .withMessage("isDefault must be a boolean"),
+  respondWithVelidationErrors,
+];
+
+
 // Exported items:-
-module.exports = { registerUserValidation, loginUserValidation };
+module.exports = { registerUserValidation, loginUserValidation, addUserAddressValidations };

@@ -11,8 +11,23 @@ const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
 
-// POST /api/products/
+/* POST /api/products/ */
 router.post("/", createAuthMiddleware(["admin", "seller"]), upload.array("images", 5), createProductValidators, productController.createProduct);
+
+/* POST /api/products/ */
+router.get('/', productController.getProducts);
+
+/* PATCH /api/products/:id */
+router.patch('/:id', createAuthMiddleware(["seller"]), productController.updateProduct);
+
+/* DELETE /api/products/:id */
+router.delete('/:id', createAuthMiddleware(["seller"]), productController.deleteProduct);
+
+/* GET /api/products/seller */
+router.get("/seller", createAuthMiddleware(["seller"]), productController.getSellerProducts);
+
+/* GET /api/products/:id */
+router.get('/:id', productController.getProductById);
 
 // Exported item:=
 module.exports = router;

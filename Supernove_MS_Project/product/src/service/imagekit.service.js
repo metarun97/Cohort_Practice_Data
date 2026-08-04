@@ -1,7 +1,9 @@
 // Required items:-
 const ImageKit = require("imagekit");
-const { v4: uuidv4 } = require("uuid");
+const { randomUUID } = require("crypto");
 
+
+// ImageKit credentials:-
 const imagekit = new ImageKit({
   publicKey: process.env.IMAGEKIT_PUBLIC_KEY || "test_public_key",
   privateKey: process.env.IMAGEKIT_PRIVATE_KEY || "test_private_key",
@@ -12,10 +14,9 @@ const imagekit = new ImageKit({
 async function uploadImage({ buffer, folder = "/products" }) {
   const res = await imagekit.upload({
     file: buffer,
-    fileName: uuidv4(),
+    fileName: typeof randomUUID === 'function' ? randomUUID() : Date.now().toString(),
     folder,
   });
-  // console.log(res)
   return {
     url: res?.url,
     thumbnail: res?.thumbnailUrl || res?.url,

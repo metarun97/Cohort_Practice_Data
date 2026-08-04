@@ -171,57 +171,63 @@ export const clearCart = async (req, res) => {
 }
 
 /* Update product quantity in cart API controller */
+
 export const updateQuantity = async (req, res) => {
   try {
-    const { productId, action } = req.body;
+    const { _id, productId, action } = req.body;
 
-    /* Find cart in the database */
-    const cart = await cartModel.findOne({});
+    console.log(_id, productId, action)
 
+
+    /* Find the cart in the database */
+    const cart = await cartModel.findById({_id});
+    // console.log(cart)
+
+    /* If cart not found */
     if (!cart) {
       return res.status(404).json({
-        message: "Cart not found",
+        message: "Cart not found.",
       })
     }
 
-
-    /* Find item by productId in cart database and store in the item variable */
+    /* Find that item on the behalf of productId */
     const item = cart.items.find((item) => item.productId.toString() === productId);
 
-    /* If item not found then show message  */
+    /* If item not found in cart */
     if (!item) {
       return res.status(404).json({
-        message: "Item not found",
+        message: "Item not found in cart",
       })
     }
 
-    /* If action increment then do increment */
+    /* If action is increment */
     if (action === "increment") {
-      item.quantity = Number(item.quantity) + 1;
-
-      // console.log(item.quantity)
-      // console.log(typeof item.quantity)
+      item.quantity += 1;
     }
 
-    /* If action decrement and if item's quantity is more than one then do decrement */
+    /* If action is decrement */
     if (action === "decrement") {
       if (item.quantity > 1) {
-        item.quantity = Number(item.quantity) - 1;
+        item.quantity -= 1;
+      } else {
+        cart.items = cart.items.filter((item) => item.productId.toString() !== productId);
       }
     }
 
-    /* Save item quantity in the cart */
-    await cart.save();
+    /* Save the cart data */
+    await cart.save()
 
     /* Final response */
     res.status(200).json({
-      message: "Quantity updated successfully,",
+      message: "Product quantity updated successfully.",
       cart,
     })
 
   } catch (error) {
-    res.statu(500).json({
+    res.status(500).json({
+      success: false,
       message: error.message,
-    })
+    });
   }
+
 }
