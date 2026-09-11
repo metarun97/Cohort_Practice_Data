@@ -22,7 +22,7 @@
 //  7001 - 9000       |       10 %
 //  more than 9000    |       20 %
 
-//* Brooteforce method:-
+//* Brute Force method:-
 
 // let amount = Number(prompt("Enter a Amount"));
 
@@ -162,7 +162,6 @@
 // Output => Monday ,Tuesday
 
 //~ Note -> If we not write the break befor the console the fall through condition executes.
-
 
 //* We can also give same output to multiple cases in it:-
 

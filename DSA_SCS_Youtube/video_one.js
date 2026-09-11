@@ -1,6 +1,6 @@
 //! Day 1 questions:-
 //^ Date - 07/09/2026
-//* Q1 ->  Sum of two integers (Number are integers in JS) ?
+//* Q1 ->  Sum of two integers (Whol number are integers in JS) ?
 
 // let a = 20;
 // let b = 10;
