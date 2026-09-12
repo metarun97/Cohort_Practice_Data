@@ -192,3 +192,48 @@
 //   }
 //   return true;
 // }
+
+
+//^ Break and continue:-
+
+//* break => Loop ko rokta hai jaha bola h vaha hi ruk jayega.
+//* continue => Loop ko continue karta hai  bs jaha bola h vo skip kr dega next pe chala jayega.
+
+
+// let i = 22;
+
+// for (let i = 0; i < 22; i++) {
+//   if (i === 20) break;
+//   console.log(i);
+// }
+
+
+//* Q6-> Sum of number in a number?
+// HINT -> 564  = 4 + 6 + 5 = [15 Ans]
+
+// let pr = prompt("Enter number");
+
+// if (pr === null) {
+//   console.log("User cancel the prompt");
+// } else {
+//   if (isNaN(pr)) {
+//     console.log("Invalid Input");
+//   } else {
+//     let num = Number(pr);
+//     if (num > 0) {
+//       let num = Number(pr);
+//       let sum = 0;
+//       while (num > 0) {
+//         let rem = num % 10;
+//         sum += rem;
+//         num = Math.floor(num / 10)
+//       }
+//       console.log(sum);
+//     } else {
+//       console.log("Number is +ve or more than 0")
+//     }
+//   }
+// }
+
+
+console.log(1234 % 10)
