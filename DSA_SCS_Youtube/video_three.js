@@ -208,7 +208,7 @@
 // }
 
 
-//* Q6-> Sum of number in a number?
+//* Q6-> Sum of digist in number?
 // HINT -> 564  = 4 + 6 + 5 = [15 Ans]
 
 // let pr = prompt("Enter number");
@@ -236,4 +236,103 @@
 // }
 
 
-console.log(1234 % 10)
+//* Q7-> Reverse a number?
+// HINT -> 123  = [321 Ans]
+
+// let pr = prompt("Enter number");
+
+// if (pr === null) {
+//   console.log("User cancel the prompt");
+// } else {
+//   if (isNaN(pr)) {
+//     console.log("Invalid Input");
+//   } else {
+//     let n = Number(pr);
+//     let rev = 0;
+//     if (n > 0) {
+//       while (n > 0) {
+//         let rem = n % 10;
+//         rev = rev * 10 + rem;
+//         n = Math.floor(n / 10);
+//       }
+//       console.log(rev);
+//     } else {
+//       console.log("Number is +ve or more than 0")
+//     }
+//   }
+// }
+
+//* Q7-> Find strong number?
+// HINT - 123
+// 1 ka factorial = 1
+// 2 ka factorial = 2 * 1 = 2
+// 1 ka factorial = 3 * 2 * 1 = 6
+// ab add teeno ke fatorial ka  = 1 + 2 + 6 = 9
+
+
+// let pr = prompt("Enter number");
+
+// if (pr === null) {
+//   console.log("User cancel the prompt");
+// } else {
+//   if (isNaN(pr)) {
+//     console.log("Invalid Input");
+//   } else {
+//     let n = Number(pr);
+//     if (n > 0) {
+//       let sum = 0;
+//       let nCopy = n;
+//       while (n > 0) {
+//         let rem = n % 10;
+//         let fact = 1;
+//         for (let i = 1; i <= rem; i++) {
+//           fact *= i;
+//         }
+//         n = Math.floor(n / 10);
+//         sum += fact;
+//       }
+//       if (sum === nCopy) {
+//         console.log("Strong Number");
+//       } else {
+//         console.log("Not a Strong Number");
+//       }
+//     } else {
+//       console.log("Number is +ve or more than 0")
+//     }
+//   }
+// }
+
+//* Q9-> Repeat hello when type exit prompt stop to exicute?
+
+// let pr;
+
+// do {
+//   pr = prompt("Write your prompt");
+//   if (pr !== "exit") {
+//     console.log("hello");
+//   };
+// } while (pr !== "exit");
+
+
+//* Q10-> Guess the number?
+
+// let random = Math.floor(Math.random() * 100) + 1;
+
+// let guess = -1;
+// while (guess !== random) {
+//   guess = Number(prompt("Guess the number"));
+//   if (isNaN(guess) || guess < 1 || guess > 100) {
+//     console.log("Guess the number between 1 - 100");
+//     continue;
+//   }
+//   if (guess > random) {
+//     console.log("Too high: Try again");
+//   } else if (guess < random) {
+//     console.log("Too low: Try again");
+//   } else {
+//     console.log("Congrats 🎉 number found: ", guess);
+//   }
+// }
+
+
+
