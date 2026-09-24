@@ -58,13 +58,11 @@ response.tools.forEach(async (tool) => {
       required: tool.inputSchema.required || [],
     }
   })
-  // console.log(tools)
 
-  // console.log("Res tools =>", tools);
-
+  /* AI response */
   const aiResponse = await ai.interactions.create({
     model: "gemini-3.6-flash",
-    input: "Add 2 and 3",
+    input: "Add 100 and 34",
     tools: tools,
   })
 
@@ -74,11 +72,11 @@ response.tools.forEach(async (tool) => {
 
   console.log("AI Response", functionCall.arguments, functionCall.name);
 
+  /* AI response */
   const toolRes = await client.callTool({
     name: functionCall.name,
     arguments: functionCall.arguments,
   })
-
   console.log("Tool Response", toolRes);
 })
 
