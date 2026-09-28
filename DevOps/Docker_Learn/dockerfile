@@ -1,0 +1,33 @@
+FROM node:18
+# linux + nodejs
+
+
+WORKDIR /app
+# Set work directory for my server named app
+
+# COPY package*.json ./
+# COPY package-lock.json ./
+# Copy both json files by 2 commands in app working directory.
+
+COPY package*.json ./
+# Copy both json files by a single command.
+
+
+RUN npm install
+# Install node modules by the use of both json files
+
+
+COPY  server.js ./
+# Copy server.js file to working directory named app directory
+
+
+EXPOSE 3000
+# Expose the port for the request allowing
+
+
+CMD [ "node","server.js" ]
+# Command for run the server
+
+
+
+
