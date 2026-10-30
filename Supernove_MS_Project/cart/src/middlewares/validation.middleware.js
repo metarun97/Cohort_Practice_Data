@@ -11,6 +11,17 @@ const validationResultData = (req, res, next) => {
   next();
 };
 
+const normalizeQuantity = (value, req) => {
+  const qty = req.body.quantity ?? req.body.qty ?? value;
+  const parsedQty = Number(qty);
+
+  if (qty == null || !Number.isInteger(parsedQty) || parsedQty < 1) {
+    throw new Error('Quantity must be a positive integer');
+  }
+
+  return true;
+};
+
 // validateAddToCartItem:-
 const validateAddItemToCart = [
   body('productId')
@@ -18,8 +29,8 @@ const validateAddItemToCart = [
     .withMessage('Product ID is required')
     .custom(value => mongoose.Types.ObjectId.isValid(value))
     .withMessage("Invalid product ID format"),
-  body('quantity')
-    .isInt({ gt: 1 })
+  body(['quantity', 'qty'])
+    .custom((value, { req }) => normalizeQuantity(value, req))
     .withMessage('Quantity must be a positive integer'),
   validationResultData
 ];
@@ -32,8 +43,8 @@ const validateUpdateCartItem = [
     .custom((value) => mongoose.Types.ObjectId.isValid(value))
     .withMessage('Invalid Product ID format'),
 
-  body('qty')
-    .isInt({ min: 1 })
+  body(['qty', 'quantity'])
+    .custom((value, { req }) => normalizeQuantity(value, req))
     .withMessage('Quantity must be at least 1'),
 
   validationResultData,

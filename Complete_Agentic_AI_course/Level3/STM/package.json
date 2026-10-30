@@ -1,0 +1,25 @@
+{
+  "name": "hitl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@langchain/core": "^1.2.20",
+    "@langchain/google": "^0.2.12",
+    "@langchain/langgraph": "^1.5.1",
+    "@langchain/langgraph-checkpoint-mongodb": "^1.5.0",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "langchain": "^1.5.18",
+    "mongodb": "^7.7.0",
+    "zod": "^4.6.7"
+  }
+}

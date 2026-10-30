@@ -16,9 +16,10 @@ class AuthService {
   /* Create account for user */
   async createAccount({ email, password, name }) {
     try {
-      const userAccount = await this.account.create(email, password, name);
+      const userAccount = await this.account.create(ID.unique(), email, password, name);
       if (userAccount) {
         // another method called
+        return this.login({ email, password })
       } else {
         return userAccount
       }
@@ -30,11 +31,31 @@ class AuthService {
   /* Login account for user */
   async login({ email, password }) {
     try {
-      await this.account.createEmailPasswordSession(email, password)
+      return await this.account.createEmailPasswordSession(email, password)
     } catch (error) {
       throw error;
     }
   }
+
+  /* Get current account for user */
+  async getCurrentUser() {
+    try {
+      return await this.account.get();
+    } catch (error) {
+      throw error;
+    }
+    return null;
+  }
+
+  /* logout current account for user */
+  async logout(){
+    try {
+      return this.account.deleteSession();
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
 
 

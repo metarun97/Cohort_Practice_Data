@@ -1,6 +1,16 @@
 // Required items:-
 const cartModel = require("../models/cart.model");
 
+const getNormalizedQty = (reqBody) => {
+  const qty = reqBody.qty ?? reqBody.quantity;
+  const parsedQty = Number(qty);
+
+  if (qty == null || !Number.isInteger(parsedQty) || parsedQty < 1) {
+    return null;
+  }
+
+  return parsedQty;
+};
 
 // getCart controller:-
 const getCart = async (req, res) => {
@@ -44,7 +54,12 @@ const getCart = async (req, res) => {
 // addItemToCart controller:-
 const addItemToCart = async (req, res) => {
   try {
-    const { productId, qty } = req.body;
+    const { productId } = req.body;
+    const qty = getNormalizedQty(req.body);
+
+    if (qty == null) {
+      return res.status(400).json({ message: 'Invalid quantity' });
+    }
 
     const user = req.user;
 
@@ -64,12 +79,10 @@ const addItemToCart = async (req, res) => {
 
     await cart.save();
 
-    res.status(201).json({
+    return res.status(201).json({
       message: "Item added to cart",
       cart,
-    })
-
-
+    });
 
   } catch (error) {
     return res.status(500).json({
@@ -82,9 +95,9 @@ const addItemToCart = async (req, res) => {
 const updateCartItem = async (req, res) => {
   try {
     const { productId } = req.params;
-    const qty = req.body.qty ?? req.body.quantity;
+    const qty = getNormalizedQty(req.body);
 
-    if (qty == null || typeof qty !== 'number' || qty < 1) {
+    if (qty == null) {
       return res.status(400).json({ message: 'Invalid quantity' });
     }
 

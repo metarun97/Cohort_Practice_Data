@@ -1,19 +1,16 @@
 // Required items:=
 const express = require("express");
+const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const connectToDB = require("./db/db");
-const dns = require("dns");
 const cartRoutes = require("./routes/cart.routes");
-
-
-// set server DNS mannually:-
-dns.setServers(['1.1.1.1', '8.8.8.8']);
-
-// mongoDb connect call:-
-connectToDB();
+const connectToDB = require("./db/db");
 
 // Servier created:-
 const app = express();
+
+if (mongoose.connection.readyState !== 1 && process.env.MONGO_URI) {
+  connectToDB();
+}
 
 // Middleware to read req.body data:-
 app.use(express.json());
