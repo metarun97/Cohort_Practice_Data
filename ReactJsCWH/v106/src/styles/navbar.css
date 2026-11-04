@@ -1,0 +1,13 @@
+.nav{
+ display: flex;
+ justify-content: space-between;
+ padding: 10px 20px;
+ background-color: beige;
+}
+
+.nav ul{
+ display: flex;
+ align-items: center;
+ list-style: none;
+ gap: 10px;
+}
