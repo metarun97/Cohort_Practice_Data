@@ -20,9 +20,15 @@ router.post("/register", authController.registerUser);
  @description login a user/artist
  @access public
  */
-router.post("/login",authController.loginUser);
+router.post("/login", authController.loginUser);
 
 
+/**
+ @route /api/auth/logout
+ @description login a user/artist
+ @access public
+ */
+router.post("/logout", authController.logoutUser);
 
 
 module.exports = router;

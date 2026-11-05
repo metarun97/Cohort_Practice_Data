@@ -25,4 +25,28 @@ router.post("/upload", upload.single("music"), authMiddleware.authArtist, musicC
  */
 router.post('/album', authMiddleware.authArtist, musicController.createAlbum);
 
+
+/**
+ @route /api/music/
+ @description get all musics
+ @access private
+ */
+router.get("/", authMiddleware.authUser, musicController.getAllMusics);
+
+
+/**
+ @route /api/music/albums
+ @description get all albums
+ @access private
+ */
+router.get("/albums", authMiddleware.authUser, musicController.getAllAlbums);
+
+
+/**
+ @route /api/music/albums/:albumId
+ @description get a perticular album
+ @access private
+ */
+router.get("/albums/:albumId",authMiddleware.authUser,musicController.getAlbumById);
+
 module.exports = router;

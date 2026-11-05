@@ -126,6 +126,28 @@ const loginUser = async (req, res) => {
  }
 }
 
+/**
+ @name logoutUser
+ @description logout a user
+ @access public
+ */
+const logoutUser = async (req, res) => {
+ try {
+
+  res.crearCookie("token");
+
+  res.status(200).json({
+   message:"User logout Successfully!",
+  })
+
+ } catch (error) {
+  console.error(error);
+
+  res.status(500).json({
+   message: "Internal server error in user logout!",
+  })
+ }
+}
 
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, logoutUser };
