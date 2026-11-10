@@ -59,8 +59,12 @@ export const register = async (req, res) => {
 }
 
 
-
-export const getMe = (req, res) => {
+/**
+ * @name getMe
+ * @description get current logged in user
+ * @access private
+ */
+export const getMe = async (req, res) => {
 
  try {
   const token = req.headers.authorization?.split(" ")[1];
@@ -74,7 +78,18 @@ export const getMe = (req, res) => {
 
   const decoded = jwt.verify(token, config.JWT_SECRET);
 
-  console.log(decoded);
+  // console.log(decoded);
+
+  const user = await userModel.findById(decoded.id);
+
+  res.status(200).json({
+   message: "User fetched successfully!",
+   user: {
+    id: user._id,
+    username: user.username,
+    email: user.email,
+   }
+  })
 
  } catch (error) {
   console.error(error);
