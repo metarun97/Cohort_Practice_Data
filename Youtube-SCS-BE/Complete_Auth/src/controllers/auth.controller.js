@@ -73,12 +73,12 @@ export const getMe = async (req, res) => {
    return res.status(404).json({
     message: "Token not found!",
    })
-  }
+  };
+
+
 
 
   const decoded = jwt.verify(token, config.JWT_SECRET);
-
-  // console.log(decoded);
 
   const user = await userModel.findById(decoded.id);
 
@@ -89,7 +89,7 @@ export const getMe = async (req, res) => {
     username: user.username,
     email: user.email,
    }
-  })
+  });
 
  } catch (error) {
   console.error(error);
