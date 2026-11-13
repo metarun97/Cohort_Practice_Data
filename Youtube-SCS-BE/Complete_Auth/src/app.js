@@ -4,10 +4,12 @@ import authRouter from './routes/auth.routes.js';
 
 const app = express();
 
+
 app.use(morgan("dev"));
 
 app.use(express.json());
 
-
+/* Router prefix for auth */
 app.use("/api/auth",authRouter);
+
 export default app;

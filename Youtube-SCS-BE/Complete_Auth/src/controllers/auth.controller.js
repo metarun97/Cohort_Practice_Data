@@ -75,9 +75,6 @@ export const getMe = async (req, res) => {
    })
   };
 
-
-
-
   const decoded = jwt.verify(token, config.JWT_SECRET);
 
   const user = await userModel.findById(decoded.id);
