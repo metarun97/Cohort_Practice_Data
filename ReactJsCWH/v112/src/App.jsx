@@ -1,27 +1,28 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useState } from 'react';
 import './App.css'
 
-function App() {
+
+const App = () => {
+
+  const [form, setForm] = useState({ name: "", email: "" });
 
   const handleClick = () => {
-    console.log("Button clicked!")
+    console.log("Button clicked!");
+  }
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    console.log(form)
   }
-  const handleMouseOver = () => {
-    console.log("Mouse overed!")
-  }
+
 
   return (
     <>
       <button onClick={handleClick}>Click me</button>
-      <div onMouseOver={handleMouseOver} className='red'>
-        I am a red div
-      </div>
+      <input onChange={handleChange} type="text" name="name" value={form.name} />
+      <input onChange={handleChange} type="email" name="email" value={form.email} />
     </>
   )
 }
 
-export default App
+export default App;
