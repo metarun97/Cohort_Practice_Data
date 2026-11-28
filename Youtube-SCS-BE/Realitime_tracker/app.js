@@ -9,6 +9,15 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 io.on("connection", function (socket) {
+
+ socket.on("send-location", function (data) {
+  io.emit("recieve-location", { id: socket.id, ...data })
+ })
+
+ socket.on("disconnect", function () {
+  io.emit("user-disconnected", socket.id)
+ })
+
  console.log("connected!");
 })
 
